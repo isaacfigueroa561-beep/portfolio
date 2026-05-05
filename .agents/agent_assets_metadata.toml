@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "1pWBSljTgjjc2CnZ99Gzc"
+uri = "file://artifacts/portfolio/public/project-1.png"
+type = "image"
+title = "Branding system mockup"
+
+[[generated]]
+id = "ApXQ0ZAeTbtnsw0CgOFS6"
+uri = "file://artifacts/portfolio/public/project-2.png"
+type = "image"
+title = "App UI mockup"
+
+[[generated]]
+id = "QqTADnQnLdT0u-htu7wtP"
+uri = "file://artifacts/portfolio/public/project-3.png"
+type = "image"
+title = "Editorial layout spread"
+
+[[generated]]
+id = "tCuqVuqiiTgOF1-zGhBzr"
+uri = "file://artifacts/portfolio/public/project-4.png"
+type = "image"
+title = "Minimal packaging design"
+
+[[generated]]
+id = "OxWX50qc-dVB4so3xjSQE"
+uri = "file://artifacts/portfolio/public/headshot.png"
+type = "image"
+title = "Moody professional headshot"
