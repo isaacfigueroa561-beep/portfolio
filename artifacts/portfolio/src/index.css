@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800&family=Inter:wght@300;400;500&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -54,54 +54,52 @@
 :root {
   --background: 0 0% 4%;
   --foreground: 0 0% 98%;
-  --border: 0 0% 14%;
-  --card: 0 0% 6%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 0 0% 14%;
-  --popover: 0 0% 6%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 0 0% 14%;
   --primary: 20 100% 50%;
   --primary-foreground: 0 0% 0%;
-  --secondary: 0 0% 15%;
-  --secondary-foreground: 0 0% 98%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 98%;
   --muted: 0 0% 10%;
   --muted-foreground: 0 0% 55%;
+  --border: 0 0% 16%;
   --accent: 20 100% 50%;
   --accent-foreground: 0 0% 0%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --input: 0 0% 14%;
+  --input: 0 0% 16%;
   --ring: 20 100% 50%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+  --popover-border: 0 0% 16%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
 
-  --app-font-sans: 'DM Sans', sans-serif;
-  --app-font-serif: 'Bebas Neue', sans-serif;
-  --app-font-mono: 'DM Sans', sans-serif;
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-serif: 'Barlow Condensed', sans-serif;
+  --app-font-mono: 'Inter', monospace;
   --radius: 0rem;
 }
 
 .dark {
   --background: 0 0% 4%;
   --foreground: 0 0% 98%;
-  --border: 0 0% 14%;
-  --card: 0 0% 6%;
-  --card-foreground: 0 0% 98%;
-  --card-border: 0 0% 14%;
-  --popover: 0 0% 6%;
-  --popover-foreground: 0 0% 98%;
-  --popover-border: 0 0% 14%;
   --primary: 20 100% 50%;
   --primary-foreground: 0 0% 0%;
-  --secondary: 0 0% 15%;
-  --secondary-foreground: 0 0% 98%;
+  --card: 0 0% 8%;
+  --card-foreground: 0 0% 98%;
   --muted: 0 0% 10%;
   --muted-foreground: 0 0% 55%;
+  --border: 0 0% 16%;
   --accent: 20 100% 50%;
   --accent-foreground: 0 0% 0%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --input: 0 0% 14%;
+  --input: 0 0% 16%;
   --ring: 20 100% 50%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+  --popover-border: 0 0% 16%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
 }
 
 @layer base {
