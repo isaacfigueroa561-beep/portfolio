@@ -23,7 +23,7 @@ type Project = {
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const [imgIndex, setImgIndex] = useState(0);
   const images = project.images ?? [];
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -33,46 +33,30 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") goTo(Math.min(imgIndex + 1, images.length - 1));
-      if (e.key === "ArrowLeft") goTo(Math.max(imgIndex - 1, 0));
+      if (e.key === "ArrowRight") goTo(Math.min(imgIndex + 1, images.length - 1), 1);
+      if (e.key === "ArrowLeft") goTo(Math.max(imgIndex - 1, 0), -1);
     };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, [onClose, imgIndex, images.length]);
 
-  const goTo = (idx: number) => {
+  const goTo = (idx: number, dir = idx > imgIndex ? 1 : -1) => {
+    setDirection(dir);
     setImgIndex(idx);
-    const el = scrollRef.current?.children[idx] as HTMLElement;
-    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 0.25 } },
-    exit: { opacity: 0, transition: { duration: 0.2 } },
-  };
-
-  const panelVariants = {
-    hidden: { y: "100%" },
-    show: { y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
-    exit: { y: "100%", transition: { duration: 0.35, ease: [0.4, 0, 1, 1] } },
-  };
-
-  const imgVariants = {
-    hidden: { opacity: 0, scale: 0.96 },
-    show: (i: number) => ({
-      opacity: 1, scale: 1,
-      transition: { duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] },
-    }),
+  const slideVariants = {
+    enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
+    center: { x: 0, opacity: 1, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
+    exit: (d: number) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0, transition: { duration: 0.3, ease: [0.4, 0, 1, 1] } }),
   };
 
   return (
     <motion.div
       className="fixed inset-0 z-[9999] flex items-end"
-      variants={containerVariants}
-      initial="hidden"
-      animate="show"
-      exit="exit"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.25 } }}
+      exit={{ opacity: 0, transition: { duration: 0.2 } }}
       onClick={onClose}
       data-testid="project-modal"
     >
@@ -83,24 +67,26 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
       <motion.div
         className="relative w-full bg-[#0D0D0D] flex flex-col"
         style={{ height: "92vh" }}
-        variants={panelVariants}
+        initial={{ y: "100%" }}
+        animate={{ y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } }}
+        exit={{ y: "100%", transition: { duration: 0.35, ease: [0.4, 0, 1, 1] } }}
         onClick={e => e.stopPropagation()}
       >
         {/* Drag handle */}
-        <div className="flex justify-center pt-4 pb-2 cursor-pointer" onClick={onClose}>
+        <div className="flex justify-center pt-4 pb-2 cursor-pointer flex-shrink-0" onClick={onClose}>
           <div className="w-10 h-[3px] bg-[#2a2a2a] rounded-full" />
         </div>
 
         {/* Header */}
-        <div className="flex items-start justify-between px-8 md:px-16 pt-4 pb-6 border-b border-[#1a1a1a] flex-shrink-0">
-          <div className="flex flex-col gap-2">
+        <div className="flex items-start justify-between px-8 md:px-16 pt-3 pb-5 border-b border-[#1a1a1a] flex-shrink-0">
+          <div className="flex flex-col gap-1">
             <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00]">
               {project.category}
             </div>
-            <h2 className="font-serif font-bold text-3xl md:text-5xl text-[#F5F0E8] uppercase leading-none">
+            <h2 className="font-serif font-bold text-2xl md:text-4xl text-[#F5F0E8] uppercase leading-none">
               {project.name}
             </h2>
-            <p className="font-sans font-light text-xs text-muted-foreground max-w-sm mt-1 leading-relaxed">
+            <p className="font-sans font-light text-xs text-muted-foreground max-w-sm mt-1 leading-relaxed hidden md:block">
               {project.desc}
             </p>
           </div>
@@ -114,89 +100,86 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </button>
         </div>
 
-        {/* Gallery — horizontal scroll with snap */}
-        {images.length > 0 ? (
-          <div
-            ref={scrollRef}
-            className="flex-1 flex gap-4 md:gap-6 overflow-x-auto overflow-y-hidden px-8 md:px-16 py-8 snap-x snap-mandatory scroll-smooth"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            onScroll={e => {
-              const el = e.currentTarget;
-              const idx = Math.round(el.scrollLeft / el.offsetWidth);
-              setImgIndex(idx);
-            }}
-          >
-            {images.map((src, i) => (
+        {/* Single-image viewer — no gaps, full area */}
+        <div className="flex-1 relative overflow-hidden bg-[#0D0D0D]">
+          {images.length > 0 ? (
+            <AnimatePresence custom={direction} mode="popLayout">
               <motion.div
-                key={i}
-                custom={i}
-                variants={imgVariants}
-                initial="hidden"
-                animate="show"
-                className="snap-center flex-shrink-0 flex items-center justify-center cursor-pointer"
-                style={{ width: images.length === 1 ? "100%" : "85vw", maxWidth: 960 }}
-                onClick={() => goTo(i)}
+                key={imgIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="absolute inset-0 flex items-center justify-center p-6 md:p-10"
               >
                 <img
-                  src={src}
-                  alt={`${project.name} ${i + 1}`}
-                  className="w-full h-full object-contain max-h-[calc(92vh-200px)] select-none"
+                  src={images[imgIndex]}
+                  alt={`${project.name} ${imgIndex + 1}`}
+                  className="max-w-full max-h-full object-contain select-none"
                   draggable={false}
                 />
               </motion.div>
-            ))}
-          </div>
-        ) : (
-          <div className="flex-1 flex items-center justify-center px-8">
-            <p className="font-sans font-light text-sm text-muted-foreground text-center max-w-md leading-relaxed">
-              {project.desc}
-            </p>
-          </div>
-        )}
+            </AnimatePresence>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center px-8">
+              <p className="font-sans font-light text-sm text-muted-foreground text-center max-w-md leading-relaxed">
+                {project.desc}
+              </p>
+            </div>
+          )}
 
-        {/* Footer — dots + arrows */}
+          {/* Side click zones for navigation */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={() => goTo(Math.max(imgIndex - 1, 0), -1)}
+                disabled={imgIndex === 0}
+                className="absolute left-0 top-0 h-full w-1/3 z-10 cursor-w-resize disabled:cursor-default"
+                aria-label="Previous"
+              />
+              <button
+                onClick={() => goTo(Math.min(imgIndex + 1, images.length - 1), 1)}
+                disabled={imgIndex === images.length - 1}
+                className="absolute right-0 top-0 h-full w-1/3 z-10 cursor-e-resize disabled:cursor-default"
+                aria-label="Next"
+              />
+            </>
+          )}
+        </div>
+
+        {/* Footer — dots + counter + arrows */}
         {images.length > 1 && (
-          <div className="flex-shrink-0 flex items-center justify-between px-8 md:px-16 py-5 border-t border-[#1a1a1a]">
-            {/* Dots */}
+          <div className="flex-shrink-0 flex items-center justify-between px-8 md:px-16 py-4 border-t border-[#1a1a1a]">
             <div className="flex gap-2 items-center">
               {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  className="transition-all duration-300"
-                >
+                <button key={i} onClick={() => goTo(i)} className="p-1">
                   <div
                     className="rounded-full transition-all duration-300"
                     style={{
-                      width: i === imgIndex ? 24 : 6,
-                      height: 6,
+                      width: i === imgIndex ? 20 : 5,
+                      height: 5,
                       backgroundColor: i === imgIndex ? "#FF4D00" : "#2a2a2a",
                     }}
                   />
                 </button>
               ))}
             </div>
-
-            {/* Counter + Arrows */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5">
               <span className="font-sans font-light text-xs text-muted-foreground tabular-nums">
                 {String(imgIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
               </span>
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 <button
-                  onClick={() => goTo(Math.max(imgIndex - 1, 0))}
+                  onClick={() => goTo(Math.max(imgIndex - 1, 0), -1)}
                   disabled={imgIndex === 0}
-                  className="w-9 h-9 border border-[#2a2a2a] flex items-center justify-center text-muted-foreground hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors disabled:opacity-20 font-sans text-sm"
-                >
-                  ←
-                </button>
+                  className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center text-muted-foreground hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors disabled:opacity-20 text-sm"
+                >←</button>
                 <button
-                  onClick={() => goTo(Math.min(imgIndex + 1, images.length - 1))}
+                  onClick={() => goTo(Math.min(imgIndex + 1, images.length - 1), 1)}
                   disabled={imgIndex === images.length - 1}
-                  className="w-9 h-9 border border-[#2a2a2a] flex items-center justify-center text-muted-foreground hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors disabled:opacity-20 font-sans text-sm"
-                >
-                  →
-                </button>
+                  className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center text-muted-foreground hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors disabled:opacity-20 text-sm"
+                >→</button>
               </div>
             </div>
           </div>
@@ -324,6 +307,7 @@ function Home() {
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.5)",
       desc: "Vintage-style graphic tee with flaming heart illustration",
+      images: ["/clh-1.png"],
     },
     {
       name: "Wallet App UI",
