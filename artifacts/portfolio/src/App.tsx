@@ -382,7 +382,7 @@ function Home() {
                 5+ YRS
               </div>
               <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-none">
-                10+ CLIENTS
+                500+ PROJECTS
               </div>
             </motion.div>
           </motion.div>
