@@ -511,11 +511,18 @@ function Home() {
           className="grid grid-cols-1 md:grid-cols-12 rounded-none"
         >
           {/* LEFT — photo flush, transparent cutout on black */}
-          <div className="md:col-span-5" style={{ background: "#0D0D0D" }}>
+          <div className="md:col-span-5 overflow-hidden" style={{ background: "#0D0D0D", minHeight: "480px" }}>
             <img
               src="/profile-photo.png"
               alt="Isaac Figueroa"
-              style={{ width: "100%", display: "block", filter: "grayscale(100%)" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "block",
+                objectFit: "cover",
+                objectPosition: "center 30%",
+                filter: "grayscale(100%)",
+              }}
               loading="lazy"
             />
           </div>
