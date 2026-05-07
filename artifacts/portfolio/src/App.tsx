@@ -517,22 +517,15 @@ function Home() {
             <div className="font-serif font-medium text-xs text-muted-foreground tracking-widest uppercase">
               02
             </div>
-            {/* Profile photo placeholder - replace /profile-photo.jpg with actual photo */}
-            <div className="w-full relative overflow-hidden bg-[#111]" style={{ aspectRatio: "3/4" }}>
+            {/* Profile photo */}
+            <div className="w-full relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
               <img
                 src="/profile-photo.png"
                 alt="Isaac Figueroa"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain object-bottom"
                 style={{ filter: "grayscale(100%)" }}
                 loading="lazy"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 pointer-events-none">
-                <div className="w-10 h-10 border border-[#2a2a2a] flex items-center justify-center">
-                  <span className="text-[#2a2a2a] text-2xl leading-none">+</span>
-                </div>
-                <span className="font-sans text-[10px] text-[#2a2a2a] uppercase tracking-[0.2em]">Photo</span>
-              </div>
             </div>
             {/* Video placeholder - replace /intro-video.mp4 with actual video */}
             <video
