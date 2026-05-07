@@ -504,41 +504,29 @@ function Home() {
         </div>
       </section>
       {/* 3. ABOUT */}
-      <section id="about" className="w-full py-32 md:py-48 px-8 md:px-16 rounded-none">
+      <section id="about" className="w-full rounded-none">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 rounded-none"
+          className="grid grid-cols-1 md:grid-cols-12 rounded-none"
         >
-          {/* LEFT */}
-          <div className="md:col-span-5 flex flex-col rounded-none gap-6">
-            <div className="font-serif font-medium text-xs text-muted-foreground tracking-widest uppercase">
-              02
-            </div>
-            {/* Profile photo */}
-            <div className="w-full relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              <img
-                src="/profile-photo.png"
-                alt="Isaac Figueroa"
-                className="w-full h-full object-contain object-bottom"
-                style={{ filter: "grayscale(100%)" }}
-                loading="lazy"
-              />
-            </div>
-            {/* Video placeholder - replace /intro-video.mp4 with actual video */}
-            <video
-              src="/intro-video.mp4"
-              className="w-full hidden"
-              controls
-              playsInline
-              preload="none"
+          {/* LEFT — photo flush, transparent cutout on black */}
+          <div className="md:col-span-5" style={{ background: "#0D0D0D" }}>
+            <img
+              src="/profile-photo.png"
+              alt="Isaac Figueroa"
+              style={{ width: "100%", display: "block", filter: "grayscale(100%)" }}
+              loading="lazy"
             />
           </div>
 
           {/* RIGHT */}
-          <div className="md:col-span-7 flex flex-col rounded-none">
+          <div className="md:col-span-7 flex flex-col justify-center rounded-none px-8 md:px-16 py-16 md:py-24">
+            <div className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mb-2">
+              02
+            </div>
             <div className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mb-6">
               ABOUT ISAAC
             </div>
