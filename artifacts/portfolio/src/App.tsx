@@ -368,7 +368,10 @@ function Home() {
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.5)",
       desc: "Vintage-style graphic tee with flaming heart illustration",
-      images: ["/clh-1.png"],
+      images: [
+        "/clh-1.png", "/clh-2.png", "/clh-3.png", "/clh-4.png", "/clh-5.png",
+        "/clh-6.png", "/clh-7.png", "/clh-8.png", "/clh-9.png"
+      ],
     },
     {
       name: "Wallet App UI",
