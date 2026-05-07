@@ -20,10 +20,57 @@ type Project = {
   images?: string[];
 };
 
+function CustomCursor() {
+  const [pos, setPos] = useState({ x: -200, y: -200 });
+  const [hovered, setHovered] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      setPos({ x: e.clientX, y: e.clientY });
+      if (!visible) setVisible(true);
+    };
+    const onOver = (e: MouseEvent) => {
+      const el = e.target as HTMLElement;
+      setHovered(
+        !!(el.closest("button") || el.closest("a") || el.closest("[data-cursor-hover]") || el.closest(".group"))
+      );
+    };
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseover", onOver);
+    return () => {
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseover", onOver);
+    };
+  }, [visible]);
+
+  return (
+    <motion.div
+      className="fixed pointer-events-none z-[99999] select-none"
+      style={{ left: pos.x, top: pos.y, translateX: "-50%", translateY: "-50%" }}
+      animate={{ opacity: visible ? 1 : 0, scale: hovered ? 1.6 : 1 }}
+      transition={{ scale: { duration: 0.18, ease: "easeOut" }, opacity: { duration: 0.3 } }}
+    >
+      <motion.span
+        animate={{ rotate: 360 }}
+        transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
+        style={{
+          display: "block",
+          fontSize: 26,
+          color: "#FF4D00",
+          fontWeight: 900,
+          lineHeight: 1,
+          fontFamily: "sans-serif",
+        }}
+      >
+        ✳
+      </motion.span>
+    </motion.div>
+  );
+}
+
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
-  const [imgIndex, setImgIndex] = useState(0);
   const images = project.images ?? [];
-  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -31,24 +78,22 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   }, []);
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") goTo(Math.min(imgIndex + 1, images.length - 1), 1);
-      if (e.key === "ArrowLeft") goTo(Math.max(imgIndex - 1, 0), -1);
-    };
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
-  }, [onClose, imgIndex, images.length]);
+  }, [onClose]);
 
-  const goTo = (idx: number, dir = idx > imgIndex ? 1 : -1) => {
-    setDirection(dir);
-    setImgIndex(idx);
+  const gridContainer = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.06, delayChildren: 0.15 },
+    },
   };
 
-  const slideVariants = {
-    enter: (d: number) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
-    center: { x: 0, opacity: 1, transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } },
-    exit: (d: number) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0, transition: { duration: 0.3, ease: [0.4, 0, 1, 1] } }),
+  const gridItem = {
+    hidden: { opacity: 0, scale: 0.88, y: 24 },
+    show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
   };
 
   return (
@@ -60,10 +105,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
       onClick={onClose}
       data-testid="project-modal"
     >
-      {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
 
-      {/* Panel */}
       <motion.div
         className="relative w-full bg-[#0D0D0D] flex flex-col"
         style={{ height: "92vh" }}
@@ -73,8 +116,8 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         onClick={e => e.stopPropagation()}
       >
         {/* Drag handle */}
-        <div className="flex justify-center pt-4 pb-2 cursor-pointer flex-shrink-0" onClick={onClose}>
-          <div className="w-10 h-[3px] bg-[#2a2a2a] rounded-full" />
+        <div className="flex justify-center pt-4 pb-2 flex-shrink-0" onClick={onClose} style={{ cursor: "none" }}>
+          <div className="w-10 h-[3px] bg-[#2a2a2a]" />
         </div>
 
         {/* Header */}
@@ -100,88 +143,47 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </button>
         </div>
 
-        {/* Single-image viewer — no gaps, full area */}
-        <div className="flex-1 relative overflow-hidden bg-[#0D0D0D]">
+        {/* All images — pop in together, staggered */}
+        <div className="flex-1 overflow-y-auto">
           {images.length > 0 ? (
-            <AnimatePresence custom={direction} mode="popLayout">
-              <motion.div
-                key={imgIndex}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                className="absolute inset-0 flex items-center justify-center p-6 md:p-10"
-              >
-                <img
-                  src={images[imgIndex]}
-                  alt={`${project.name} ${imgIndex + 1}`}
-                  className="max-w-full max-h-full object-contain select-none"
-                  draggable={false}
-                />
-              </motion.div>
-            </AnimatePresence>
+            <motion.div
+              variants={gridContainer}
+              initial="hidden"
+              animate="show"
+              className="columns-2 md:columns-3 gap-3 p-6 md:p-10 md:gap-4"
+              style={{ columnGap: "12px" }}
+            >
+              {images.map((src, i) => (
+                <motion.div
+                  key={i}
+                  variants={gridItem}
+                  className="break-inside-avoid mb-3"
+                  style={{ marginBottom: "12px" }}
+                >
+                  <img
+                    src={src}
+                    alt={`${project.name} ${i + 1}`}
+                    className="w-full h-auto block"
+                    draggable={false}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center px-8">
+            <div className="h-full flex items-center justify-center px-8">
               <p className="font-sans font-light text-sm text-muted-foreground text-center max-w-md leading-relaxed">
                 {project.desc}
               </p>
             </div>
           )}
-
-          {/* Side click zones for navigation */}
-          {images.length > 1 && (
-            <>
-              <button
-                onClick={() => goTo(Math.max(imgIndex - 1, 0), -1)}
-                disabled={imgIndex === 0}
-                className="absolute left-0 top-0 h-full w-1/3 z-10 cursor-w-resize disabled:cursor-default"
-                aria-label="Previous"
-              />
-              <button
-                onClick={() => goTo(Math.min(imgIndex + 1, images.length - 1), 1)}
-                disabled={imgIndex === images.length - 1}
-                className="absolute right-0 top-0 h-full w-1/3 z-10 cursor-e-resize disabled:cursor-default"
-                aria-label="Next"
-              />
-            </>
-          )}
         </div>
 
-        {/* Footer — dots + counter + arrows */}
-        {images.length > 1 && (
-          <div className="flex-shrink-0 flex items-center justify-between px-8 md:px-16 py-4 border-t border-[#1a1a1a]">
-            <div className="flex gap-2 items-center">
-              {images.map((_, i) => (
-                <button key={i} onClick={() => goTo(i)} className="p-1">
-                  <div
-                    className="rounded-full transition-all duration-300"
-                    style={{
-                      width: i === imgIndex ? 20 : 5,
-                      height: 5,
-                      backgroundColor: i === imgIndex ? "#FF4D00" : "#2a2a2a",
-                    }}
-                  />
-                </button>
-              ))}
-            </div>
-            <div className="flex items-center gap-5">
-              <span className="font-sans font-light text-xs text-muted-foreground tabular-nums">
-                {String(imgIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
-              </span>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => goTo(Math.max(imgIndex - 1, 0), -1)}
-                  disabled={imgIndex === 0}
-                  className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center text-muted-foreground hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors disabled:opacity-20 text-sm"
-                >←</button>
-                <button
-                  onClick={() => goTo(Math.min(imgIndex + 1, images.length - 1), 1)}
-                  disabled={imgIndex === images.length - 1}
-                  className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center text-muted-foreground hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors disabled:opacity-20 text-sm"
-                >→</button>
-              </div>
-            </div>
+        {/* Footer count */}
+        {images.length > 0 && (
+          <div className="flex-shrink-0 px-8 md:px-16 py-4 border-t border-[#1a1a1a]">
+            <span className="font-sans font-light text-xs text-muted-foreground tabular-nums">
+              {String(images.length).padStart(2, "0")} IMAGES
+            </span>
           </div>
         )}
       </motion.div>
@@ -357,7 +359,8 @@ function Home() {
   ];
 
   return (
-    <div className="min-h-[100dvh] w-full bg-background text-foreground overflow-x-hidden selection:bg-[#FF4D00] selection:text-black font-sans rounded-none">
+    <div className="min-h-[100dvh] w-full bg-background text-foreground overflow-x-hidden selection:bg-[#FF4D00] selection:text-black font-sans rounded-none" style={{ cursor: "none" }}>
+      <CustomCursor />
       {/* 1. STICKY NAV */}
       <nav 
         className={`fixed top-0 left-0 w-full px-8 md:px-16 py-4 md:py-6 flex justify-between items-center z-50 transition-all duration-300 rounded-none ${scrolled ? 'backdrop-blur-sm border-b border-[#1a1a1a] bg-background/80' : 'bg-transparent border-b border-transparent'}`}
