@@ -500,7 +500,7 @@ function Home() {
             {/* Profile photo placeholder - replace /profile-photo.jpg with actual photo */}
             <div className="w-full relative overflow-hidden bg-[#111]" style={{ aspectRatio: "3/4" }}>
               <img
-                src="/profile-photo.jpg"
+                src="/profile-photo.png"
                 alt="Isaac Figueroa"
                 className="w-full h-full object-cover"
                 style={{ filter: "grayscale(100%)" }}
