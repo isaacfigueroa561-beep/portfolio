@@ -18,6 +18,7 @@ type Project = {
   clientColor: string;
   desc: string;
   images?: string[];
+  phoneFrame?: boolean;
 };
 
 function CustomCursor() {
@@ -146,29 +147,78 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         {/* All images — pop in together, staggered */}
         <div className="flex-1 overflow-y-auto">
           {images.length > 0 ? (
-            <motion.div
-              variants={gridContainer}
-              initial="hidden"
-              animate="show"
-              className="columns-2 md:columns-3 gap-3 p-6 md:p-10 md:gap-4"
-              style={{ columnGap: "12px" }}
-            >
-              {images.map((src, i) => (
-                <motion.div
-                  key={i}
-                  variants={gridItem}
-                  className="break-inside-avoid mb-3"
-                  style={{ marginBottom: "12px" }}
-                >
-                  <img
-                    src={src}
-                    alt={`${project.name} ${i + 1}`}
-                    className="w-full h-auto block"
-                    draggable={false}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
+            project.phoneFrame ? (
+              /* Phone frame mockup layout for UI/app projects */
+              <motion.div
+                variants={gridContainer}
+                initial="hidden"
+                animate="show"
+                className="flex flex-wrap justify-center items-start gap-8 p-8 md:p-12"
+              >
+                {images.map((src, i) => (
+                  <motion.div
+                    key={i}
+                    variants={gridItem}
+                    className="phone-frame flex-shrink-0"
+                    style={{
+                      width: 220,
+                      background: "#0a0a0a",
+                      border: "2px solid #2a2a2a",
+                      padding: "28px 10px 14px",
+                      position: "relative",
+                      boxShadow: "0 28px 56px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.07)",
+                    }}
+                  >
+                    {/* Dynamic island / notch */}
+                    <div
+                      className="phone-frame-notch"
+                      style={{
+                        position: "absolute",
+                        top: 10,
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        width: 70,
+                        height: 6,
+                        background: "#1a1a1a",
+                      }}
+                    />
+                    <img
+                      src={src}
+                      alt={`${project.name} ${i + 1}`}
+                      className="w-full h-auto block phone-frame-screen"
+                      draggable={false}
+                      loading="lazy"
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              /* Standard masonry grid */
+              <motion.div
+                variants={gridContainer}
+                initial="hidden"
+                animate="show"
+                className="columns-2 md:columns-3 p-6 md:p-10"
+                style={{ columnGap: "12px" }}
+              >
+                {images.map((src, i) => (
+                  <motion.div
+                    key={i}
+                    variants={gridItem}
+                    className="break-inside-avoid"
+                    style={{ marginBottom: "12px" }}
+                  >
+                    <img
+                      src={src}
+                      alt={`${project.name} ${i + 1}`}
+                      className="w-full h-auto block"
+                      draggable={false}
+                      loading="lazy"
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )
           ) : (
             <div className="h-full flex items-center justify-center px-8">
               <p className="font-sans font-light text-sm text-muted-foreground text-center max-w-md leading-relaxed">
@@ -279,7 +329,7 @@ function Home() {
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.6)",
       desc: "Full brand suite — social graphics, hoodie, tote bag, signage",
-      images: ["/billy-p1.jpg", "/billy-p2.jpg", "/billy-p3.jpg", "/billy-p4.jpg", "/billy-p5.jpg", "/billy-a.jpg", "/billy-b.jpg", "/billy-c.jpg", "/billy-1.png", "/billy-2.png", "/billy-3.png", "/billy-4.png", "/billy-5.png", "/billy-6.png"],
+      images: ["/billy-new-1.jpg", "/billy-new-2.jpg", "/billy-new-3.jpg", "/billy-new-4.jpg"],
     },
     {
       name: "Change The World",
@@ -328,6 +378,7 @@ function Home() {
       clientColor: "rgba(255,255,255,0.4)",
       desc: "Concept fintech app — crypto portfolio, NFT vault, send/receive flows. Designed in Figma.",
       images: ["/wallet-1.svg", "/wallet-2.svg", "/wallet-3.svg"],
+      phoneFrame: true,
     },
     {
       name: "Spark Pro Services",
@@ -442,13 +493,35 @@ function Home() {
           className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 rounded-none"
         >
           {/* LEFT */}
-          <div className="md:col-span-5 flex flex-col rounded-none">
-            <div className="font-serif font-medium text-xs text-muted-foreground tracking-widest uppercase mb-16">
+          <div className="md:col-span-5 flex flex-col rounded-none gap-6">
+            <div className="font-serif font-medium text-xs text-muted-foreground tracking-widest uppercase">
               02
             </div>
-            <div className="font-serif font-extrabold text-[clamp(4rem,10vw,7.5rem)] leading-[0.88] text-[#F5F0E8] uppercase tracking-tight">
-              ABOUT<br />ME
+            {/* Profile photo placeholder - replace /profile-photo.jpg with actual photo */}
+            <div className="w-full relative overflow-hidden bg-[#111]" style={{ aspectRatio: "3/4" }}>
+              <img
+                src="/profile-photo.jpg"
+                alt="Isaac Figueroa"
+                className="w-full h-full object-cover"
+                style={{ filter: "grayscale(100%)" }}
+                loading="lazy"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+              />
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 pointer-events-none">
+                <div className="w-10 h-10 border border-[#2a2a2a] flex items-center justify-center">
+                  <span className="text-[#2a2a2a] text-2xl leading-none">+</span>
+                </div>
+                <span className="font-sans text-[10px] text-[#2a2a2a] uppercase tracking-[0.2em]">Photo</span>
+              </div>
             </div>
+            {/* Video placeholder - replace /intro-video.mp4 with actual video */}
+            <video
+              src="/intro-video.mp4"
+              className="w-full hidden"
+              controls
+              playsInline
+              preload="none"
+            />
           </div>
 
           {/* RIGHT */}
@@ -489,9 +562,16 @@ function Home() {
           viewport={{ once: true }}
           className="flex flex-col md:flex-row md:items-end justify-between px-8 md:px-16 pt-24 pb-16 gap-6"
         >
-          <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#F5F0E8] uppercase m-0 leading-none">
-            SELECTED WORKS
-          </h2>
+          <div className="flex items-end gap-5">
+            <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#F5F0E8] uppercase m-0 leading-none">
+              SELECTED WORKS
+            </h2>
+            <div className="hidden md:block mb-2" style={{ transform: "skewX(-10deg)" }}>
+              <div className="bg-[#FF4D00] px-3 py-1">
+                <span className="font-sans font-bold text-[10px] text-black uppercase tracking-widest" style={{ display: "block", transform: "skewX(10deg)" }}>2021–NOW</span>
+              </div>
+            </div>
+          </div>
           <div className="font-sans font-light text-sm text-muted-foreground tracking-widest">(08)</div>
         </motion.div>
 
@@ -515,6 +595,7 @@ function Home() {
                     src={hoveredProject.images[0]}
                     alt={hoveredProject.name}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </motion.div>
@@ -534,7 +615,7 @@ function Home() {
               onMouseLeave={() => setHoveredProject(null)}
               data-testid={`card-project-${i}`}
             >
-              <div className="flex items-center px-8 md:px-16 py-7 md:py-9 gap-6 md:gap-10 group-hover:bg-[#111] transition-colors duration-200">
+              <div className="project-card-row flex items-center px-8 md:px-16 py-7 md:py-9 gap-6 md:gap-10 group-hover:bg-[#111] border-l-2 border-transparent group-hover:border-[#FF4D00] transition-all duration-200">
                 {/* Number */}
                 <span className="font-sans font-light text-[11px] text-[#F5F0E8]/20 w-7 flex-shrink-0 tabular-nums select-none">
                   {String(i + 1).padStart(2, "0")}
@@ -564,7 +645,7 @@ function Home() {
                 )}
 
                 {/* Arrow */}
-                <span className="font-sans text-base text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-1.5 transition-all duration-300 flex-shrink-0 select-none">
+                <span className="project-card-arrow font-sans text-base text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300 flex-shrink-0 select-none">
                   →
                 </span>
               </div>

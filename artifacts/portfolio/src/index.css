@@ -126,3 +126,33 @@
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
+
+/* Phone frame border-radius — overrides the global * { border-radius: 0 !important } reset */
+.phone-frame        { border-radius: 38px !important; }
+.phone-frame-screen { border-radius: 26px !important; }
+.phone-frame-notch  { border-radius: 3px  !important; }
+
+/* Disable project-card hover transforms on mobile */
+@media (max-width: 768px) {
+  .project-card-row {
+    background: transparent !important;
+  }
+  .project-card-arrow {
+    transform: none !important;
+    color: rgba(245, 240, 232, 0.2) !important;
+  }
+}
+
+/* Edgy accent line at top of page */
+body::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #FF4D00;
+  z-index: 9999;
+  pointer-events: none;
+}
