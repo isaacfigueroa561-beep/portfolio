@@ -356,7 +356,7 @@ function Home() {
       desc: "Full visual identity — signage, merch, posters, tote bags",
       images: [
         "/chino-new-1.png", "/chino-new-2.png", "/chino-new-3.png", "/chino-new-4.png",
-        "/chino-new-5.png", "/chino-new-6.png", "/chino-new-7.png", "/chino-new-8.png"
+        "/chino-new-5.png", "/chino-new-6.png", "/chino-new-7.png", "/chino-new-8.png", "/chino-new-9.png"
       ],
     },
     {
