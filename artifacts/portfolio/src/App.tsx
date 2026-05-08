@@ -534,7 +534,7 @@ function Home() {
           </div>
 
           {/* RIGHT */}
-          <div className="md:col-span-7 flex flex-col justify-center rounded-none px-8 md:px-16 py-10 md:py-14">
+          <div className="md:col-span-7 flex flex-col justify-start rounded-none px-8 md:px-16 pt-10 pb-10 md:pt-12 md:pb-12">
             <div className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mb-2">
               02
             </div>
@@ -563,7 +563,7 @@ function Home() {
           </div>
         </motion.div>
       </section>
-      {/* 4. LATEST PROJECTS */}
+      {/* 4. RECENT PROJECTS */}
       <section id="work" className="w-full border-t border-[#1a1a1a]">
         {/* Header */}
         <motion.div
@@ -574,7 +574,7 @@ function Home() {
         >
           <div className="flex items-end gap-5">
             <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#F5F0E8] uppercase m-0 leading-none">
-              LATEST PROJECTS
+              RECENT PROJECTS
             </h2>
             <div className="hidden md:block mb-2" style={{ transform: "skewX(-10deg)" }}>
               <div className="bg-[#FF4D00] px-3 py-1">
