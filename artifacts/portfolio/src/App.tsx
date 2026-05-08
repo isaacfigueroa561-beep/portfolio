@@ -888,9 +888,8 @@ function Home() {
           </div>
 
           <div className="flex gap-8 font-sans font-light text-xs text-muted-foreground uppercase tracking-wide rounded-none">
-            <a href="#" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-instagram">INSTAGRAM</a>
+            <a href="https://instagram.com/ifig12" target="_blank" rel="noopener noreferrer" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-instagram">INSTAGRAM</a>
             <a href="#" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-linkedin">LINKEDIN</a>
-            <a href="#" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-twitter">TWITTER</a>
           </div>
         </footer>
       </section>
