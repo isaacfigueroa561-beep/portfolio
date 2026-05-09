@@ -82,14 +82,21 @@ function CarouselModal({
 }) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState(0);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const project = projects[currentIndex];
+  const imgs = project.images ?? [];
 
   const go = useCallback((dir: number) => {
     setDirection(dir);
+    setLightboxIndex(null);
     setCurrentIndex((i) => (i + dir + projects.length) % projects.length);
   }, [projects.length]);
+
+  const lbGo = useCallback((dir: number) => {
+    setLightboxIndex((i) => i === null ? null : (i + dir + imgs.length) % imgs.length);
+  }, [imgs.length]);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -100,7 +107,16 @@ function CarouselModal({
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") { onClose(); return; }
+      if (e.key === "Escape") {
+        if (lightboxIndex !== null) { setLightboxIndex(null); return; }
+        onClose();
+        return;
+      }
+      if (lightboxIndex !== null) {
+        if (e.key === "ArrowLeft") { e.preventDefault(); lbGo(-1); return; }
+        if (e.key === "ArrowRight") { e.preventDefault(); lbGo(1); return; }
+        return;
+      }
       if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); return; }
       if (e.key === "ArrowRight") { e.preventDefault(); go(1); return; }
       if (e.key !== "Tab" || !dialogRef.current) return;
@@ -114,7 +130,7 @@ function CarouselModal({
     };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
-  }, [onClose, go]);
+  }, [onClose, go, lbGo, lightboxIndex]);
 
   const handleTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
   const handleTouchEnd = (e: React.TouchEvent) => {
@@ -130,7 +146,6 @@ function CarouselModal({
     exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
   };
 
-  /* ---------- RENDER ---------- */
   return (
     <div
       role="dialog"
@@ -174,16 +189,16 @@ function CarouselModal({
 
       {/* Slide area */}
       <div className="relative flex-1 overflow-hidden flex items-center" onClick={e => e.stopPropagation()}>
-        {/* Prev arrow */}
+        {/* Prev project arrow */}
         <button
           onClick={() => go(-1)}
           aria-label={`Previous: ${projects[(currentIndex - 1 + projects.length) % projects.length].name}`}
-          className="absolute left-3 md:left-8 z-20 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200"
+          className="absolute left-3 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200"
         >
           <span className="text-2xl md:text-3xl" aria-hidden="true">←</span>
         </button>
 
-        {/* Animated slide — scrollable image stack */}
+        {/* Animated slide */}
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={currentIndex}
@@ -195,20 +210,23 @@ function CarouselModal({
             transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
             className="absolute inset-0 overflow-y-auto"
           >
-            {/* Description strip at top */}
-            <div className="px-16 md:px-28 pt-8 pb-6">
+            {/* Description strip */}
+            <div className="px-14 md:px-24 pt-8 pb-5">
               <p className="font-sans font-light text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 {project.desc}
               </p>
             </div>
 
-            {project.images && project.images.length > 0 ? (
+            {imgs.length > 0 ? (
               project.phoneFrame ? (
-                /* Phone frames: centered row, horizontally scrollable on small screens */
-                <div className="flex flex-wrap justify-center gap-8 px-16 md:px-28 pb-16">
-                  {project.images.map((src, i) => (
-                    <div
+                /* Phone frames: centered wrap */
+                <div className="flex flex-wrap justify-center gap-8 px-14 md:px-24 pb-16">
+                  {imgs.map((src, i) => (
+                    <button
                       key={i}
+                      className="focus:outline-none focus:ring-2 focus:ring-[#FF4D00]"
+                      onClick={() => setLightboxIndex(i)}
+                      aria-label={`View ${project.name} screen ${i + 1}`}
                       style={{
                         background: "#0a0a0a",
                         border: "2px solid #2a2a2a",
@@ -226,26 +244,32 @@ function CarouselModal({
                         className="w-full h-auto block"
                         loading={i === 0 ? "eager" : "lazy"}
                       />
-                    </div>
+                    </button>
                   ))}
                 </div>
               ) : (
-                /* Standard: full-width images stacked vertically */
-                <div className="flex flex-col gap-3 px-16 md:px-28 pb-16">
-                  {project.images.map((src, i) => (
-                    <img
+                /* 3-column thumbnail grid */
+                <div className="grid grid-cols-3 gap-1 px-14 md:px-24 pb-16">
+                  {imgs.map((src, i) => (
+                    <button
                       key={i}
-                      src={src}
-                      alt={`${project.name} — image ${i + 1}`}
-                      className="w-full h-auto block"
-                      loading={i === 0 ? "eager" : "lazy"}
-                    />
+                      className="aspect-square overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#FF4D00] focus:ring-inset"
+                      onClick={() => setLightboxIndex(i)}
+                      aria-label={`View ${project.name} image ${i + 1} of ${imgs.length}`}
+                    >
+                      <img
+                        src={src}
+                        alt={`${project.name} — ${i + 1}`}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        loading={i === 0 ? "eager" : "lazy"}
+                      />
+                    </button>
                   ))}
                 </div>
               )
             ) : (
-              /* No images: large colour block */
-              <div className="flex items-center justify-center px-16 md:px-28 pb-16">
+              /* No images fallback */
+              <div className="flex items-center justify-center px-14 md:px-24 pb-16">
                 <div
                   className="w-full h-64 md:h-96 flex items-center justify-center"
                   style={{ backgroundColor: project.bg }}
@@ -262,11 +286,11 @@ function CarouselModal({
           </motion.div>
         </AnimatePresence>
 
-        {/* Next arrow */}
+        {/* Next project arrow */}
         <button
           onClick={() => go(1)}
           aria-label={`Next: ${projects[(currentIndex + 1) % projects.length].name}`}
-          className="absolute right-3 md:right-8 z-20 w-10 h-10 md:w-14 md:h-14 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200"
+          className="absolute right-3 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200"
         >
           <span className="text-2xl md:text-3xl" aria-hidden="true">→</span>
         </button>
@@ -280,13 +304,68 @@ function CarouselModal({
         {projects.map((p, i) => (
           <button
             key={i}
-            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); }}
+            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); setLightboxIndex(null); }}
             aria-label={`Go to ${p.name}`}
             aria-current={i === currentIndex ? "true" : undefined}
             className={`h-[3px] transition-all duration-300 ${i === currentIndex ? "w-6 bg-[#FF4D00]" : "w-[6px] bg-[#2a2a2a] hover:bg-[#555]"}`}
           />
         ))}
       </div>
+
+      {/* ── Lightbox ── */}
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-[99999] bg-black/92 flex items-center justify-center"
+          onClick={() => setLightboxIndex(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${project.name} image ${lightboxIndex + 1} of ${imgs.length}`}
+        >
+          {/* Close */}
+          <button
+            className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center text-[#F5F0E8]/50 hover:text-[#F5F0E8] transition-colors"
+            onClick={() => setLightboxIndex(null)}
+            aria-label="Close image"
+          >
+            <span className="text-2xl leading-none" aria-hidden="true">✕</span>
+          </button>
+
+          {/* Prev image */}
+          {imgs.length > 1 && (
+            <button
+              className="absolute left-4 z-10 w-12 h-12 flex items-center justify-center text-[#F5F0E8]/40 hover:text-[#FF4D00] transition-colors"
+              onClick={e => { e.stopPropagation(); lbGo(-1); }}
+              aria-label="Previous image"
+            >
+              <span className="text-3xl" aria-hidden="true">←</span>
+            </button>
+          )}
+
+          {/* Full image */}
+          <img
+            src={imgs[lightboxIndex]}
+            alt={`${project.name} — image ${lightboxIndex + 1}`}
+            className="max-h-screen max-w-full object-contain"
+            onClick={e => e.stopPropagation()}
+          />
+
+          {/* Next image */}
+          {imgs.length > 1 && (
+            <button
+              className="absolute right-4 z-10 w-12 h-12 flex items-center justify-center text-[#F5F0E8]/40 hover:text-[#FF4D00] transition-colors"
+              onClick={e => { e.stopPropagation(); lbGo(1); }}
+              aria-label="Next image"
+            >
+              <span className="text-3xl" aria-hidden="true">→</span>
+            </button>
+          )}
+
+          {/* Counter */}
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 font-sans font-light text-xs text-[#F5F0E8]/35 tabular-nums tracking-widest">
+            {lightboxIndex + 1}&nbsp;/&nbsp;{imgs.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
