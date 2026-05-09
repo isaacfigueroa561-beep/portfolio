@@ -87,6 +87,7 @@ function CarouselModal({
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [caseStudyOpen, setCaseStudyOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const project = projects[currentIndex];
@@ -95,6 +96,7 @@ function CarouselModal({
   const go = useCallback((dir: number) => {
     setDirection(dir);
     setLightboxIndex(null);
+    setCaseStudyOpen(false);
     setCurrentIndex((i) => (i + dir + projects.length) % projects.length);
   }, [projects.length]);
 
@@ -221,25 +223,41 @@ function CarouselModal({
               </p>
             </div>
 
-            {/* Case study */}
+            {/* Case study toggle */}
             {project.caseStudy && (
-              <div className="px-14 md:px-24 pb-8 grid grid-cols-1 md:grid-cols-2 gap-px border-t border-b border-[#1a1a1a] bg-[#1a1a1a]">
-                <div className="bg-[#0a0a0a] p-6 md:p-8">
-                  <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">
-                    The Challenge
-                  </div>
-                  <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">
-                    {project.caseStudy.challenge}
-                  </p>
-                </div>
-                <div className="bg-[#0a0a0a] p-6 md:p-8">
-                  <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">
-                    The Approach
-                  </div>
-                  <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">
-                    {project.caseStudy.approach}
-                  </p>
-                </div>
+              <div className="px-14 md:px-24 pb-2">
+                <button
+                  onClick={() => setCaseStudyOpen(o => !o)}
+                  aria-expanded={caseStudyOpen}
+                  className="flex items-center gap-3 font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#F5F0E8]/40 hover:text-[#FF4D00] transition-colors duration-200 focus:outline-none group"
+                >
+                  <span className="w-4 h-[1px] bg-current transition-colors duration-200" aria-hidden="true" />
+                  Case Study
+                  <span className="text-[10px] transition-transform duration-300" style={{ display: "inline-block", transform: caseStudyOpen ? "rotate(45deg)" : "rotate(0deg)" }} aria-hidden="true">+</span>
+                </button>
+                <AnimatePresence>
+                  {caseStudyOpen && (
+                    <motion.div
+                      key="case-study"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a] border border-[#1a1a1a]">
+                        <div className="bg-[#0a0a0a] p-6">
+                          <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Challenge</div>
+                          <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.challenge}</p>
+                        </div>
+                        <div className="bg-[#0a0a0a] p-6">
+                          <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Approach</div>
+                          <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.approach}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             )}
 
@@ -330,7 +348,7 @@ function CarouselModal({
         {projects.map((p, i) => (
           <button
             key={i}
-            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); setLightboxIndex(null); }}
+            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); setLightboxIndex(null); setCaseStudyOpen(false); }}
             aria-label={`Go to ${p.name}`}
             aria-current={i === currentIndex ? "true" : undefined}
             className={`h-[3px] transition-all duration-300 ${i === currentIndex ? "w-6 bg-[#FF4D00]" : "w-[6px] bg-[#2a2a2a] hover:bg-[#555]"}`}
