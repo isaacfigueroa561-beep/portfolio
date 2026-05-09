@@ -561,6 +561,70 @@ function Home() {
   const [contactFormOpen, setContactFormOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
+  const [activeService, setActiveService] = useState<string | null>(null);
+
+  const serviceInfo: Record<string, { tagline: string; desc: string; includes: string[]; delivers: string }> = {
+    "Brand Identity": {
+      tagline: "Your brand's visual foundation — built to last.",
+      desc: "Brand identity is the complete visual system that represents who you are. From logo to color palette to typography, every element works together to create instant recognition and trust across every touchpoint.",
+      includes: ["Primary + alternate logo variations", "Color palette with HEX/RGB/CMYK values", "Typography system (heading + body fonts)", "Brand usage guidelines (PDF)"],
+      delivers: "AI, SVG, PNG (transparent), PDF brand guide",
+    },
+    "Campaign Design": {
+      tagline: "Visuals built to move people — and drive results.",
+      desc: "Campaign design brings a single concept to life across multiple formats. Whether it's a product launch, seasonal push, or awareness campaign, every asset is crafted to work together and hit hard.",
+      includes: ["Campaign concept & mood direction", "Social media graphics (multiple sizes)", "Digital ads or promotional banners", "Print-ready materials if needed"],
+      delivers: "PNG, JPG, PDF — print & web-ready files",
+    },
+    "Social Media Graphics": {
+      tagline: "Scroll-stopping content, designed for the platform.",
+      desc: "Custom graphics sized and optimized for Instagram, Facebook, TikTok, and more. Consistent with your brand, designed to perform — not just look pretty.",
+      includes: ["Feed posts (1:1 and 4:5)", "Story & Reel cover graphics (9:16)", "Highlight covers", "Optional: caption copy suggestions"],
+      delivers: "PNG/JPG at export-ready dimensions per platform",
+    },
+    "Web Design": {
+      tagline: "Clean, intentional design that converts.",
+      desc: "UI mockups and full website designs that balance aesthetics with function. Every screen is designed with user flow in mind — not just how it looks, but how it works.",
+      includes: ["Wireframes or layout exploration", "Full desktop + mobile mockups", "Style guide (colors, type, components)", "Handoff-ready Figma file"],
+      delivers: "Figma source file + exported PNG previews",
+    },
+    "Print & Marketing": {
+      tagline: "Physical materials that represent you professionally.",
+      desc: "Flyers, brochures, menus, business cards — designed to print beautifully and communicate clearly. All files are delivered print-ready with bleed and crop marks.",
+      includes: ["Layout design with your content", "Print-ready PDF with bleed/crop marks", "Digital version (web-optimized)", "Up to 2 rounds of revisions"],
+      delivers: "Print-ready PDF + digital JPG/PNG",
+    },
+    "Typography": {
+      tagline: "Type as a design element — not an afterthought.",
+      desc: "Custom typographic layouts, lettering treatments, and type-driven graphics. Whether it's a bold headline poster or a refined editorial layout, type is used as the primary visual tool.",
+      includes: ["Custom type layout or lettering treatment", "Multiple compositional variations", "Application mockups if needed", "Vector source file"],
+      delivers: "AI, SVG, PNG — vector and raster formats",
+    },
+    "Layout & Composition": {
+      tagline: "Structure that guides the eye and tells the story.",
+      desc: "Editorial layouts, presentation decks, documents, and multi-page designs. Everything is structured for clarity, visual flow, and professional impact.",
+      includes: ["Multi-page layout design", "Grid system & spacing standards", "Image + text hierarchy", "Print or screen-optimized output"],
+      delivers: "PDF + editable source (Figma or InDesign)",
+    },
+    "Merch Design": {
+      tagline: "Wearable and sellable designs people actually want.",
+      desc: "Graphic tees, hoodies, hats, tote bags — designed for screen printing, embroidery, or DTG printing. Artwork is delivered print-ready and spec'd for your manufacturer.",
+      includes: ["Garment graphic design (front, back, sleeve)", "Color-separated artwork for printing", "Mockup previews on garment photos", "Print-ready files spec'd to your printer"],
+      delivers: "AI/SVG (vector) + PNG (300dpi) + mockup JPGs",
+    },
+    "YouTube Thumbnails": {
+      tagline: "The first frame that wins the click.",
+      desc: "High-contrast, bold thumbnails designed to stand out in a crowded feed. Optimized at 1280×720 with clear hierarchy between image, text, and background.",
+      includes: ["Custom thumbnail per video or batch", "Bold typography + composition", "Consistent style system for your channel", "A/B variation if requested"],
+      delivers: "JPG/PNG at 1280×720 (YouTube spec)",
+    },
+    "Event Promotion": {
+      tagline: "Build the hype before the doors open.",
+      desc: "Event flyers, digital banners, countdown graphics, and social posts — everything needed to build awareness and drive attendance, in print and digital formats.",
+      includes: ["Event flyer (print + digital versions)", "Social media graphics (feed + story)", "Email header or digital banner", "Save-the-date or countdown graphic"],
+      delivers: "PDF (print) + PNG/JPG (digital, all sizes)",
+    },
+  };
 
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
@@ -976,14 +1040,89 @@ function Home() {
                 "Web Design", "Print & Marketing", "Typography",
                 "Layout & Composition", "Merch Design", "YouTube Thumbnails", "Event Promotion"
               ].map((tag, i) => (
-                <div
+                <button
                   key={i}
-                  className="font-sans font-light text-xs uppercase tracking-[0.15em] text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 hover:border-[#FF4D00] hover:text-[#FF4D00] transition-colors cursor-default rounded-none"
+                  onClick={() => setActiveService(activeService === tag ? null : tag)}
+                  aria-expanded={activeService === tag}
+                  aria-label={`Learn about ${tag}`}
+                  className={`font-sans font-light text-xs uppercase tracking-[0.15em] px-4 py-2 border transition-colors duration-200 rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF4D00] ${
+                    activeService === tag
+                      ? "border-[#FF4D00] text-[#FF4D00] bg-[#FF4D00]/5"
+                      : "border-[#2a2a2a] text-[#F5F0E8] hover:border-[#FF4D00] hover:text-[#FF4D00]"
+                  }`}
                 >
                   {tag}
-                </div>
+                  <span className="ml-2 opacity-50 text-[10px]" aria-hidden="true">
+                    {activeService === tag ? "−" : "+"}
+                  </span>
+                </button>
               ))}
             </div>
+
+            {/* Service info panel */}
+            <AnimatePresence>
+              {activeService && serviceInfo[activeService] && (
+                <motion.div
+                  key={activeService}
+                  initial={{ opacity: 0, y: -8, height: 0 }}
+                  animate={{ opacity: 1, y: 0, height: "auto" }}
+                  exit={{ opacity: 0, y: -8, height: 0 }}
+                  transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-4 border border-[#FF4D00]/30 bg-[#FF4D00]/4 p-6 max-w-xl">
+                    {/* Header */}
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <div>
+                        <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-1">
+                          {activeService}
+                        </div>
+                        <p className="font-serif font-medium text-base text-[#F5F0E8] leading-snug">
+                          {serviceInfo[activeService].tagline}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setActiveService(null)}
+                        aria-label="Close service details"
+                        className="text-muted-foreground hover:text-[#F5F0E8] transition-colors flex-shrink-0 mt-1"
+                      >
+                        <span className="text-sm" aria-hidden="true">✕</span>
+                      </button>
+                    </div>
+
+                    {/* Description */}
+                    <p className="font-sans font-light text-sm text-muted-foreground leading-relaxed mb-4">
+                      {serviceInfo[activeService].desc}
+                    </p>
+
+                    {/* Includes */}
+                    <div className="mb-4">
+                      <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40 mb-2">
+                        What's Included
+                      </div>
+                      <ul className="space-y-1">
+                        {serviceInfo[activeService].includes.map((item, i) => (
+                          <li key={i} className="font-sans font-light text-sm text-[#F5F0E8]/80 flex items-start gap-2">
+                            <span className="text-[#FF4D00] mt-[2px] flex-shrink-0" aria-hidden="true">→</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Deliverables */}
+                    <div className="pt-3 border-t border-[#2a2a2a]">
+                      <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40">
+                        Final Deliverables&nbsp;&nbsp;
+                      </span>
+                      <span className="font-sans font-light text-xs text-[#FF4D00]">
+                        {serviceInfo[activeService].delivers}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </motion.div>
       </section>
