@@ -721,17 +721,6 @@ function Home() {
       images: ["/aware-coffee-1.png", "/aware-coffee-2.png", "/aware-coffee-3.png", "/aware-coffee-4.png", "/aware-coffee-5.png"],
     },
     {
-      name: "Wallet App UI",
-      client: "Concept Project",
-      category: "UX/UI Design",
-      bg: "#0D0D14",
-      labelColor: "#5c3fff",
-      nameColor: "#5c3fff",
-      clientColor: "rgba(255,255,255,0.4)",
-      desc: "Concept fintech app — crypto portfolio, NFT vault, send/receive flows. Designed in Figma.",
-      images: ["/wallet-1.png", "/wallet-2.png", "/wallet-3.png", "/wallet-4.png", "/wallet-5.png", "/wallet-6.png", "/wallet-7.png", "/wallet-8.png", "/wallet-9.png"],
-    },
-    {
       name: "Non-Profits",
       client: "Churches & Non-Profits",
       category: "Event Design / Sermon Series",
@@ -907,7 +896,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="font-sans font-light text-sm text-muted-foreground tracking-widest">(07)</div>
+          <div className="font-sans font-light text-sm text-muted-foreground tracking-widest">(06)</div>
         </motion.div>
 
         {/* Editorial list */}
