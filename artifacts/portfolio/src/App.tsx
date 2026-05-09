@@ -26,13 +26,15 @@ type Project = {
 };
 
 function CustomCursor() {
-  const [pos, setPos] = useState({ x: -200, y: -200 });
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+      }
       if (!visible) setVisible(true);
     };
     const onOver = (e: MouseEvent) => {
@@ -51,9 +53,10 @@ function CustomCursor() {
 
   return (
     <motion.div
+      ref={cursorRef}
       aria-hidden="true"
-      className="custom-cursor fixed pointer-events-none z-[99999] select-none"
-      style={{ left: pos.x, top: pos.y, translateX: "-50%", translateY: "-50%" }}
+      className="custom-cursor fixed top-0 left-0 pointer-events-none z-[99999] select-none"
+      style={{ willChange: "transform" }}
       animate={{ opacity: visible ? 1 : 0, scale: hovered ? 1.6 : 1 }}
       transition={{ scale: { duration: 0.18, ease: "easeOut" }, opacity: { duration: 0.3 } }}
     >
