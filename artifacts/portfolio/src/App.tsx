@@ -421,6 +421,8 @@ function CarouselModal({
 function ContactFormModal({ onClose }: { onClose: () => void }) {
   const [form, setForm] = useState({ name: "", email: "", project: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -445,14 +447,31 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
     return () => document.removeEventListener("keydown", handleKey);
   }, [onClose]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Project Inquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nProject Type: ${form.project}\n\n${form.message}`
-    );
-    window.open(`mailto:isaacfigueroa561@gmail.com?subject=${subject}&body=${body}`);
-    setSent(true);
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          project: form.project || null,
+          message: form.message,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Something went wrong. Please try again.");
+      }
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass = "w-full bg-transparent border-b border-[#2a2a2a] focus:border-[#FF4D00] outline-none font-sans font-light text-[#F5F0E8] text-sm py-3 placeholder:text-[#444] transition-colors";
@@ -530,8 +549,16 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                   <label htmlFor="cf-message" className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Tell Me About Your Project *</label>
                   <textarea id="cf-message" required rows={4} className={inputClass + " resize-none"} placeholder="Describe your project, timeline, and budget..." value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} />
                 </div>
-                <button type="submit" className="self-start bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity" style={{ cursor: "none" }}>
-                  Send Message →
+                {error && (
+                  <p className="font-sans font-light text-sm text-red-400">{error}</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="self-start bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                  style={{ cursor: "none" }}
+                >
+                  {submitting ? "Sending..." : "Send Message →"}
                 </button>
               </form>
             )}
