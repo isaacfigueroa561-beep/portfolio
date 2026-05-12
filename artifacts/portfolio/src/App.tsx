@@ -531,9 +531,8 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
           <div className="flex items-start justify-between mb-6">
             <div>
               <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-1">Start A Project</div>
-              <h3 id="contact-form-title" className="font-serif font-bold text-3xl md:text-5xl text-[#F5F0E8] uppercase leading-none m-0">
-                Let's Make Something<br />
-                <span className="text-[#FF4D00] italic normal-case">worth</span> It.
+              <h3 id="contact-form-title" className="font-serif font-bold text-3xl md:text-5xl text-[#F5F0E8] uppercase leading-tight m-0">
+                Let's Make Something <span className="text-[#FF4D00] italic normal-case">worth</span> It.
               </h3>
             </div>
             <button onClick={onClose} aria-label="Close" className="w-9 h-9 flex items-center justify-center border border-[#2a2a2a] text-[#F5F0E8] hover:border-[#F5F0E8] transition-colors text-lg leading-none flex-shrink-0 mt-1" style={{ cursor: "none" }}>
