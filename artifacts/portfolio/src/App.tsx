@@ -282,69 +282,43 @@ function CarouselModal({
             )}
 
             {project.deviceMockup ? (
-              /* ── Device mockup (laptop + phone) ── */
+              /* ── Device mockup ── */
               <div className="px-6 md:px-14 pb-16">
-                {/* Live app link */}
-                {project.liveUrl && (
-                  <div className="mb-6">
+                {/* Mockup image */}
+                <div style={{ background: "#080808", border: "1px solid #1a1a1a", padding: "48px 40px", marginBottom: 24 }}>
+                  <img
+                    src="/meridian-mockup.png"
+                    alt="Meridian — desktop and mobile mockup"
+                    className="w-full h-auto block"
+                    style={{ maxWidth: "100%" }}
+                    loading="eager"
+                  />
+                </div>
+
+                {/* Meta row — tags + live link */}
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex flex-wrap gap-2">
+                    {["Product Design", "UI / UX", "Front-End Dev", "Fintech"].map(tag => (
+                      <span
+                        key={tag}
+                        className="font-sans font-light text-[10px] uppercase tracking-[0.15em] text-[#F5F0E8]/40 border border-[#1f1f1f] px-3 py-1"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-[#FF4D00] text-black font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:opacity-90 transition-opacity duration-200"
+                      className="inline-flex items-center gap-2 bg-[#FF4D00] text-black font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:opacity-90 transition-opacity duration-200 flex-shrink-0"
                       style={{ cursor: "none" }}
                     >
                       <span>View Live App</span>
-                      <span aria-hidden="true" className="text-sm font-bold">↗</span>
+                      <span aria-hidden="true" className="text-base font-bold leading-none">↗</span>
                     </a>
-                  </div>
-                )}
-
-                {/* Laptop + Phone side by side */}
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
-                  {/* Laptop / Browser frame */}
-                  <div className="flex-1 min-w-0">
-                    <div style={{ border: "1px solid #1f1f1f", background: "#0a0a0a", boxShadow: "0 24px 80px rgba(0,0,0,0.7)", overflow: "hidden" }}>
-                      {/* Browser chrome */}
-                      <div style={{ height: 32, background: "#111", borderBottom: "1px solid #1f1f1f", display: "flex", alignItems: "center", padding: "0 12px", gap: 6 }}>
-                        <div style={{ width: 9, height: 9, borderRadius: "50%", background: "#2a2a2a" }} />
-                        <div style={{ width: 9, height: 9, borderRadius: "50%", background: "#2a2a2a" }} />
-                        <div style={{ width: 9, height: 9, borderRadius: "50%", background: "#2a2a2a" }} />
-                        <div style={{ flex: 1, textAlign: "center", fontFamily: "monospace", fontSize: 10, color: "#3a3a3a", background: "#0D0D0D", padding: "2px 10px", margin: "0 16px" }}>
-                          meridian.app
-                        </div>
-                      </div>
-                      {/* Scaled iframe screen */}
-                      <div style={{ position: "relative", overflow: "hidden", height: 480 }}>
-                        <iframe
-                          src="/meridian/index.html"
-                          title="Meridian app — desktop view"
-                          style={{ width: 1280, height: 800, border: "none", transform: "scale(0.5625)", transformOrigin: "top left", pointerEvents: "none", display: "block", flexShrink: 0 }}
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.18em] text-[#F5F0E8]/25 mt-2 text-center">Desktop</p>
-                  </div>
-
-                  {/* Phone frame */}
-                  <div className="flex-shrink-0 flex flex-col items-center">
-                    <div style={{ width: 220, background: "#0a0a0a", border: "1.5px solid #1f1f1f", borderRadius: 36, padding: "8px 8px 18px", boxShadow: "0 0 0 4px #0f0f0f, 0 24px 56px rgba(0,0,0,0.8)" }}>
-                      {/* Notch */}
-                      <div style={{ textAlign: "center", marginBottom: 6 }}>
-                        <div style={{ display: "inline-block", width: 60, height: 5, background: "#1a1a1a", borderRadius: 99 }} />
-                      </div>
-                      <div style={{ borderRadius: 26, overflow: "hidden", height: 440, position: "relative", background: "#FBFAF6" }}>
-                        <iframe
-                          src="/meridian/index.html"
-                          title="Meridian app — mobile view"
-                          style={{ width: 390, height: 844, border: "none", transform: "scale(0.5384)", transformOrigin: "top left", pointerEvents: "none", display: "block", flexShrink: 0 }}
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.18em] text-[#F5F0E8]/25 mt-2 text-center">Mobile</p>
-                  </div>
+                  )}
                 </div>
               </div>
             ) : imgs.length > 0 ? (
