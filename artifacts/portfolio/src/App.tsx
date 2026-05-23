@@ -1413,18 +1413,24 @@ function Home() {
               onMouseLeave={() => setHoveredProject(null)}
               data-testid={`card-project-${i}`}
             >
-              <div className="project-card-row flex items-center px-8 md:px-16 py-7 md:py-9 gap-6 md:gap-10 group-hover:bg-[#111] border-l-2 border-transparent group-hover:border-[#FF4D00] transition-all duration-200">
+              <div className="project-card-row flex items-center px-6 md:px-16 py-8 md:py-9 gap-4 md:gap-10 group-hover:bg-[#111] border-l-2 border-transparent group-hover:border-[#FF4D00] transition-all duration-200">
                 {/* Number */}
-                <span className="font-sans font-light text-[11px] text-[#F5F0E8]/20 w-7 flex-shrink-0 tabular-nums select-none" aria-hidden="true">
+                <span className="font-sans font-light text-[11px] text-[#F5F0E8]/20 w-6 flex-shrink-0 tabular-nums select-none" aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
-                {/* Name */}
-                <h3 className="font-serif font-bold uppercase text-[clamp(1.6rem,4vw,3.5rem)] text-[#F5F0E8] leading-none flex-1 group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight">
-                  {project.name}
-                </h3>
+                {/* Name + mobile category */}
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-serif font-bold uppercase text-[clamp(2rem,5.5vw,3.5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight">
+                    {project.name}
+                  </h3>
+                  {/* Category shown on mobile only */}
+                  <p className="md:hidden font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/35 mt-2">
+                    {project.category}
+                  </p>
+                </div>
 
-                {/* Category + Client — hidden on mobile */}
+                {/* Category + Client — desktop only */}
                 <div className="hidden md:flex flex-col items-end gap-[5px] flex-shrink-0 min-w-[160px]" aria-hidden="true">
                   <span className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 text-right">
                     {project.category}
@@ -1434,7 +1440,7 @@ function Home() {
                   </span>
                 </div>
 
-                {/* Color swatch for projects without images (visible only on hover) */}
+                {/* Color swatch for projects without images (visible only on hover, desktop) */}
                 {!project.images?.length && (
                   <div
                     className="hidden md:block w-6 h-6 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
