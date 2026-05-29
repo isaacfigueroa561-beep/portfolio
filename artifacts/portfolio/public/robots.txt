@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ifig12.replit.app/sitemap.xml
+Sitemap: https://isaacfigueroa.com/sitemap.xml
