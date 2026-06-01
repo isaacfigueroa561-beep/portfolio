@@ -14,14 +14,3 @@
     }
   ]
 }
-{
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src",
-    "types": ["node"],
-    "noImplicitAny": false,
-    "noEmitOnError": false
-  },
-  "include": ["src"]
-}
