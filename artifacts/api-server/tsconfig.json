@@ -1,10 +1,21 @@
 {
-    "extends": "../../tsconfig.base.json",
-    "compilerOptions": {
-          "outDir": "dist",
-          "rootDir": "src",
-          "types": ["node"],
-          "noImplicitAny": false
-    },
-    "include": ["src"]
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "target": "es2022",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["es2022"],
+    "types": ["node"],
+    "noImplicitAny": false,
+    "noEmitOnError": false,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true
+  },
+  "include": ["src"]
 }
