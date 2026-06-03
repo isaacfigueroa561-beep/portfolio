@@ -5,6 +5,18 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import emailjs from "@emailjs/browser";
+
+// ─── EmailJS config ───────────────────────────────────────────────────────────
+// 1. Create a free account at https://emailjs.com
+// 2. Add your Gmail as an Email Service → copy the Service ID below
+// 3. Create an Email Template using variables: {{from_name}}, {{from_email}},
+//    {{project}}, {{message}} → copy the Template ID below
+// 4. Go to Account → API Keys → copy your Public Key below
+const EMAILJS_SERVICE_ID = "service_9rt3v18";
+const EMAILJS_TEMPLATE_ID = "template_aarotet";
+const EMAILJS_PUBLIC_KEY = "PXmfoyxFDt9znE4qR";
+// ─────────────────────────────────────────────────────────────────────────────
 
 const queryClient = new QueryClient();
 
@@ -728,20 +740,17 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
         budget ? `Budget: ${budget}` : null,
         form.company ? `Company: ${form.company}` : null,
       ].filter(Boolean);
-      const res = await fetch("/api/contacts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          project: projectParts.join(" · ") || null,
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          project: projectParts.join(" · ") || "Not specified",
           message: form.message,
-        }),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error ?? "Something went wrong. Please try again.");
-      }
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
       setSent(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
