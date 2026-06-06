@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd artifacts/portfolio && pnpm install && pnpm build",
+  "outputDirectory": "artifacts/portfolio/dist",
+  "framework": null
+}
