@@ -1303,6 +1303,7 @@ const HERO_ITEM = {
 
 function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [contactFormOpen, setContactFormOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
@@ -2256,7 +2257,7 @@ function Home() {
               <button
                 className="bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-8 py-4 text-sm hover:opacity-90 transition-opacity rounded-none"
                 data-testid="button-start-project"
-                onClick={() => window.location.href = "mailto:isaacfigueroa561@gmail.com"}
+                onClick={() => setContactFormOpen(true)}
               >
                 START A PROJECT
               </button>
@@ -2270,7 +2271,7 @@ function Home() {
             </div>
 
             <div className="flex flex-wrap gap-8 font-sans font-light text-xs text-muted-foreground tracking-wide rounded-none">
-              <a href="mailto:isaacfigueroa561@gmail.com" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-email">isaacfigueroa561@gmail.com</a>
+              <button onClick={() => setContactFormOpen(true)} style={{ cursor: "none" }} className="hover:text-[#F5F0E8] transition-colors" data-testid="link-email">isaacfigueroa561@gmail.com</button>
               <a href="tel:+17027880115" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-phone">+1 (702) 788-0115</a>
               <span>English / Spanish</span>
             </div>
@@ -2295,6 +2296,7 @@ function Home() {
         </footer>
       </section>
       {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
+      {contactFormOpen && <ContactFormModal key="contact-form" onClose={() => setContactFormOpen(false)} />}
       <AnimatePresence>
           {selectedIndex !== null && <CarouselModal key="carousel" projects={projects} initialIndex={selectedIndex} onClose={() => setSelectedIndex(null)} />}
       </AnimatePresence>
