@@ -36,11 +36,12 @@ type Project = {
     display: { family: string; weights: string; tracking: string; substitute: string };
     body: { family: string; weights: string; minSize: string };
     typeScale: { label: string; size: string }[];
-    mark: { specs: string[]; meaning: string };
+    mark: { specs: string[]; meaning: string; tagline?: string; industry?: string };
     patterns: { id: string; name: string; use: string }[];
     photography: string;
     logoVariants: { id: string; name: string; use: string }[];
     applications: string[];
+    abbrev?: string;
   };
   presentation?: {
     label: string;
@@ -359,7 +360,7 @@ function CarouselModal({
                         {/* ── Doc header ── */}
                         <div className="flex items-center justify-between px-6 py-3 bg-[#111315] border-b border-[#222]">
                           <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F4F0E8]/30">Brand Guidelines · Vol. 01</span>
-                          <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">SPS / BG / 01.26</span>
+                          <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">{project.brandGuide!.abbrev || project.name.split(' ').map((w: string) => w[0]).join('')} / BG / 01.26</span>
                         </div>
 
                         {/* ── 01 Manifesto ── */}
@@ -442,27 +443,36 @@ function CarouselModal({
                         {/* ── 02 The Mark ── */}
                         <div className="border-b border-[#222]">
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">02 — The Spark Mark</span>
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">A precision burst.</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">02 — The Mark</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">{project.brandGuide!.mark.tagline || "The brand mark."}</span>
                           </div>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#222]">
                             <div className="bg-[#111315] flex items-center justify-center py-14 px-8">
-                              <svg viewBox="0 0 100 100" className="w-36 h-36 md:w-44 md:h-44" aria-label="Spark Pro mark — precision burst" role="img">
-                                <line x1="50" y1="50" x2="50" y2="10" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="50" y1="50" x2="50" y2="90" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="50" y1="50" x2="90" y2="50" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="50" y1="50" x2="10" y2="50" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="50" y1="50" x2="67" y2="33" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="50" y1="50" x2="67" y2="67" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="50" y1="50" x2="33" y2="67" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="50" y1="50" x2="33" y2="33" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="33" y1="33" x2="33" y2="43" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <line x1="33" y1="33" x2="43" y2="33" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
-                                <polygon points="50,45.5 54.5,50 50,54.5 45.5,50" fill="#F2541C"/>
-                              </svg>
+                              {project.brandGuide!.abbrev === "PPP" ? (
+                                <svg viewBox="0 0 100 100" className="w-36 h-36 md:w-44 md:h-44" aria-label="Precision Paint Pros mark — clean edge" role="img">
+                                  <rect x="18" y="44" width="64" height="12" rx="6" fill="#FF4D14"/>
+                                  <rect x="14" y="37" width="5" height="26" rx="2.5" fill="#FF4D14" opacity="0.45"/>
+                                  <rect x="81" y="37" width="5" height="26" rx="2.5" fill="#FF4D14" opacity="0.45"/>
+                                  <rect x="18" y="44" width="64" height="3" rx="1.5" fill="#FAF7F1" opacity="0.18"/>
+                                </svg>
+                              ) : (
+                                <svg viewBox="0 0 100 100" className="w-36 h-36 md:w-44 md:h-44" aria-label="Spark Pro mark — precision burst" role="img">
+                                  <line x1="50" y1="50" x2="50" y2="10" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="50" y1="50" x2="50" y2="90" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="50" y1="50" x2="90" y2="50" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="50" y1="50" x2="10" y2="50" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="50" y1="50" x2="67" y2="33" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="50" y1="50" x2="67" y2="67" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="50" y1="50" x2="33" y2="67" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="50" y1="50" x2="33" y2="33" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="33" y1="33" x2="33" y2="43" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <line x1="33" y1="33" x2="43" y2="33" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
+                                  <polygon points="50,45.5 54.5,50 50,54.5 45.5,50" fill="#F2541C"/>
+                                </svg>
+                              )}
                             </div>
                             <div className="bg-[#0D0D0D] px-8 py-8">
-                              <div className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/30 mb-5">Construction</div>
+                              <div className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/30 mb-5">{project.brandGuide!.mark.industry || project.category.split('/')[0].trim()}</div>
                               <div className="border border-[#1a1a1a] mb-6">
                                 {project.brandGuide!.mark.specs.map((spec, i) => (
                                   <div key={i} className={`flex items-center gap-4 px-4 py-2.5 ${i < project.brandGuide!.mark.specs.length - 1 ? "border-b border-[#1a1a1a]" : ""}`}>
@@ -487,7 +497,7 @@ function CarouselModal({
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#222]">
                             {project.brandGuide!.logoVariants.map((v, i) => (
                               <div key={i} className="bg-[#0D0D0D] px-6 py-6 flex flex-col gap-2">
-                                <span className="font-mono text-[9px] text-[#F2541C]">SPS · {v.id}</span>
+                                <span className="font-mono text-[9px] text-[#F2541C]">{project.brandGuide!.abbrev || 'BG'} · {v.id}</span>
                                 <span className="font-sans font-semibold text-sm text-[#F4F0E8] uppercase tracking-[0.05em]">{v.name}</span>
                                 <span className="font-sans font-light text-[9px] uppercase tracking-[0.18em] text-[#F4F0E8]/30 mt-1">{v.use}</span>
                               </div>
@@ -1452,6 +1462,8 @@ function Home() {
           { label: "Mono",  size: "11 / 16" },
         ],
         mark: {
+          tagline: "A precision burst.",
+          industry: "Construction",
           specs: [
             "Grid  10×10 X",
             "Cardinal  4X length",
@@ -1478,6 +1490,94 @@ function Home() {
         applications: [
           "Business Card", "Letterhead", "Envelope", "Hard Hat",
           "Site Fence Banner 8×4ft", "Vehicle Livery", "Highway Billboard 14×48ft",
+        ],
+        abbrev: "SPS",
+      },
+    },
+    {
+      name: "Precision Paint Pros",
+      client: "Precision Paint Pros",
+      category: "Brand Identity",
+      bg: "#141210",
+      labelColor: "#FF4D14",
+      nameColor: "#FAF7F1",
+      clientColor: "rgba(250,247,241,0.55)",
+      desc: "Residential painting company full rebrand — logo, brand system, color palette, typography, signage, and print collateral.",
+      caseStudy: {
+        stats: [
+          { value: "6+", label: "Brand Deliverables" },
+          { value: "100%", label: "Identity from Scratch" },
+          { value: "Est. 2014", label: "In Business" },
+        ],
+        challenge: "Precision Paint Pros had been doing quality residential work since 2014 — but their visual identity didn't show it. No consistent brand, no design system, nothing that set them apart from every other painter on the street. They were doing precise, careful work but showing up to every estimate looking the same as every competitor. They needed an identity that matched the craftsmanship they already brought to every job.",
+        approach: "I built the identity around restraint and contrast. Ink Black as the foundation, Safety Orange as the signature accent — used sparingly so it always means 'this is us.' Space Grotesk gives the wordmark authority without aggression. Hanken Grotesk keeps body copy warm and readable. The brand says what the work already does: clean lines, honest craft, nothing wasted. Every touchpoint — estimates, shirts, yard signs, the web — is designed to make them look like the most professional outfit on the block before they say a word.",
+      },
+      brandGuide: {
+        abbrev: "PPP",
+        manifesto: "Precision in every coat.",
+        manifestoSub: "A finish worth living with.",
+        manifestoBody: "Precision Paint Pros is a Cincinnati residential painting company built on one belief: the work should outlast the conversation. Since 2014, we've handled interior and exterior projects with the kind of care most clients have to ask for — clean edges, protected surfaces, and every room left cleaner than we found it.",
+        pillars: [
+          "01  Clean lines on every edge.",
+          "02  Honest work, honest pricing.",
+          "03  Done right, down to the drop cloth.",
+        ],
+        colors: [
+          { name: "Ink Black",     hex: "#141210", role: "Primary · Type + Mark",    pantone: "Black 6 C" },
+          { name: "Paper White",   hex: "#FAF7F1", role: "Surface + Negative Space" },
+          { name: "Safety Orange", hex: "#FF4D14", role: "Accent · ~10% of layout",  pantone: "Orange 021 C" },
+          { name: "Sky",           hex: "#BBD3DE", role: "Support Tint" },
+          { name: "Warm Gray",     hex: "#8C857D", role: "Utility" },
+          { name: "Deep Orange",   hex: "#D63A06", role: "Depth Tone" },
+        ],
+        display: {
+          family: "Space Grotesk",
+          weights: "500 · 600 · 700",
+          tracking: "−1% at 48px+",
+          substitute: "Plus Jakarta Sans",
+        },
+        body: {
+          family: "Hanken Grotesk",
+          weights: "400 / 500 / 600",
+          minSize: "13px min",
+        },
+        typeScale: [
+          { label: "H1",    size: "72 / 76" },
+          { label: "H2",    size: "48 / 52" },
+          { label: "H3",    size: "32 / 38" },
+          { label: "H4",    size: "22 / 28" },
+          { label: "Body",  size: "16 / 24" },
+          { label: "Small", size: "13 / 18" },
+          { label: "Mono",  size: "11 / 16" },
+        ],
+        mark: {
+          tagline: "A clean edge.",
+          industry: "Residential Painting",
+          specs: [
+            "Roller pass form factor",
+            "Stroke  rounded caps",
+            "Edge guides  25% opacity",
+            "Orange on black / white on orange",
+            "Minimum size  24px height",
+          ],
+          meaning: "The mark is the finishing pass of a roller — straight, even, nothing wasted. The edge guides on either side represent the precision that defines every job: you don't just see the paint, you see where it stops.",
+        },
+        patterns: [
+          { id: "P/01", name: "Roller Texture",  use: "Hero Accent" },
+          { id: "P/02", name: "Paint Grid",       use: "Technical Surfaces" },
+          { id: "P/03", name: "Stripe System",    use: "Edges & Signage" },
+          { id: "P/04", name: "Dot Field",        use: "Light Surfaces" },
+        ],
+        photography: "Natural light preferred · Real homes, real results · No staged stock photography · Subjects: before/after walls, edge detail, crew in action · Neutral backgrounds let the work speak · Clean, honest, no filters.",
+        logoVariants: [
+          { id: "01", name: "Stacked",     use: "Default / Primary" },
+          { id: "02", name: "Horizontal",  use: "Headers & Estimates" },
+          { id: "03", name: "Mark Only",   use: "Favicon / Badge" },
+          { id: "04", name: "Single Line", use: "Tight Horizontals" },
+        ],
+        applications: [
+          "Business Card", "Estimate Sheet", "Work Shirt", "Crew Hat",
+          "Vehicle Magnet", "Yard Sign 18×24in", "Truck Door Panel",
         ],
       },
     },
