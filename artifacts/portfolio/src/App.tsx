@@ -22,6 +22,7 @@ type Project = {
   phoneFrame?: boolean;
   deviceMockup?: boolean;
   scrollGallery?: boolean;
+  adsStrategy?: boolean;
   pdfLinks?: { label: string; url: string }[];
   hideBrandGuide?: boolean;
   liveUrl?: string;
@@ -828,6 +829,160 @@ function CarouselModal({
                   )}
                 </div>
               </div>
+            ) : project.adsStrategy ? (
+              /* ── Google Ads Strategy inline presentation ── */
+              <div className="pb-16" style={{ background: "#0d0c0a" }}>
+
+                {/* Intro */}
+                <div style={{ padding: "44px 56px 40px", borderBottom: "1px solid #181614" }}>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "#FF4D14", marginBottom: 20, marginTop: 0 }}>
+                    Google Ads Strategy · Paid Search
+                  </p>
+                  <h3 style={{ fontFamily: "serif", fontWeight: 900, fontSize: "clamp(1.8rem,4vw,3rem)", color: "#FAF7F1", lineHeight: 1.05, letterSpacing: "-0.02em", maxWidth: 480, marginBottom: 20, marginTop: 0 }}>
+                    Done right, down to the edge.
+                  </h3>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 13, color: "rgba(250,247,241,0.38)", lineHeight: 1.75, maxWidth: 540, margin: 0 }}>
+                    A full paid-search playbook to generate qualified estimate requests, own local search intent in Cincinnati, and build a predictable pipeline of residential painting jobs.
+                  </p>
+                </div>
+
+                {/* Key metrics */}
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", borderBottom: "1px solid #181614" }}>
+                  {[
+                    { value: "$3,200", label: "Avg. Job Value" },
+                    { value: "$55",    label: "Target CPL" },
+                    { value: "35%",    label: "Est. Close Rate" },
+                    { value: "20×",    label: "Target ROAS" },
+                  ].map((s, i) => (
+                    <div key={i} style={{ padding: "28px 32px", borderRight: i < 3 ? "1px solid #181614" : "none" }}>
+                      <div style={{ fontFamily: "serif", fontWeight: 700, fontSize: "1.9rem", color: "#FAF7F1", lineHeight: 1 }}>{s.value}</div>
+                      <div style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(250,247,241,0.28)", marginTop: 8 }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Funnel */}
+                <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
+                    01 — Market Opportunity · $1,600/mo starting budget
+                  </p>
+                  {[
+                    { stage: "Impressions",       value: "18,000",   rate: "—",      note: "Local search reach" },
+                    { stage: "Clicks",            value: "540",      rate: "3% CTR", note: "Site visitors" },
+                    { stage: "Estimate Requests", value: "27",       rate: "5% CVR", note: "Qualified leads" },
+                    { stage: "Booked Jobs",       value: "9–10",     rate: "35%",    note: "Paying customers" },
+                    { stage: "Est. Revenue",      value: "$29–33K",  rate: "—",      note: "From $1,600 spend" },
+                  ].map((row, i) => (
+                    <div key={i} style={{ display: "grid", gridTemplateColumns: "170px 90px 72px 1fr", alignItems: "center", padding: "13px 0", borderTop: i > 0 ? "1px solid #181614" : "none" }}>
+                      <span style={{ fontFamily: "sans-serif", fontSize: 11, color: "rgba(250,247,241,0.45)" }}>{row.stage}</span>
+                      <span style={{ fontFamily: "serif", fontWeight: 700, fontSize: "1.05rem", color: i === 4 ? "#FF4D14" : "#FAF7F1" }}>{row.value}</span>
+                      <span style={{ fontFamily: "sans-serif", fontSize: 10, color: "rgba(250,247,241,0.28)", letterSpacing: "0.08em" }}>{row.rate}</span>
+                      <span style={{ fontFamily: "sans-serif", fontSize: 10, color: "rgba(250,247,241,0.18)" }}>{row.note}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Campaign architecture */}
+                <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
+                    02 — Campaign Architecture
+                  </p>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 72px 80px 1fr", gap: 0 }}>
+                    {["Campaign", "Tier", "Budget", "Goal"].map(h => (
+                      <span key={h} style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(250,247,241,0.18)", padding: "0 0 10px", borderBottom: "1px solid #1e1c1a" }}>{h}</span>
+                    ))}
+                    {[
+                      { name: "Interior Painting",    tier: "TIER 1", budget: "$500",  goal: "Estimate forms + calls",    hi: true },
+                      { name: "Exterior Painting",    tier: "TIER 1", budget: "$400",  goal: "Estimate forms + calls",    hi: true },
+                      { name: "Cabinet Painting",     tier: "TIER 2", budget: "$250",  goal: "High-ticket job sourcing",  hi: false },
+                      { name: "Commercial Painting",  tier: "TIER 2", budget: "$200",  goal: "B2B estimate requests",     hi: false },
+                      { name: "Competitor Conquest",  tier: "TIER 3", budget: "$100",  goal: "Steal consideration",       hi: false },
+                      { name: "Local Services Ads",   tier: "ALWAYS", budget: "$150",  goal: "Google Guaranteed badge",   hi: false },
+                    ].map((c, i) => (
+                      <>
+                        <span key={`n${i}`} style={{ fontFamily: "sans-serif", fontSize: 12, color: "#FAF7F1", padding: "13px 0", borderTop: "1px solid #181614" }}>{c.name}</span>
+                        <span key={`t${i}`} style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.12em", color: c.hi ? "#FF4D14" : "rgba(250,247,241,0.3)", padding: "13px 0", borderTop: "1px solid #181614" }}>{c.tier}</span>
+                        <span key={`b${i}`} style={{ fontFamily: "serif", fontSize: "0.95rem", fontWeight: 600, color: "rgba(250,247,241,0.65)", padding: "13px 0", borderTop: "1px solid #181614" }}>{c.budget}</span>
+                        <span key={`g${i}`} style={{ fontFamily: "sans-serif", fontSize: 10, color: "rgba(250,247,241,0.3)", padding: "13px 0", borderTop: "1px solid #181614" }}>{c.goal}</span>
+                      </>
+                    ))}
+                  </div>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 10, color: "rgba(250,247,241,0.25)", fontStyle: "italic", margin: "16px 0 0", lineHeight: 1.6 }}>
+                    Scale trigger: CPL below $50 for two consecutive weeks on any Tier 1 campaign → increase budget by 30%.
+                  </p>
+                </div>
+
+                {/* Keywords */}
+                <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
+                    03 — Keyword Strategy
+                  </p>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
+                    {[
+                      { label: "Exact · Interior",    accent: true,  kws: ["interior painter near me","interior house painting","interior painting contractor","house painters near me","interior paint job cost","painters for hire near me"] },
+                      { label: "Exact · Exterior",    accent: true,  kws: ["exterior house painting","exterior painter near me","house painting exterior cost","painting contractor near me","curb appeal painting","exterior paint estimate"] },
+                      { label: "Phrase · Specialty",  accent: false, kws: ["cabinet painting near me","kitchen cabinet refinishing","cabinet painters Cincinnati","popcorn ceiling removal","drywall repair and painting","deck staining near me"] },
+                    ].map((g, gi) => (
+                      <div key={gi}>
+                        <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", color: g.accent ? "#FF4D14" : "rgba(250,247,241,0.35)", marginBottom: 10, marginTop: 0 }}>{g.label}</p>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                          {g.kws.map((kw, ki) => (
+                            <span key={ki} style={{ fontFamily: "sans-serif", fontSize: 10, color: "rgba(250,247,241,0.45)", padding: "6px 10px", background: "#141210", border: "1px solid #1e1c1a", letterSpacing: "0.02em" }}>[{kw}]</span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 90-Day Roadmap */}
+                <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
+                    10 — 90-Day Launch Roadmap
+                  </p>
+                  {[
+                    { phase: "01", period: "Week 1–2",  title: "Foundation",       tasks: "Set up Google Ads account · Install GTM + conversion tracking · Link Google Business Profile · Apply for LSA verification · Build campaign structure + ad groups · Write all RSA copy · Add all extensions + negative keyword lists" },
+                    { phase: "02", period: "Week 3–4",  title: "Launch",           tasks: "Go live with Tier 1 campaigns · Monitor search term reports daily · Add negatives aggressively · Verify call tracking · Confirm form submissions fire conversions · Start LSA if verification complete" },
+                    { phase: "03", period: "Month 2",   title: "Expand + Optimize", tasks: "Launch Tier 2 campaigns · Review RSA asset performance · Add converting terms as exact match · Bid up high-converting ZIPs · Add before/after image assets · Fix low Quality Score components" },
+                    { phase: "04", period: "Month 3",   title: "Scale",            tasks: "Switch to Target CPA bidding (30+ conversions) · Launch Competitor Conquest · A/B test landing page CTAs · Review auction insight data · Evaluate budget increases where CPL < $50 · Monthly report delivered" },
+                  ].map((row, i) => (
+                    <div key={i} style={{ display: "grid", gridTemplateColumns: "32px 120px 1fr", gap: "0 28px", padding: "18px 0", borderTop: i > 0 ? "1px solid #181614" : "none", alignItems: "start" }}>
+                      <span style={{ fontFamily: "sans-serif", fontSize: 9, color: "#FF4D14", letterSpacing: "0.2em", paddingTop: 3 }}>{row.phase}</span>
+                      <div>
+                        <span style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(250,247,241,0.25)", display: "block", marginBottom: 5 }}>{row.period}</span>
+                        <span style={{ fontFamily: "serif", fontSize: "0.95rem", fontWeight: 700, color: "#FAF7F1", display: "block" }}>{row.title}</span>
+                      </div>
+                      <p style={{ fontFamily: "sans-serif", fontSize: 11, color: "rgba(250,247,241,0.32)", lineHeight: 1.8, margin: 0 }}>{row.tasks}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* KPIs */}
+                <div style={{ padding: "36px 56px" }}>
+                  <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
+                    11 — KPIs & Reporting
+                  </p>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 100px 100px 160px" }}>
+                    {["Metric", "Month 1", "Month 3", "Flag if..."].map(h => (
+                      <span key={h} style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(250,247,241,0.18)", padding: "0 0 10px", borderBottom: "1px solid #1e1c1a" }}>{h}</span>
+                    ))}
+                    {[
+                      { metric: "Cost Per Lead",      m1: "$60–75",  m3: "$40–55",  flag: "CPL > $90 two weeks running" },
+                      { metric: "Click-Through Rate", m1: "3%+",     m3: "5%+",     flag: "CTR < 2% — ad copy issue" },
+                      { metric: "Conversion Rate",    m1: "3–4%",    m3: "5–7%",    flag: "CVR < 2% — landing page" },
+                      { metric: "Estimate Leads/mo",  m1: "15+",     m3: "25–35",   flag: "Below 10 — diagnose" },
+                      { metric: "Booked Jobs",        m1: "4–6",     m3: "9–12",    flag: "Close rate < 20%" },
+                    ].map((row, i) => (
+                      <>
+                        <span key={`m${i}`}  style={{ fontFamily: "sans-serif", fontSize: 11, color: "rgba(250,247,241,0.45)", padding: "13px 0", borderTop: "1px solid #181614" }}>{row.metric}</span>
+                        <span key={`m1${i}`} style={{ fontFamily: "serif", fontSize: "0.95rem", fontWeight: 600, color: "#FAF7F1", padding: "13px 0", borderTop: "1px solid #181614" }}>{row.m1}</span>
+                        <span key={`m3${i}`} style={{ fontFamily: "serif", fontSize: "0.95rem", fontWeight: 600, color: "#FF4D14", padding: "13px 0", borderTop: "1px solid #181614" }}>{row.m3}</span>
+                        <span key={`f${i}`}  style={{ fontFamily: "sans-serif", fontSize: 10, color: "rgba(250,247,241,0.22)", padding: "13px 0", borderTop: "1px solid #181614", fontStyle: "italic" }}>{row.flag}</span>
+                      </>
+                    ))}
+                  </div>
+                </div>
+              </div>
             ) : imgs.length > 0 ? (
               project.phoneFrame ? (
                 /* Phone frames: centered wrap */
@@ -1545,8 +1700,8 @@ function Home() {
       nameColor: "#FAF7F1",
       clientColor: "rgba(250,247,241,0.55)",
       desc: "Residential painting company full rebrand — logo, brand system, color palette, typography, signage, and print collateral.",
-      images: ["/ppp-1.png", "/ppp-ads-01.png", "/ppp-ads-02.png", "/ppp-ads-03.png", "/ppp-ads-04.png", "/ppp-ads-05.png", "/ppp-ads-06.png", "/ppp-ads-07.png", "/ppp-ads-08.png", "/ppp-ads-09.png", "/ppp-ads-10.png", "/ppp-ads-11.png"],
-      scrollGallery: true,
+      images: ["/ppp-1.png"],
+      adsStrategy: true,
       hideBrandGuide: true,
       pdfLinks: [{ label: "Brand Guide", url: "https://precision-paint-pros-brandguide.vercel.app/" }],
       caseStudy: {
