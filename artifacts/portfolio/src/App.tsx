@@ -139,7 +139,6 @@ function CarouselModal({
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [caseStudyOpen, setCaseStudyOpen] = useState(false);
   const [brandGuideOpen, setBrandGuideOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
@@ -149,7 +148,6 @@ function CarouselModal({
   const go = useCallback((dir: number) => {
     setDirection(dir);
     setLightboxIndex(null);
-    setCaseStudyOpen(false);
     setBrandGuideOpen(false);
     setCurrentIndex((i) => (i + dir + projects.length) % projects.length);
   }, [projects.length]);
@@ -277,59 +275,33 @@ function CarouselModal({
               </p>
             </div>
 
-            {/* Case study toggle */}
+            {/* Case study */}
             {project.caseStudy && (
               <div className="px-14 md:px-24 pb-2">
-                <button
-                  onClick={() => setCaseStudyOpen(o => !o)}
-                  aria-expanded={caseStudyOpen}
-                  style={{ cursor: "none" }}
-                  className="flex items-center gap-3 bg-[#FF4D00] text-black font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:opacity-90 transition-opacity duration-200 focus:outline-none"
-                >
-                  <span>Case Study</span>
-                  <span
-                    className="text-base font-bold transition-transform duration-300 leading-none"
-                    style={{ display: "inline-block", transform: caseStudyOpen ? "rotate(45deg)" : "rotate(0deg)" }}
-                    aria-hidden="true"
-                  >+</span>
-                </button>
-                <AnimatePresence>
-                  {caseStudyOpen && (
-                    <motion.div
-                      key="case-study"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                      className="overflow-hidden"
-                    >
-                      <div className="mt-3 border border-[#1a1a1a]">
-                        {/* Stats bar */}
-                        {project.caseStudy.stats && project.caseStudy.stats.length > 0 && (
-                          <div className="grid border-b border-[#1a1a1a]" style={{ gridTemplateColumns: `repeat(${project.caseStudy.stats.length}, 1fr)` }}>
-                            {project.caseStudy.stats.map((stat, i) => (
-                              <div key={i} className={`bg-[#111] px-5 py-4 flex flex-col gap-1 ${i < project.caseStudy!.stats!.length - 1 ? "border-r border-[#1a1a1a]" : ""}`}>
-                                <span className="font-serif font-bold text-2xl text-[#FF4D00] leading-none">{stat.value}</span>
-                                <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40">{stat.label}</span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                        {/* Challenge / Approach */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a]">
-                          <div className="bg-[#0a0a0a] p-6">
-                            <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Challenge</div>
-                            <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.challenge}</p>
-                          </div>
-                          <div className="bg-[#0a0a0a] p-6">
-                            <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Approach</div>
-                            <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.approach}</p>
-                          </div>
+                <div className="border border-[#1a1a1a]">
+                  {/* Stats bar */}
+                  {project.caseStudy.stats && project.caseStudy.stats.length > 0 && (
+                    <div className="grid border-b border-[#1a1a1a]" style={{ gridTemplateColumns: `repeat(${project.caseStudy.stats.length}, 1fr)` }}>
+                      {project.caseStudy.stats.map((stat, i) => (
+                        <div key={i} className={`bg-[#111] px-5 py-4 flex flex-col gap-1 ${i < project.caseStudy!.stats!.length - 1 ? "border-r border-[#1a1a1a]" : ""}`}>
+                          <span className="font-serif font-bold text-2xl text-[#FF4D00] leading-none">{stat.value}</span>
+                          <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40">{stat.label}</span>
                         </div>
-                      </div>
-                    </motion.div>
+                      ))}
+                    </div>
                   )}
-                </AnimatePresence>
+                  {/* Challenge / Approach */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a]">
+                    <div className="bg-[#0a0a0a] p-6">
+                      <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Challenge</div>
+                      <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.challenge}</p>
+                    </div>
+                    <div className="bg-[#0a0a0a] p-6">
+                      <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Approach</div>
+                      <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.approach}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
 
@@ -1090,7 +1062,7 @@ function CarouselModal({
         {projects.map((p, i) => (
           <button
             key={i}
-            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); setLightboxIndex(null); setCaseStudyOpen(false); setBrandGuideOpen(false); }}
+            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); setLightboxIndex(null); setBrandGuideOpen(false); }}
             aria-label={`Go to ${p.name}`}
             aria-current={i === currentIndex ? "true" : undefined}
             className={`h-[3px] transition-all duration-300 ${i === currentIndex ? "w-6 bg-[#FF4D00]" : "w-[6px] bg-[#2a2a2a] hover:bg-[#555]"}`}
@@ -1689,97 +1661,6 @@ function Home() {
           "Site Fence Banner 8×4ft", "Vehicle Livery", "Highway Billboard 14×48ft",
         ],
         abbrev: "SPS",
-      },
-    },
-    {
-      name: "Precision Paint Pros",
-      client: "Precision Paint Pros",
-      category: "Brand Identity",
-      bg: "#141210",
-      labelColor: "#FF4D14",
-      nameColor: "#FAF7F1",
-      clientColor: "rgba(250,247,241,0.55)",
-      desc: "Residential painting company full rebrand — logo, brand system, color palette, typography, signage, and print collateral.",
-      images: ["/ppp-1.png"],
-      adsStrategy: true,
-      hideBrandGuide: true,
-      pdfLinks: [{ label: "Brand Guide", url: "https://precision-paint-pros-brandguide.vercel.app/" }],
-      caseStudy: {
-        stats: [
-          { value: "6+", label: "Brand Deliverables" },
-          { value: "100%", label: "Identity from Scratch" },
-          { value: "Est. 2014", label: "In Business" },
-        ],
-        challenge: "Precision Paint Pros had been doing quality residential work since 2014 — but their visual identity didn't show it. No consistent brand, no design system, nothing that set them apart from every other painter on the street. They were doing precise, careful work but showing up to every estimate looking the same as every competitor. They needed an identity that matched the craftsmanship they already brought to every job.",
-        approach: "I built the identity around restraint and contrast. Ink Black as the foundation, Safety Orange as the signature accent — used sparingly so it always means 'this is us.' Space Grotesk gives the wordmark authority without aggression. Hanken Grotesk keeps body copy warm and readable. The brand says what the work already does: clean lines, honest craft, nothing wasted. Every touchpoint — estimates, shirts, yard signs, the web — is designed to make them look like the most professional outfit on the block before they say a word.",
-      },
-      brandGuide: {
-        abbrev: "PPP",
-        manifesto: "Precision in every coat.",
-        manifestoSub: "A finish worth living with.",
-        manifestoBody: "Precision Paint Pros is a Cincinnati residential painting company built on one belief: the work should outlast the conversation. Since 2014, we've handled interior and exterior projects with the kind of care most clients have to ask for — clean edges, protected surfaces, and every room left cleaner than we found it.",
-        pillars: [
-          "01  Clean lines on every edge.",
-          "02  Honest work, honest pricing.",
-          "03  Done right, down to the drop cloth.",
-        ],
-        colors: [
-          { name: "Ink Black",     hex: "#141210", role: "Primary · Type + Mark",    pantone: "Black 6 C" },
-          { name: "Paper White",   hex: "#FAF7F1", role: "Surface + Negative Space" },
-          { name: "Safety Orange", hex: "#FF4D14", role: "Accent · ~10% of layout",  pantone: "Orange 021 C" },
-          { name: "Sky",           hex: "#BBD3DE", role: "Support Tint" },
-          { name: "Warm Gray",     hex: "#8C857D", role: "Utility" },
-          { name: "Deep Orange",   hex: "#D63A06", role: "Depth Tone" },
-        ],
-        display: {
-          family: "Space Grotesk",
-          weights: "500 · 600 · 700",
-          tracking: "−1% at 48px+",
-          substitute: "Plus Jakarta Sans",
-        },
-        body: {
-          family: "Hanken Grotesk",
-          weights: "400 / 500 / 600",
-          minSize: "13px min",
-        },
-        typeScale: [
-          { label: "H1",    size: "72 / 76" },
-          { label: "H2",    size: "48 / 52" },
-          { label: "H3",    size: "32 / 38" },
-          { label: "H4",    size: "22 / 28" },
-          { label: "Body",  size: "16 / 24" },
-          { label: "Small", size: "13 / 18" },
-          { label: "Mono",  size: "11 / 16" },
-        ],
-        mark: {
-          tagline: "A clean edge.",
-          industry: "Residential Painting",
-          specs: [
-            "Roller pass form factor",
-            "Stroke  rounded caps",
-            "Edge guides  25% opacity",
-            "Orange on black / white on orange",
-            "Minimum size  24px height",
-          ],
-          meaning: "The mark is the finishing pass of a roller — straight, even, nothing wasted. The edge guides on either side represent the precision that defines every job: you don't just see the paint, you see where it stops.",
-        },
-        patterns: [
-          { id: "P/01", name: "Roller Texture",  use: "Hero Accent" },
-          { id: "P/02", name: "Paint Grid",       use: "Technical Surfaces" },
-          { id: "P/03", name: "Stripe System",    use: "Edges & Signage" },
-          { id: "P/04", name: "Dot Field",        use: "Light Surfaces" },
-        ],
-        photography: "Natural light preferred · Real homes, real results · No staged stock photography · Subjects: before/after walls, edge detail, crew in action · Neutral backgrounds let the work speak · Clean, honest, no filters.",
-        logoVariants: [
-          { id: "01", name: "Stacked",     use: "Default / Primary" },
-          { id: "02", name: "Horizontal",  use: "Headers & Estimates" },
-          { id: "03", name: "Mark Only",   use: "Favicon / Badge" },
-          { id: "04", name: "Single Line", use: "Tight Horizontals" },
-        ],
-        applications: [
-          "Business Card", "Estimate Sheet", "Work Shirt", "Crew Hat",
-          "Vehicle Magnet", "Yard Sign 18×24in", "Truck Door Panel",
-        ],
       },
     },
     {
