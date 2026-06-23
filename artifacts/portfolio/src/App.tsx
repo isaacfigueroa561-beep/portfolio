@@ -1820,6 +1820,22 @@ function Home() {
       },
     },
     {
+      name: "Non-Profits",
+      client: "Churches & Non-Profits",
+      category: "Event Design / Sermon Series",
+      bg: "#0f1f3d",
+      labelColor: "#FF4D00",
+      nameColor: "#fff",
+      clientColor: "rgba(255,255,255,0.5)",
+      desc: "Sermon series, event graphics, and campaign visuals for churches and non-profit organizations.",
+      images: [
+        "/np-1.png", "/np-2.png", "/np-3.png", "/np-4.png",
+        "/np-5.png", "/np-6.png", "/np-7.png", "/np-8.png",
+        "/np-9.png", "/np-10.png", "/np-11.png", "/np-12.png",
+        "/np-13.png", "/np-14.png"
+      ],
+    },
+    {
       name: "Aware Coffee",
       client: "Aware Coffee",
       category: "Brand Identity / Packaging",
