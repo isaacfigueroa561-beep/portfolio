@@ -1203,6 +1203,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
       const data = await res.json();
       if (!data.success) throw new Error(data.message ?? "Submission failed.");
       setSent(true);
+      (window as any).dataLayer?.push({ event: "contact_form_submit" });
     } catch (err) {
       console.error("EmailJS error:", err);
       setError(err instanceof Error ? err.message : typeof err === "object" ? JSON.stringify(err) : "Something went wrong. Please email me directly at isaacfigueroa561@gmail.com");
@@ -1387,6 +1388,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                       href={BOOKING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => (window as any).dataLayer?.push({ event: "book_call_click" })}
                       className="inline-flex items-center gap-3 bg-[#F5F0E8] text-[#0D0D0D] font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity"
                       style={{ cursor: "none" }}
                     >
