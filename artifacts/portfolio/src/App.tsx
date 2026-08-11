@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-const WEB3FORMS_KEY = "f9cc7955-7942-48e2-a3c9-ed068cc95923";
+const WEB3FORMS_KEY = "a995b538-bfa2-42fe-8d08-66ed77362ccb";
 
 const queryClient = new QueryClient();
 
@@ -1577,6 +1577,97 @@ function Home() {
 
   const projects: Project[] = [
     {
+      name: "Little Pilot",
+      client: "Little Pilot Agency",
+      category: "Web Design / Brand",
+      bg: "#1c1409",
+      labelColor: "#e8d5b0",
+      nameColor: "#f0e6cc",
+      clientColor: "rgba(240,230,204,0.55)",
+      desc: "Website for Little Pilot — a CPG-native growth agency running paid media, email & SMS, influencer, and creative for 20+ food, beverage, and personal care brands.",
+      deviceMockup: true,
+      images: ["/little-pilot-portfolio-showcase.webm"],
+      liveUrl: "https://little-pilot-new-new.vercel.app",
+      caseStudy: {
+        stats: [
+          { value: "3.92x", label: "Blended ROAS (Reuzel)" },
+          { value: "+25%", label: "Ecomm Growth YoY (Taza)" },
+          { value: "11.2M", label: "Influencer Reach (Cappello's)" },
+          { value: "34.7x", label: "SMS Program ROI (Taza)" },
+        ],
+        challenge: "Little Pilot had the receipts — 3.92x blended ROAS, 20+ CPG brands, campaigns live across Whole Foods, Target, and Walmart — but their website didn't reflect any of it. The site needed to convert brand founders browsing agencies into actual conversations, while matching the taste level and authority that their client roster demanded.",
+        approach: "I led with proof. A scrolling ticker of hard numbers (20+ brands, 15+ major retailers, 100% CPG focused) hits before any copy. Full-bleed lifestyle photography sets the brand aesthetic immediately — warm, editorial, premium without being cold. The layout clears the way for the results to do the selling: case studies with real metrics, retailer logos, and channel breakdowns that signal exactly the kind of partner Little Pilot is.",
+      },
+    },
+    {
+      name: "Forma",
+      client: "Personal Project",
+      category: "Web Design / Brand",
+      bg: "#EDEAE3",
+      labelColor: "#7E3717",
+      nameColor: "#1a1a1a",
+      clientColor: "rgba(26,26,26,0.55)",
+      desc: "FORMA is a concept CPG brand studio site — visual identity, packaging design, campaign, and motion work presented the way a studio that moves product off shelves and into culture should look.",
+      deviceMockup: true,
+      images: ["/forma-portfolio-showcase.webm"],
+      liveUrl: "https://forma-studio-eight.vercel.app",
+      caseStudy: {
+        stats: [
+          { value: "0→1", label: "Built from Scratch" },
+          { value: "4", label: "Service Pillars" },
+          { value: "100%", label: "Designed & Developed" },
+        ],
+        challenge: "Most CPG-focused studio sites default to either sterile agency minimalism or over-styled mood boards that never show the work doing its job. FORMA needed to sell packaging, identity, campaign, and motion work as one connected practice — with a rust-and-cream editorial palette that feels closer to the shelf-ready brands it represents than a typical design portfolio.",
+        approach: "I structured the site around what a CPG founder actually evaluates: services delivered, studio statistics, and work they can see themselves in. Warm neutral tones and confident condensed type carry the brand feel throughout, while the service breakdown (Brand Strategy, Visual Identity, Packaging Design, Campaign Art Direction, Motion Identity) reads like a capabilities deck rather than a list. Every section is built to move a visitor from 'interesting studio' to 'let's talk.'",
+      },
+    },
+    {
+      name: "Meridian",
+      client: "Personal Project",
+      category: "Product Design / UI",
+      bg: "#FBFAF6",
+      labelColor: "#14110D",
+      nameColor: "#14110D",
+      clientColor: "#3D3830",
+      desc: "Meridian is a fintech web app for high-income professionals — full product design and front-end development. Dashboard, portfolio, markets, goals, and an AI advisor all in one editorial interface.",
+      deviceMockup: true,
+      images: ["/meridian-portfolio-showcase.webm"],
+      liveUrl: "/meridian/index.html",
+      presentation: {
+        label: "Product Design · UI / UX · Front-End Development",
+        tagline: "Wealth management that doesn't feel like work.",
+        domain: "meridian.app",
+        stats: [
+          { value: "0→1",  label: "Built from Scratch" },
+          { value: "5",    label: "Core Screens" },
+          { value: "2",    label: "Themes" },
+          { value: "100%", label: "Custom Built" },
+        ],
+        features: [
+          { label: "Dashboard",  sub: "Net worth at a glance",           desc: "One chart. One number. The information that actually matters, front and center." },
+          { label: "AI Advisor", sub: "Marisol — your financial partner", desc: "Intelligent guidance built into the interface — always contextual, never interruptive." },
+          { label: "Portfolio",  sub: "Asset breakdown + performance",    desc: "Scannable allocation view with return data and live chart animations." },
+          { label: "Dual Theme", sub: "Light & dark mode",                desc: "Full adaptive color system — every surface, component, and state covered in both modes." },
+        ],
+        tokens: [
+          { role: "Headings",  sample: "Meridian",   family: "Instrument Serif",  sampleStyle: { fontFamily: "'Georgia',serif", fontStyle: "italic", fontSize: "1.5rem", fontWeight: 400 } },
+          { role: "Interface", sample: "Dashboard",  family: "Onest",              sampleStyle: { fontFamily: "system-ui,sans-serif", fontSize: "1.2rem", fontWeight: 700, letterSpacing: "-0.01em" } },
+          { role: "Numbers",   sample: "$1,284,350", family: "JetBrains Mono",     sampleStyle: { fontFamily: "'Courier New',monospace", fontSize: "1rem", fontWeight: 400, letterSpacing: "0.02em" } },
+        ],
+        tags: ["Product Design", "UI / UX", "Front-End Dev", "Fintech"],
+      },
+      caseStudy: {
+        stats: [
+          { value: "0→1", label: "Built from Scratch" },
+          { value: "5", label: "Core Screens" },
+          { value: "2", label: "Themes (Light / Dark)" },
+          { value: "100%", label: "Custom Coded" },
+        ],
+        challenge: "Most financial apps treat data like a spreadsheet — dense, cold, and anxiety-inducing. High-income professionals don't need more data; they need clarity. The challenge was designing a fintech interface that felt editorial and calm rather than overwhelming — one that surfaces the right information at the right moment without making wealth management feel like a second job.",
+        approach: "I built Meridian around the idea that a great financial interface should feel more like a well-designed magazine than a Bloomberg terminal. Instrument Serif for headings, Onest for UI, and JetBrains Mono for numbers created a typographic hierarchy that's instantly scannable. The dashboard leads with net worth and a single chart — everything else is a layer deeper. Light and dark themes, a living AI advisor panel named Marisol, and animated micro-interactions throughout make the app feel alive without being distracting.",
+      },
+    },
+    {
       name: "Spark Pro Services",
       client: "Spark Pro Services",
       category: "Brand Identity / Web",
@@ -1666,48 +1757,25 @@ function Home() {
       },
     },
     {
-      name: "Meridian",
-      client: "Personal Project",
-      category: "Product Design / UI",
-      bg: "#FBFAF6",
-      labelColor: "#14110D",
-      nameColor: "#14110D",
-      clientColor: "#3D3830",
-      desc: "Meridian is a fintech web app for high-income professionals — full product design and front-end development. Dashboard, portfolio, markets, goals, and an AI advisor all in one editorial interface.",
+      name: "Wave Creative House",
+      client: "Wave Creative House",
+      category: "Web Design / Brand",
+      bg: "#f5f0e4",
+      labelColor: "#e34d37",
+      nameColor: "#111",
+      clientColor: "#555",
+      desc: "Full brand identity and website for Wave Creative House — a Las Vegas design studio co-founded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
       deviceMockup: true,
-      liveUrl: "/meridian/index.html",
-      presentation: {
-        label: "Product Design · UI / UX · Front-End Development",
-        tagline: "Wealth management that doesn't feel like work.",
-        domain: "meridian.app",
-        stats: [
-          { value: "0→1",  label: "Built from Scratch" },
-          { value: "5",    label: "Core Screens" },
-          { value: "2",    label: "Themes" },
-          { value: "100%", label: "Custom Built" },
-        ],
-        features: [
-          { label: "Dashboard",  sub: "Net worth at a glance",           desc: "One chart. One number. The information that actually matters, front and center." },
-          { label: "AI Advisor", sub: "Marisol — your financial partner", desc: "Intelligent guidance built into the interface — always contextual, never interruptive." },
-          { label: "Portfolio",  sub: "Asset breakdown + performance",    desc: "Scannable allocation view with return data and live chart animations." },
-          { label: "Dual Theme", sub: "Light & dark mode",                desc: "Full adaptive color system — every surface, component, and state covered in both modes." },
-        ],
-        tokens: [
-          { role: "Headings",  sample: "Meridian",   family: "Instrument Serif",  sampleStyle: { fontFamily: "'Georgia',serif", fontStyle: "italic", fontSize: "1.5rem", fontWeight: 400 } },
-          { role: "Interface", sample: "Dashboard",  family: "Onest",              sampleStyle: { fontFamily: "system-ui,sans-serif", fontSize: "1.2rem", fontWeight: 700, letterSpacing: "-0.01em" } },
-          { role: "Numbers",   sample: "$1,284,350", family: "JetBrains Mono",     sampleStyle: { fontFamily: "'Courier New',monospace", fontSize: "1rem", fontWeight: 400, letterSpacing: "0.02em" } },
-        ],
-        tags: ["Product Design", "UI / UX", "Front-End Dev", "Fintech"],
-      },
+      images: ["/wave-motion.mp4"],
+      liveUrl: "https://www.wavecreativehouse.com/",
       caseStudy: {
         stats: [
           { value: "0→1", label: "Built from Scratch" },
-          { value: "5", label: "Core Screens" },
-          { value: "2", label: "Themes (Light / Dark)" },
-          { value: "100%", label: "Custom Coded" },
+          { value: "4", label: "Service Offerings" },
+          { value: "100%", label: "Designed & Developed" },
         ],
-        challenge: "Most financial apps treat data like a spreadsheet — dense, cold, and anxiety-inducing. High-income professionals don't need more data; they need clarity. The challenge was designing a fintech interface that felt editorial and calm rather than overwhelming — one that surfaces the right information at the right moment without making wealth management feel like a second job.",
-        approach: "I built Meridian around the idea that a great financial interface should feel more like a well-designed magazine than a Bloomberg terminal. Instrument Serif for headings, Onest for UI, and JetBrains Mono for numbers created a typographic hierarchy that's instantly scannable. The dashboard leads with net worth and a single chart — everything else is a layer deeper. Light and dark themes, a living AI advisor panel named Marisol, and animated micro-interactions throughout make the app feel alive without being distracting.",
+        challenge: "Wave Creative House needed to launch as a credible, polished studio from day one — competing against established agencies without a client portfolio to lean on. The site had to communicate authority, taste, and approachability simultaneously, while making it dead simple for a small business owner to understand exactly what Wave does and take the next step.",
+        approach: "I built the brand around warmth and directness — none of the cold minimalism that plagues most design studios. The cream-and-yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a two-person shop.",
       },
     },
     {
@@ -2020,6 +2088,105 @@ function Home() {
           <div className="font-sans font-light text-sm text-muted-foreground tracking-widest">(07)</div>
         </motion.div>
 
+        {/* Featured showcase — top 3 projects, full desktop browser-frame video */}
+        <div className="border-t border-[#1a1a1a]">
+          {["Little Pilot", "Forma", "Meridian"].map((name, fi) => {
+            const project = projects.find((p) => p.name === name);
+            if (!project || !project.images?.[0]) return null;
+            const idx = projects.findIndex((p) => p.name === name);
+            const isVideo = /\.(mp4|webm)$/.test(project.images[0]);
+            return (
+              <motion.div
+                key={name}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${project.name} — ${project.category}`}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="group border-b border-[#1a1a1a] cursor-pointer px-6 md:px-16 py-14 md:py-20"
+                onClick={() => setSelectedIndex(idx)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedIndex(idx); } }}
+                data-testid={`card-featured-${idx}`}
+              >
+                <div className="flex items-end justify-between gap-6 mb-8 flex-wrap">
+                  <div>
+                    <span className="font-sans font-light text-[10px] text-[#F5F0E8]/20 tabular-nums select-none" aria-hidden="true">
+                      {String(fi + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-serif font-bold uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight mt-2">
+                      {project.name}
+                    </h3>
+                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 mt-3">
+                      {project.category} · {project.client}
+                    </p>
+                  </div>
+                  <span className="project-card-arrow font-sans text-2xl text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300 flex-shrink-0 select-none" aria-hidden="true">
+                    →
+                  </span>
+                </div>
+
+                {/* Desktop browser-chrome video frame */}
+                <div
+                  className="max-w-5xl mx-auto"
+                  style={{
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    borderRadius: 10,
+                    background: "#0c0c0c",
+                    overflow: "hidden",
+                    boxShadow: "0 40px 100px rgba(0,0,0,0.7)",
+                  }}
+                >
+                  <div style={{
+                    height: 38, background: "#161616",
+                    borderBottom: "1px solid rgba(255,255,255,0.05)",
+                    display: "flex", alignItems: "center",
+                    padding: "0 16px", gap: 8,
+                  }}>
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#FF5F57" }} />
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#FEBC2E" }} />
+                    <div style={{ width: 12, height: 12, borderRadius: "50%", background: "#28C840" }} />
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div style={{
+                        background: "#0e0e0e",
+                        border: "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: 6,
+                        padding: "3px 14px",
+                        fontFamily: "'Inter',system-ui,sans-serif",
+                        fontSize: 11, color: "#555",
+                        minWidth: 220, textAlign: "center",
+                      }}>
+                        🔒 {project.presentation?.domain ?? project.name.toLowerCase().replace(/\s/g, "") + ".com"}
+                      </div>
+                    </div>
+                    <div style={{ width: 60 }} />
+                  </div>
+                  <div style={{ aspectRatio: "16 / 9", position: "relative" }}>
+                    {isVideo ? (
+                      <video
+                        src={project.images[0]}
+                        className="w-full h-full object-cover block"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={project.images[0]}
+                        alt={`${project.name} — desktop preview`}
+                        className="w-full h-full object-cover block"
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
         {/* Editorial list */}
         <div className="border-t border-[#1a1a1a] relative">
 
@@ -2037,20 +2204,36 @@ function Home() {
                 aria-hidden="true"
               >
                 <div style={{ width: 340, height: 240 }} className="overflow-hidden">
-                  <img
-                    src={hoveredProject.images[0]}
-                    alt=""
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  {/\.(mp4|webm)$/.test(hoveredProject.images[0]) ? (
+                    <video
+                      key={hoveredProject.images[0]}
+                      src={hoveredProject.images[0]}
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={hoveredProject.images[0]}
+                      alt=""
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
 
-          {projects.map((project, i) => (
+          {projects
+            .filter((project) => !["Little Pilot", "Forma", "Meridian"].includes(project.name))
+            .map((project, i) => {
+            const idx = projects.indexOf(project);
+            return (
             <motion.div
-              key={i}
+              key={idx}
               role="button"
               tabIndex={0}
               aria-label={`View ${project.name} — ${project.category}`}
@@ -2059,11 +2242,11 @@ function Home() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.55, delay: i * 0.04 }}
               className="group border-b border-[#1a1a1a] cursor-pointer"
-              onClick={() => setSelectedIndex(i)}
-              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedIndex(i); } }}
+              onClick={() => setSelectedIndex(idx)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedIndex(idx); } }}
               onMouseEnter={() => setHoveredProject(project)}
               onMouseLeave={() => setHoveredProject(null)}
-              data-testid={`card-project-${i}`}
+              data-testid={`card-project-${idx}`}
             >
               <div className="project-card-row flex items-center px-6 md:px-16 py-8 md:py-9 gap-4 md:gap-10 group-hover:bg-[#111] border-l-2 border-transparent group-hover:border-[#FF4D00] transition-all duration-200">
                 {/* Number */}
@@ -2083,7 +2266,7 @@ function Home() {
                 </div>
 
                 {/* Category + Client — desktop only */}
-                <div className="hidden md:flex flex-col items-end gap-[5px] flex-shrink-0 min-w-[160px]" aria-hidden="true">
+                <div className="hidden md:flex flex-col items-end gap-[5px] flex-shrink-0 min-w-[130px]" aria-hidden="true">
                   <span className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 text-right">
                     {project.category}
                   </span>
@@ -2107,7 +2290,8 @@ function Home() {
                 </span>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
