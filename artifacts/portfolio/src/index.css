@@ -157,67 +157,6 @@ body::before {
   pointer-events: none;
 }
 
-/* ── Testimonials infinite scroll ── */
-@keyframes scroll-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes scroll-right {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.testimonials-track-wrapper {
-  overflow: hidden;
-  width: 100%;
-}
-
-.testimonials-track-left {
-  display: flex;
-  width: max-content;
-  animation: scroll-left 40s linear infinite;
-}
-
-.testimonials-track-right {
-  display: flex;
-  width: max-content;
-  animation: scroll-right 50s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .testimonials-track-left,
-  .testimonials-track-right {
-    animation: none;
-  }
-}
-
-/* Always hide the OS cursor on interactive elements — custom cursor handles it */
-a, button, [role="button"], select, input, textarea, label {
-  cursor: none !important;
-}
-
-/* Custom cursor — scale wrapper + rotation inner, no JS animation loops */
-.cursor-scale-wrapper {
-  display: block;
-  transition: transform 0.18s ease-out;
-  transform: scale(1);
-}
-.cursor-hovered .cursor-scale-wrapper {
-  transform: scale(1.6);
-}
-.cursor-inner {
-  display: block;
-  font-size: 26px;
-  color: #FF4D00;
-  font-weight: 900;
-  line-height: 1;
-  font-family: sans-serif;
-  animation: cursor-spin 7s linear infinite;
-}
-@keyframes cursor-spin {
-  to { transform: rotate(360deg); }
-}
-
 /* Accessible focus-visible outlines — orange brand colour, visible on dark bg */
 :focus-visible {
   outline: 2px solid #FF4D00 !important;
@@ -235,14 +174,4 @@ a, button, [role="button"], select, input, textarea, label {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-/* Hide custom cursor on touch/mobile devices — restore default cursor */
-@media (pointer: coarse) {
-  .custom-cursor {
-    display: none !important;
-  }
-  * {
-    cursor: auto !important;
-  }
 }

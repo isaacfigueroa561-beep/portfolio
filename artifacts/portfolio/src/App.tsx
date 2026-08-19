@@ -69,61 +69,11 @@ function CopyEmail({ email }: { email: string }) {
   return (
     <button
       onClick={handleClick}
-      style={{ cursor: "none" }}
       className="hover:text-[#F5F0E8] transition-colors relative"
       data-testid="link-email"
     >
       {copied ? <span className="text-[#FF4D00]">Copied ✓</span> : email}
     </button>
-  );
-}
-
-function CustomCursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = cursorRef.current;
-    if (!el) return;
-    let revealed = false;
-
-    const onMove = (e: MouseEvent) => {
-      el.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
-      if (!revealed) {
-        revealed = true;
-        el.style.opacity = "1";
-      }
-    };
-
-    const onOver = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
-      const isHovered = !!(
-        t.closest("button") ||
-        t.closest("a") ||
-        t.closest("[data-cursor-hover]") ||
-        t.closest(".group")
-      );
-      el.classList.toggle("cursor-hovered", isHovered);
-    };
-
-    document.addEventListener("mousemove", onMove, { passive: true });
-    document.addEventListener("mouseover", onOver, { passive: true });
-    return () => {
-      document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mouseover", onOver);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={cursorRef}
-      aria-hidden="true"
-      className="custom-cursor fixed top-0 left-0 pointer-events-none z-[99999] select-none"
-      style={{ opacity: 0, willChange: "transform" }}
-    >
-      <span className="cursor-scale-wrapper">
-        <span className="cursor-inner">✳</span>
-      </span>
-    </div>
   );
 }
 
@@ -311,7 +261,6 @@ function CarouselModal({
                 <button
                   onClick={() => setBrandGuideOpen(o => !o)}
                   aria-expanded={brandGuideOpen}
-                  style={{ cursor: "none" }}
                   className="flex items-center gap-3 border border-[#222] text-[#F4F0E8]/50 font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:border-[#F2541C] hover:text-[#F2541C] transition-all duration-200 focus:outline-none"
                 >
                   <span>Brand Guidelines</span>
@@ -555,7 +504,6 @@ function CarouselModal({
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ cursor: "none" }}
                     className="inline-flex items-center gap-3 border border-[#222] text-[#F4F0E8]/50 font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:border-[#F2541C] hover:text-[#F2541C] transition-all duration-200 focus:outline-none"
                   >
                     <span>{link.label}</span>
@@ -792,7 +740,6 @@ function CarouselModal({
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ cursor: "none" }}
                       className="inline-flex items-center gap-2 bg-[#FF4D00] text-black font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:opacity-90 transition-opacity duration-200 flex-shrink-0"
                     >
                       <span>View Live</span>
@@ -1251,7 +1198,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                 Let's Make Something <span className="text-[#FF4D00] italic normal-case">worth</span> It.
               </h3>
             </div>
-            <button onClick={onClose} aria-label="Close" className="w-9 h-9 flex items-center justify-center border border-[#2a2a2a] text-[#F5F0E8] hover:border-[#F5F0E8] transition-colors text-lg leading-none flex-shrink-0 mt-1" style={{ cursor: "none" }}>
+            <button onClick={onClose} aria-label="Close" className="w-9 h-9 flex items-center justify-center border border-[#2a2a2a] text-[#F5F0E8] hover:border-[#F5F0E8] transition-colors text-lg leading-none flex-shrink-0 mt-1">
               ×
             </button>
           </div>
@@ -1261,14 +1208,12 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
             <button
               onClick={() => setTab("message")}
               className={`font-sans font-light text-xs uppercase tracking-widest px-5 py-2.5 border transition-colors ${tab === "message" ? "bg-[#F5F0E8] text-[#0D0D0D] border-[#F5F0E8]" : "border-[#2a2a2a] text-[#666] hover:border-[#666]"}`}
-              style={{ cursor: "none" }}
             >
               Send a message
             </button>
             <button
               onClick={() => setTab("call")}
               className={`font-sans font-light text-xs uppercase tracking-widest px-5 py-2.5 border transition-colors ${tab === "call" ? "bg-[#F5F0E8] text-[#0D0D0D] border-[#F5F0E8]" : "border-[#2a2a2a] text-[#666] hover:border-[#666]"}`}
-              style={{ cursor: "none" }}
             >
               Book a call
             </button>
@@ -1283,7 +1228,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                     <div className="text-[#FF4D00] font-serif font-bold text-5xl mb-4">✓</div>
                     <p className="font-sans font-light text-[#F5F0E8] text-lg mb-2">Message received.</p>
                     <p className="font-sans font-light text-[#666] text-sm">Isaac will get back to you within 24 hours.</p>
-                    <button onClick={onClose} className="mt-8 border border-[#2a2a2a] text-[#F5F0E8] font-sans font-light text-xs uppercase tracking-widest px-6 py-3 hover:border-[#F5F0E8] transition-colors" style={{ cursor: "none" }}>Close</button>
+                    <button onClick={onClose} className="mt-8 border border-[#2a2a2a] text-[#F5F0E8] font-sans font-light text-xs uppercase tracking-widest px-6 py-3 hover:border-[#F5F0E8] transition-colors">Close</button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-7 max-w-2xl" noValidate>
@@ -1315,7 +1260,6 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                             type="button"
                             onClick={() => toggleService(s)}
                             className={`font-sans font-light text-xs px-4 py-2 border transition-colors ${services.includes(s) ? "border-[#FF4D00] text-[#FF4D00]" : "border-[#2a2a2a] text-[#666] hover:border-[#444]"}`}
-                            style={{ cursor: "none" }}
                           >
                             {s}
                           </button>
@@ -1333,7 +1277,6 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                             type="button"
                             onClick={() => setBudget(prev => prev === b ? "" : b)}
                             className={`font-sans font-light text-xs px-4 py-2 border transition-colors ${budget === b ? "border-[#FF4D00] text-[#FF4D00]" : "border-[#2a2a2a] text-[#666] hover:border-[#444]"}`}
-                            style={{ cursor: "none" }}
                           >
                             {b}
                           </button>
@@ -1355,7 +1298,6 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                       type="submit"
                       disabled={submitting}
                       className="self-start bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
-                      style={{ cursor: "none" }}
                     >
                       {submitting ? "Sending..." : "Send Message →"}
                     </button>
@@ -1390,7 +1332,6 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                       rel="noopener noreferrer"
                       onClick={() => (window as any).dataLayer?.push({ event: "book_call_click" })}
                       className="inline-flex items-center gap-3 bg-[#F5F0E8] text-[#0D0D0D] font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity"
-                      style={{ cursor: "none" }}
                     >
                       Open scheduling page →
                     </a>
@@ -1587,7 +1528,7 @@ function Home() {
       desc: "Website for Little Pilot — a CPG-native growth agency running paid media, email & SMS, influencer, and creative for 20+ food, beverage, and personal care brands.",
       deviceMockup: true,
       images: ["/little-pilot-portfolio-showcase.webm"],
-      liveUrl: "https://little-pilot-new-new.vercel.app",
+      liveUrl: "https://littlepilot.co/",
       caseStudy: {
         stats: [
           { value: "3.92x", label: "Blended ROAS (Reuzel)" },
@@ -1927,53 +1868,14 @@ function Home() {
     },
   ];
 
-  const testimonials = [
-    {
-      quote: "Our entire church loved the shirt Isaac designed for us! Isaac was so easy to work with. We had thought we wanted to go one direction and then after seeing the concepts he put together for us, we liked the other option he threw out even more.",
-      name: "Shera Errico",
-      org: "",
-    },
-    {
-      quote: "Isaac Figueroa is the real deal. He helped me build out my company's website, business cards, and branded hats, and everything came out better than I imagined. He just gets it! I didn't have to micromanage anything. He took the vision and ran with it, and the whole brand feels cohesive and legit now. If you need someone creative, reliable, and easy to work with, Isaac is your guy. Highly recommend, no hesitation.",
-      name: "Jesus Rojas",
-      org: "Ranch Valley Contracting",
-    },
-    {
-      quote: "Isaac made me excited for the event and I'm the one planning the dang thing LOL!",
-      name: "Djuna S.",
-      org: "CC Network",
-    },
-    {
-      quote: "Isaac did fantastic on these and worked diligently from before Christmas break until now to help me get them just right!",
-      name: "Christianna Barbosa",
-      org: "COTR",
-    },
-    {
-      quote: "Isaac did a great job on this! He worked with us until we got a design that fits our needs perfectly. Thanks Isaac!",
-      name: "Janna Bartosh",
-      org: "",
-    },
-    {
-      quote: "Simple, fun, got it done. As the Creative Director it's great to see good design that I was 0% a part of implementing. Isaac is a big favorite around here.",
-      name: "Jacob Whipple",
-      org: "Mosaic",
-    },
-    {
-      quote: "Isaac crushed this project. It looks even better than I imagined. Loved that he gave me a few different options and then made all the collateral so it will be easy to update the pictures and post to socials. Great job!",
-      name: "Lacey Quebe",
-      org: "",
-    },
-  ];
-
   return (
-    <div className="min-h-[100dvh] w-full bg-background text-foreground overflow-x-hidden selection:bg-[#FF4D00] selection:text-black font-sans rounded-none" style={{ cursor: "none" }}>
+    <div className="min-h-[100dvh] w-full bg-background text-foreground overflow-x-hidden selection:bg-[#FF4D00] selection:text-black font-sans rounded-none">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[999999] focus:bg-[#FF4D00] focus:text-black focus:px-4 focus:py-2 focus:font-sans focus:font-semibold focus:text-sm focus:uppercase focus:tracking-wide"
       >
         Skip to main content
       </a>
-      <CustomCursor />
       {/* 1. STICKY NAV */}
       <nav
         aria-label="Main navigation"
@@ -2535,88 +2437,6 @@ function Home() {
           </div>
         </div>
       </section>
-      {/* 5.5 TESTIMONIALS */}
-      <section id="testimonials" className="w-full border-t border-[#1a1a1a] py-24 overflow-hidden" aria-label="Client testimonials">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-end justify-between px-8 md:px-16 mb-14 gap-4"
-        >
-          <div className="flex items-end gap-5">
-            <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#F5F0E8] uppercase m-0 leading-none">
-              CLIENT LOVE
-            </h2>
-          </div>
-          <p className="font-sans font-light text-sm text-muted-foreground max-w-xs">
-            Real words from real clients — unedited.
-          </p>
-        </motion.div>
-
-        {/* Row 1 — scrolls left */}
-        <div
-          className="testimonials-track-wrapper"
-          onMouseEnter={e => (e.currentTarget.querySelector('.testimonials-track-left') as HTMLElement | null)?.style.setProperty('animation-play-state', 'paused')}
-          onMouseLeave={e => (e.currentTarget.querySelector('.testimonials-track-left') as HTMLElement | null)?.style.setProperty('animation-play-state', 'running')}
-        >
-          <div className="testimonials-track-left flex gap-5" aria-hidden="false">
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <div
-                key={i}
-                className="testimonial-card flex-shrink-0 w-[340px] md:w-[420px] bg-[#111] border border-[#1e1e1e] p-7 flex flex-col justify-between gap-6"
-                aria-label={i < testimonials.length ? `Testimonial from ${t.name}${t.org ? `, ${t.org}` : ""}` : undefined}
-                aria-hidden={i >= testimonials.length ? "true" : undefined}
-              >
-                <p className="font-sans font-light text-sm text-[#F5F0E8]/80 leading-loose">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <div className="w-6 h-[1px] bg-[#FF4D00] mb-3" aria-hidden="true" />
-                  <div className="font-sans font-semibold text-xs text-[#FF4D00] uppercase tracking-[0.18em]">
-                    {t.name}
-                  </div>
-                  {t.org && (
-                    <div className="font-sans font-light text-[10px] text-muted-foreground uppercase tracking-[0.15em] mt-1">
-                      {t.org}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2 — scrolls right */}
-        <div
-          className="testimonials-track-wrapper mt-5"
-          onMouseEnter={e => (e.currentTarget.querySelector('.testimonials-track-right') as HTMLElement | null)?.style.setProperty('animation-play-state', 'paused')}
-          onMouseLeave={e => (e.currentTarget.querySelector('.testimonials-track-right') as HTMLElement | null)?.style.setProperty('animation-play-state', 'running')}
-        >
-          <div className="testimonials-track-right flex gap-5" aria-hidden="true">
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <div
-                key={i}
-                className="testimonial-card flex-shrink-0 w-[340px] md:w-[420px] bg-[#0f0f0f] border border-[#1a1a1a] p-7 flex flex-col justify-between gap-6"
-              >
-                <p className="font-sans font-light text-sm text-[#F5F0E8]/60 leading-loose">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <div className="w-6 h-[1px] bg-[#2a2a2a] mb-3" aria-hidden="true" />
-                  <div className="font-sans font-semibold text-xs text-[#F5F0E8]/40 uppercase tracking-[0.18em]">
-                    {t.name}
-                  </div>
-                  {t.org && (
-                    <div className="font-sans font-light text-[10px] text-muted-foreground uppercase tracking-[0.15em] mt-1">
-                      {t.org}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       {/* 6. CONTACT + FOOTER */}
       <section id="contact" className="w-full pt-40 pb-10 px-8 md:px-16 border-t border-[#1a1a1a] rounded-none flex flex-col justify-between min-h-screen">
         <div className="flex-1 flex flex-col justify-center rounded-none">
@@ -2655,7 +2475,7 @@ function Home() {
             </div>
 
             <div className="flex flex-wrap gap-8 font-sans font-light text-xs text-muted-foreground tracking-wide rounded-none">
-              <button onClick={() => setContactFormOpen(true)} style={{ cursor: "none" }} className="hover:text-[#F5F0E8] transition-colors" data-testid="link-email">isaacfigueroa561@gmail.com</button>
+              <button onClick={() => setContactFormOpen(true)} className="hover:text-[#F5F0E8] transition-colors" data-testid="link-email">isaacfigueroa561@gmail.com</button>
               <a href="tel:+17027880115" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-phone">+1 (702) 788-0115</a>
               <span>English / Spanish</span>
             </div>
