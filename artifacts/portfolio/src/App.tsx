@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, Link } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import { PrivacyPolicy, TermsAndConditions } from "@/pages/legal";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 const WEB3FORMS_KEY = "a995b538-bfa2-42fe-8d08-66ed77362ccb";
 
@@ -2491,6 +2492,10 @@ function Home() {
             <div className="font-sans font-light text-xs text-muted-foreground">
               © 2025 ISAAC FIGUEROA. ALL RIGHTS RESERVED.
             </div>
+            <div className="flex gap-6 font-sans font-light text-xs text-muted-foreground uppercase tracking-wide mt-1">
+              <Link href="/privacy" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-privacy">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-terms">Terms &amp; Conditions</Link>
+            </div>
           </div>
 
           <div className="flex gap-8 font-sans font-light text-xs text-muted-foreground uppercase tracking-wide rounded-none">
@@ -2513,6 +2518,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/terms" component={TermsAndConditions} />
       <Route component={NotFound} />
     </Switch>
   );
