@@ -1841,10 +1841,13 @@ function Home() {
       clientColor: "rgba(255,255,255,0.5)",
       desc: "Sermon series, event graphics, and campaign visuals for churches and non-profit organizations.",
       images: [
-        "/np-1.png", "/np-2.png", "/np-3.png", "/np-4.png",
-        "/np-5.png", "/np-6.png", "/np-7.png", "/np-8.png",
-        "/np-9.png", "/np-10.png", "/np-11.png", "/np-12.png",
-        "/np-13.png", "/np-14.png"
+        "/np-1.png", "/np-2.jpg", "/np-3.jpg", "/np-4.jpg",
+        "/np-5.jpg", "/np-6.jpg", "/np-7.jpg", "/np-8.jpg",
+        "/np-9.jpg", "/np-10.jpg", "/np-11.jpg", "/np-12.jpg",
+        "/np-13.jpg", "/np-14.jpg", "/np-15.jpg", "/np-16.jpg",
+        "/np-17.jpg", "/np-18.jpg", "/np-19.jpg", "/np-20.jpg",
+        "/np-21.jpg", "/np-22.jpg", "/np-23.jpg", "/np-24.png",
+        "/np-25.jpg", "/np-26.jpg", "/np-27.jpg", "/np-28.jpg"
       ],
     },
     {
