@@ -1841,7 +1841,7 @@ function Home() {
       clientColor: "rgba(255,255,255,0.5)",
       desc: "Sermon series, event graphics, and campaign visuals for churches and non-profit organizations.",
       images: [
-        "/np-1.png", "/np-2.jpg", "/np-3.jpg", "/np-4.jpg",
+        "/np-1.png", "/np-2.jpg", "/np-4.jpg",
         "/np-5.jpg", "/np-6.jpg", "/np-7.jpg", "/np-8.jpg",
         "/np-9.jpg", "/np-10.jpg", "/np-11.jpg", "/np-12.jpg",
         "/np-13.jpg", "/np-14.jpg", "/np-15.jpg", "/np-16.jpg",
