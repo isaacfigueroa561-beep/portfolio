@@ -78,6 +78,34 @@ function CopyEmail({ email }: { email: string }) {
   );
 }
 
+function LazyAutoplayVideo({ src, className }: { src: string; className?: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) el.play().catch(() => {});
+        else el.pause();
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <video
+      ref={ref}
+      src={src}
+      className={className}
+      loop
+      muted
+      playsInline
+      preload="metadata"
+    />
+  );
+}
+
 function CarouselModal({
   projects,
   initialIndex,
@@ -1618,7 +1646,7 @@ function Home() {
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.7)",
       desc: "Construction company full rebrand — logo, web, apparel, signage",
-      images: ["/spark-1.png", "/spark-2.png", "/spark-3.png", "/spark-4.png", "/spark-5.png", "/spark-6.png", "/spark-7.png", "/spark-8.png"],
+      images: ["/spark-1.webp", "/spark-2.webp", "/spark-3.webp", "/spark-4.webp", "/spark-5.webp", "/spark-6.webp", "/spark-7.webp", "/spark-8.webp"],
       caseStudy: {
         stats: [
           { value: "6+", label: "Brand Deliverables" },
@@ -1770,8 +1798,8 @@ function Home() {
       clientColor: "rgba(255,255,255,0.6)",
       desc: "Full brand suite — social graphics, hoodie, tote bag, signage",
       images: [
-        "/billy-new-1.png", "/billy-new-2.png", "/billy-new-3.png", "/billy-new-4.png",
-        "/billy-new-5.png", "/billy-new-6.png", "/billy-new-7.png", "/billy-new-8.png", "/billy-new-9.png"
+        "/billy-new-1.webp", "/billy-new-2.webp", "/billy-new-3.webp", "/billy-new-4.webp",
+        "/billy-new-5.webp", "/billy-new-6.webp", "/billy-new-7.webp", "/billy-new-8.webp", "/billy-new-9.webp"
       ],
       caseStudy: {
         stats: [
@@ -1793,10 +1821,10 @@ function Home() {
       clientColor: "#333",
       desc: "Full visual identity — signage, merch, posters, tote bags",
       images: [
-        "/chino-new-1.png", "/chino-new-2.png", "/chino-new-3.png",
-        "/chino-new-10.png", "/chino-new-11.png", "/chino-new-12.png",
-        "/chino-new-4.png", "/chino-new-5.png", "/chino-new-6.png",
-        "/chino-new-7.png", "/chino-new-8.png", "/chino-new-9.png"
+        "/chino-new-1.webp", "/chino-new-2.webp", "/chino-new-3.webp",
+        "/chino-new-10.webp", "/chino-new-11.webp", "/chino-new-12.webp",
+        "/chino-new-4.webp", "/chino-new-5.webp", "/chino-new-6.webp",
+        "/chino-new-7.webp", "/chino-new-8.webp", "/chino-new-9.webp"
       ],
       caseStudy: {
         stats: [
@@ -1818,8 +1846,8 @@ function Home() {
       clientColor: "rgba(255,255,255,0.5)",
       desc: "Vintage-style graphic tee with flaming heart illustration",
       images: [
-        "/clh-1.png", "/clh-2.png", "/clh-3.png", "/clh-4.png", "/clh-5.png",
-        "/clh-6.png", "/clh-7.png", "/clh-8.png", "/clh-9.png"
+        "/clh-1.webp", "/clh-2.webp", "/clh-3.webp", "/clh-4.webp", "/clh-5.webp",
+        "/clh-6.webp", "/clh-7.webp", "/clh-8.webp", "/clh-9.webp"
       ],
       caseStudy: {
         stats: [
@@ -1841,13 +1869,13 @@ function Home() {
       clientColor: "rgba(255,255,255,0.5)",
       desc: "Sermon series, event graphics, and campaign visuals for churches and non-profit organizations.",
       images: [
-        "/np-1.png", "/np-2.jpg", "/np-4.jpg",
-        "/np-5.jpg", "/np-6.jpg", "/np-7.jpg", "/np-8.jpg",
-        "/np-9.jpg", "/np-10.jpg", "/np-11.jpg", "/np-12.jpg",
-        "/np-13.jpg", "/np-14.jpg", "/np-15.jpg", "/np-16.jpg",
-        "/np-17.jpg", "/np-18.jpg", "/np-19.jpg", "/np-20.jpg",
-        "/np-21.jpg", "/np-22.jpg", "/np-23.jpg", "/np-24.png",
-        "/np-25.jpg", "/np-26.jpg", "/np-27.jpg", "/np-28.jpg"
+        "/np-1.webp", "/np-2.webp", "/np-4.webp",
+        "/np-5.webp", "/np-6.webp", "/np-7.webp", "/np-8.webp",
+        "/np-9.webp", "/np-10.webp", "/np-11.webp", "/np-12.webp",
+        "/np-13.webp", "/np-14.webp", "/np-15.webp", "/np-16.webp",
+        "/np-17.webp", "/np-18.webp", "/np-19.webp", "/np-20.webp",
+        "/np-21.webp", "/np-22.webp", "/np-23.webp", "/np-24.webp",
+        "/np-25.webp", "/np-26.webp", "/np-27.webp", "/np-28.webp"
       ],
     },
     {
@@ -1859,7 +1887,7 @@ function Home() {
       nameColor: "#111",
       clientColor: "#555",
       desc: "Product launch campaign, cup mockups, social media graphics",
-      images: ["/aware-coffee-1.png", "/aware-coffee-2.png", "/aware-coffee-3.png", "/aware-coffee-4.png", "/aware-coffee-5.png"],
+      images: ["/aware-coffee-1.webp", "/aware-coffee-2.webp", "/aware-coffee-3.webp", "/aware-coffee-4.webp", "/aware-coffee-5.webp"],
       caseStudy: {
         stats: [
           { value: "5", label: "Campaign Visuals" },
@@ -2028,8 +2056,13 @@ function Home() {
                       {project.category} · {project.client}
                     </p>
                   </div>
-                  <span className="project-card-arrow font-sans text-2xl text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300 flex-shrink-0 select-none" aria-hidden="true">
-                    →
+                  <span className="flex items-center gap-3 flex-shrink-0 select-none" aria-hidden="true">
+                    <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.25em] text-[#F5F0E8]/30 group-hover:text-[#FF4D00] transition-colors duration-300">
+                      View Case Study
+                    </span>
+                    <span className="project-card-arrow font-sans text-2xl text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300">
+                      →
+                    </span>
                   </span>
                 </div>
 
@@ -2070,13 +2103,9 @@ function Home() {
                   </div>
                   <div style={{ aspectRatio: "16 / 9", position: "relative" }}>
                     {isVideo ? (
-                      <video
+                      <LazyAutoplayVideo
                         src={project.images[0]}
                         className="w-full h-full object-cover block"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
                       />
                     ) : (
                       <img
@@ -2169,6 +2198,10 @@ function Home() {
                   <p className="md:hidden font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/35 mt-2">
                     {project.category}
                   </p>
+                  {/* View Case Study — mobile only (desktop shows it near the arrow) */}
+                  <p className="md:hidden font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#F5F0E8]/25 mt-1.5" aria-hidden="true">
+                    View Case Study →
+                  </p>
                 </div>
 
                 {/* Category + Client — desktop only */}
@@ -2190,9 +2223,14 @@ function Home() {
                   />
                 )}
 
-                {/* Arrow */}
-                <span className="project-card-arrow font-sans text-base text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300 flex-shrink-0 select-none" aria-hidden="true">
-                  →
+                {/* View Case Study + Arrow */}
+                <span className="flex items-center gap-3 flex-shrink-0 select-none" aria-hidden="true">
+                  <span className="hidden md:inline font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#F5F0E8]/25 group-hover:text-[#FF4D00] transition-colors duration-300">
+                    View Case Study
+                  </span>
+                  <span className="project-card-arrow font-sans text-base text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300">
+                    →
+                  </span>
                 </span>
               </div>
             </motion.div>
