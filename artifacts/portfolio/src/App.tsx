@@ -78,7 +78,7 @@ function CopyEmail({ email }: { email: string }) {
   );
 }
 
-function LazyAutoplayVideo({ src, className }: { src: string; className?: string }) {
+function LazyAutoplayVideo({ src, className, bg }: { src: string; className?: string; bg?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -88,7 +88,7 @@ function LazyAutoplayVideo({ src, className }: { src: string; className?: string
         if (entry.isIntersecting) el.play().catch(() => {});
         else el.pause();
       },
-      { threshold: 0.25 }
+      { threshold: 0.1, rootMargin: "200px" }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -98,10 +98,11 @@ function LazyAutoplayVideo({ src, className }: { src: string; className?: string
       ref={ref}
       src={src}
       className={className}
+      style={{ backgroundColor: bg ?? "#111" }}
       loop
       muted
       playsInline
-      preload="metadata"
+      preload="auto"
     />
   );
 }
@@ -1444,12 +1445,12 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
 
 const HERO_STAGGER = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.15 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
 };
 
 const HERO_ITEM = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
 };
 
 function Home() {
@@ -2001,7 +2002,7 @@ function Home() {
         </div>
       </section>
       {/* 2. WORK */}
-      <section id="work" className="w-full border-t border-[#1a1a1a]">
+      <section id="work" className="w-full border-t border-black/15 bg-[#FF4D00]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -2010,20 +2011,20 @@ function Home() {
           className="flex flex-col md:flex-row md:items-end justify-between px-8 md:px-16 pt-24 pb-16 gap-6"
         >
           <div className="flex items-end gap-5">
-            <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#F5F0E8] uppercase m-0 leading-none">
+            <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#14110D] uppercase m-0 leading-none">
               RECENT PROJECTS
             </h2>
             <div className="hidden md:block mb-2" style={{ transform: "skewX(-10deg)" }}>
-              <div className="bg-[#FF4D00] px-3 py-1">
-                <span className="font-sans font-bold text-[10px] text-black uppercase tracking-widest" style={{ display: "block", transform: "skewX(10deg)" }}>2021–NOW</span>
+              <div className="bg-black px-3 py-1">
+                <span className="font-sans font-bold text-[10px] text-[#14110D] uppercase tracking-widest" style={{ display: "block", transform: "skewX(10deg)" }}>2021–NOW</span>
               </div>
             </div>
           </div>
-          <div className="font-sans font-light text-sm text-muted-foreground tracking-widest">(07)</div>
+          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(07)</div>
         </motion.div>
 
         {/* Featured showcase — top 3 projects, full desktop browser-frame video */}
-        <div className="border-t border-[#1a1a1a]">
+        <div className="border-t border-black/15">
           {["Little Pilot", "Forma", "Meridian"].map((name, fi) => {
             const project = projects.find((p) => p.name === name);
             if (!project || !project.images?.[0]) return null;
@@ -2037,30 +2038,30 @@ function Home() {
                 aria-label={`View ${project.name} — ${project.category}`}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="group border-b border-[#1a1a1a] cursor-pointer px-6 md:px-16 py-14 md:py-20"
+                viewport={{ once: true, margin: "0px" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="group border-b border-black/15 cursor-pointer px-6 md:px-16 py-14 md:py-20"
                 onClick={() => setSelectedIndex(idx)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedIndex(idx); } }}
                 data-testid={`card-featured-${idx}`}
               >
                 <div className="flex items-end justify-between gap-6 mb-8 flex-wrap">
                   <div>
-                    <span className="font-sans font-light text-[10px] text-[#F5F0E8]/20 tabular-nums select-none" aria-hidden="true">
+                    <span className="font-sans font-light text-[10px] text-[#14110D]/20 tabular-nums select-none" aria-hidden="true">
                       {String(fi + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-serif font-bold uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight mt-2">
+                    <h3 className="font-serif font-bold uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#14110D] leading-none group-hover:text-white transition-colors duration-300 tracking-tight mt-2">
                       {project.name}
                     </h3>
-                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 mt-3">
+                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#14110D]/40 mt-3">
                       {project.category} · {project.client}
                     </p>
                   </div>
                   <span className="flex items-center gap-3 flex-shrink-0 select-none" aria-hidden="true">
-                    <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.25em] text-[#F5F0E8]/30 group-hover:text-[#FF4D00] transition-colors duration-300">
+                    <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.25em] text-[#14110D]/30 group-hover:text-white transition-colors duration-300">
                       View Case Study
                     </span>
-                    <span className="project-card-arrow font-sans text-2xl text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300">
+                    <span className="project-card-arrow font-sans text-2xl text-[#14110D]/20 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
                       →
                     </span>
                   </span>
@@ -2106,6 +2107,7 @@ function Home() {
                       <LazyAutoplayVideo
                         src={project.images[0]}
                         className="w-full h-full object-cover block"
+                        bg={project.bg}
                       />
                     ) : (
                       <img
@@ -2123,7 +2125,7 @@ function Home() {
         </div>
 
         {/* Editorial list */}
-        <div className="border-t border-[#1a1a1a] relative">
+        <div className="border-t border-black/15 relative">
 
           {/* Floating image preview — fixed to right side while hovering */}
           <AnimatePresence>
@@ -2174,42 +2176,42 @@ function Home() {
               aria-label={`View ${project.name} — ${project.category}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.55, delay: i * 0.04 }}
-              className="group border-b border-[#1a1a1a] cursor-pointer"
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.35, delay: i * 0.04 }}
+              className="group border-b border-black/15 cursor-pointer"
               onClick={() => setSelectedIndex(idx)}
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedIndex(idx); } }}
               onMouseEnter={() => setHoveredProject(project)}
               onMouseLeave={() => setHoveredProject(null)}
               data-testid={`card-project-${idx}`}
             >
-              <div className="project-card-row flex items-center px-6 md:px-16 py-8 md:py-9 gap-4 md:gap-10 group-hover:bg-[#111] border-l-2 border-transparent group-hover:border-[#FF4D00] transition-all duration-200">
+              <div className="project-card-row flex items-center px-6 md:px-16 py-8 md:py-9 gap-4 md:gap-10 group-hover:bg-black/5 border-l-2 border-transparent group-hover:border-black transition-all duration-200">
                 {/* Number */}
-                <span className="font-sans font-light text-[11px] text-[#F5F0E8]/20 w-6 flex-shrink-0 tabular-nums select-none" aria-hidden="true">
+                <span className="font-sans font-light text-[11px] text-[#14110D]/20 w-6 flex-shrink-0 tabular-nums select-none" aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
                 {/* Name + mobile category */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-serif font-bold uppercase text-[clamp(2rem,5.5vw,3.5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight">
+                  <h3 className="font-serif font-bold uppercase text-[clamp(2rem,5.5vw,3.5rem)] text-[#14110D] leading-none group-hover:text-white transition-colors duration-300 tracking-tight">
                     {project.name}
                   </h3>
                   {/* Category shown on mobile only */}
-                  <p className="md:hidden font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/35 mt-2">
+                  <p className="md:hidden font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/35 mt-2">
                     {project.category}
                   </p>
                   {/* View Case Study — mobile only (desktop shows it near the arrow) */}
-                  <p className="md:hidden font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#F5F0E8]/25 mt-1.5" aria-hidden="true">
+                  <p className="md:hidden font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#14110D]/25 mt-1.5" aria-hidden="true">
                     View Case Study →
                   </p>
                 </div>
 
                 {/* Category + Client — desktop only */}
                 <div className="hidden md:flex flex-col items-end gap-[5px] flex-shrink-0 min-w-[130px]" aria-hidden="true">
-                  <span className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 text-right">
+                  <span className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#14110D]/40 text-right">
                     {project.category}
                   </span>
-                  <span className="font-sans font-light text-[10px] text-[#F5F0E8]/25 text-right">
+                  <span className="font-sans font-light text-[10px] text-[#14110D]/25 text-right">
                     {project.client}
                   </span>
                 </div>
@@ -2225,10 +2227,10 @@ function Home() {
 
                 {/* View Case Study + Arrow */}
                 <span className="flex items-center gap-3 flex-shrink-0 select-none" aria-hidden="true">
-                  <span className="hidden md:inline font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#F5F0E8]/25 group-hover:text-[#FF4D00] transition-colors duration-300">
+                  <span className="hidden md:inline font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#14110D]/25 group-hover:text-white transition-colors duration-300">
                     View Case Study
                   </span>
-                  <span className="project-card-arrow font-sans text-base text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300">
+                  <span className="project-card-arrow font-sans text-base text-[#14110D]/20 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
                     →
                   </span>
                 </span>
@@ -2240,12 +2242,12 @@ function Home() {
       </section>
 
       {/* 3. ABOUT */}
-      <section id="about" className="w-full border-t border-[#1a1a1a] rounded-none">
+      <section id="about" className="w-full border-t border-black/15 rounded-none bg-[#F5F0E8]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "0px" }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
           className="grid grid-cols-1 md:grid-cols-12 rounded-none"
         >
           {/* LEFT — photo flush */}
@@ -2267,16 +2269,16 @@ function Home() {
 
           {/* RIGHT */}
           <div className="md:col-span-7 flex flex-col justify-start rounded-none px-8 md:px-16 pt-10 pb-10 md:pt-12 md:pb-12">
-            <div className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mb-2" aria-hidden="true">
+            <div className="font-sans font-light text-xs text-[#14110D]/50 uppercase tracking-[0.2em] mb-2" aria-hidden="true">
               03
             </div>
-            <div className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mb-6">
+            <div className="font-sans font-light text-xs text-[#14110D]/50 uppercase tracking-[0.2em] mb-6">
               ABOUT ISAAC
             </div>
-            <p className="font-sans font-light text-lg md:text-xl text-[#F5F0E8] leading-loose max-w-xl mb-8">
+            <p className="font-sans font-light text-lg md:text-xl text-[#14110D] leading-loose max-w-xl mb-8">
               Creative designer with 5+ years building high-impact visuals for non-profits, brands, and digital communities. I specialize in brand identity, campaign design, and social content that drives real engagement — and I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
             </p>
-            <p className="font-sans font-light italic text-sm md:text-base text-muted-foreground max-w-xl mb-12">Currently freelancing and designing at The Squad.</p>
+            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing and designing at The Squad.</p>
 
             <div className="flex flex-wrap gap-3 rounded-none">
               {[
@@ -2292,7 +2294,7 @@ function Home() {
                   className={`font-sans font-light text-xs uppercase tracking-[0.15em] px-4 py-2 border transition-colors duration-200 rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF4D00] ${
                     activeService === tag
                       ? "border-[#FF4D00] text-[#FF4D00] bg-[#FF4D00]/5"
-                      : "border-[#2a2a2a] text-[#F5F0E8] hover:border-[#FF4D00] hover:text-[#FF4D00]"
+                      : "border-black/15 text-[#14110D] hover:border-[#FF4D00] hover:text-[#FF4D00]"
                   }`}
                 >
                   {tag}
@@ -2321,32 +2323,32 @@ function Home() {
                         <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-1">
                           {activeService}
                         </div>
-                        <p className="font-serif font-medium text-base text-[#F5F0E8] leading-snug">
+                        <p className="font-serif font-medium text-base text-[#14110D] leading-snug">
                           {serviceInfo[activeService].tagline}
                         </p>
                       </div>
                       <button
                         onClick={() => setActiveService(null)}
                         aria-label="Close service details"
-                        className="text-muted-foreground hover:text-[#F5F0E8] transition-colors flex-shrink-0 mt-1"
+                        className="text-[#14110D]/50 hover:text-[#14110D] transition-colors flex-shrink-0 mt-1"
                       >
                         <span className="text-sm" aria-hidden="true">✕</span>
                       </button>
                     </div>
 
                     {/* Description */}
-                    <p className="font-sans font-light text-sm text-muted-foreground leading-relaxed mb-4">
+                    <p className="font-sans font-light text-sm text-[#14110D]/50 leading-relaxed mb-4">
                       {serviceInfo[activeService].desc}
                     </p>
 
                     {/* Includes */}
                     <div className="mb-4">
-                      <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40 mb-2">
+                      <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/40 mb-2">
                         What's Included
                       </div>
                       <ul className="space-y-1">
                         {serviceInfo[activeService].includes.map((item, i) => (
-                          <li key={i} className="font-sans font-light text-sm text-[#F5F0E8]/80 flex items-start gap-2">
+                          <li key={i} className="font-sans font-light text-sm text-[#14110D]/80 flex items-start gap-2">
                             <span className="text-[#FF4D00] mt-[2px] flex-shrink-0" aria-hidden="true">→</span>
                             {item}
                           </li>
@@ -2355,8 +2357,8 @@ function Home() {
                     </div>
 
                     {/* Deliverables */}
-                    <div className="pt-3 border-t border-[#2a2a2a]">
-                      <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40">
+                    <div className="pt-3 border-t border-black/15">
+                      <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/40">
                         Final Deliverables&nbsp;&nbsp;
                       </span>
                       <span className="font-sans font-light text-xs text-[#FF4D00]">
@@ -2372,7 +2374,7 @@ function Home() {
       </section>
 
       {/* 5. EXPERIENCE */}
-      <section id="experience" className="w-full py-32 px-8 md:px-16 border-t border-[#1a1a1a] rounded-none">
+      <section id="experience" className="w-full py-32 px-8 md:px-16 border-t border-[#1a1a1a] rounded-none bg-background">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -2423,7 +2425,7 @@ function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
               className={`py-10 md:py-14 flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-16 border-[#1a1a1a] rounded-none ${i !== 0 ? 'border-t' : ''}`}
             >
               <div className="md:col-span-3 font-sans font-light text-xs text-muted-foreground tracking-wide">
@@ -2480,7 +2482,7 @@ function Home() {
         </div>
       </section>
       {/* 6. CONTACT + FOOTER */}
-      <section id="contact" className="w-full pt-40 pb-10 px-8 md:px-16 border-t border-[#1a1a1a] rounded-none flex flex-col justify-between min-h-screen">
+      <section id="contact" className="w-full pt-40 pb-24 px-8 md:px-16 border-t border-[#1a1a1a] rounded-none flex flex-col justify-center min-h-screen bg-background">
         <div className="flex-1 flex flex-col justify-center rounded-none">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -2523,28 +2525,52 @@ function Home() {
             </div>
           </motion.div>
         </div>
-
-        {/* FOOTER */}
-        <footer className="mt-40 pt-10 border-t border-[#1a1a1a] flex flex-col md:flex-row justify-between items-start md:items-center gap-8 rounded-none">
-          <div className="flex flex-col gap-2 rounded-none">
-            <div className="font-serif font-semibold text-sm text-[#F5F0E8] uppercase tracking-[0.15em]">
-              ISAAC FIGUEROA
-            </div>
-            <div className="font-sans font-light text-xs text-muted-foreground">
-              © 2025 ISAAC FIGUEROA. ALL RIGHTS RESERVED.
-            </div>
-            <div className="flex gap-6 font-sans font-light text-xs text-muted-foreground uppercase tracking-wide mt-1">
-              <Link href="/privacy" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-privacy">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-terms">Terms &amp; Conditions</Link>
-            </div>
-          </div>
-
-          <div className="flex gap-8 font-sans font-light text-xs text-muted-foreground uppercase tracking-wide rounded-none">
-            <a href="https://www.instagram.com/ifig12/" target="_blank" rel="noopener noreferrer" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-instagram">INSTAGRAM</a>
-            <a href="https://www.linkedin.com/in/isaac-figueroa-498358150/" target="_blank" rel="noopener noreferrer" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-linkedin">LINKEDIN</a>
-          </div>
-        </footer>
       </section>
+
+      {/* FOOTER */}
+      <footer className="w-full border-t border-black/15 rounded-none bg-[#F5F0E8]">
+        <div className="px-8 md:px-16 pt-20 pb-10">
+          <p className="font-serif font-bold uppercase text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.05] tracking-tight text-[#14110D] max-w-4xl">
+            Good design gets noticed. <span className="text-black/35">Great work gets remembered — and gets results.</span>{" "}
+            <span className="text-[#FF4D00]">I build the second kind.</span>
+          </p>
+
+          <div className="flex flex-wrap gap-x-16 gap-y-6 mt-16 pt-10 border-t border-black/10">
+            <div>
+              <div className="font-serif font-bold text-3xl text-[#14110D]">5+ YRS</div>
+              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/40 mt-1">Making Things</div>
+            </div>
+            <div>
+              <div className="font-serif font-bold text-3xl text-[#14110D]">500+</div>
+              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/40 mt-1">Projects In The Real World</div>
+            </div>
+            <div>
+              <div className="font-serif font-bold text-3xl text-[#14110D]">1:1</div>
+              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/40 mt-1">Creative Partnership, Always</div>
+            </div>
+          </div>
+
+          <div className="mt-16 pt-10 border-t border-black/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 rounded-none">
+            <div className="flex flex-col gap-2 rounded-none">
+              <div className="font-serif font-semibold text-sm text-[#14110D] uppercase tracking-[0.15em]">
+                ISAAC FIGUEROA
+              </div>
+              <div className="font-sans font-light text-xs text-black/40">
+                © 2025 ISAAC FIGUEROA. ALL RIGHTS RESERVED.
+              </div>
+              <div className="flex gap-6 font-sans font-light text-xs text-black/40 uppercase tracking-wide mt-1">
+                <Link href="/privacy" className="hover:text-[#14110D] transition-colors" data-testid="link-privacy">Privacy Policy</Link>
+                <Link href="/terms" className="hover:text-[#14110D] transition-colors" data-testid="link-terms">Terms &amp; Conditions</Link>
+              </div>
+            </div>
+
+            <div className="flex gap-8 font-sans font-light text-xs text-black/40 uppercase tracking-wide rounded-none">
+              <a href="https://www.instagram.com/ifig12/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14110D] transition-colors" data-testid="link-instagram">INSTAGRAM</a>
+              <a href="https://www.linkedin.com/in/isaac-figueroa-498358150/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14110D] transition-colors" data-testid="link-linkedin">LINKEDIN</a>
+            </div>
+          </div>
+        </div>
+      </footer>
       {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
       {contactFormOpen && <ContactFormModal key="contact-form" onClose={() => setContactFormOpen(false)} />}
       <AnimatePresence>
