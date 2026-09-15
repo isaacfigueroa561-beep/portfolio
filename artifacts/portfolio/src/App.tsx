@@ -1639,6 +1639,29 @@ function Home() {
       },
     },
     {
+      name: "Houraly",
+      client: "Personal Project",
+      category: "Product Design / Full Stack Dev",
+      bg: "#0D0D0D",
+      labelColor: "#FF4D00",
+      nameColor: "#fff",
+      clientColor: "rgba(255,255,255,0.55)",
+      desc: "Houraly is a live SaaS product for freelancers: time tracking, client and project management, and invoicing in one connected workspace. Full product design, front end, and backend development, built and shipped for my own freelance business.",
+      deviceMockup: true,
+      images: ["/houraly-portfolio-showcase.webm"],
+      liveUrl: "https://houraly.com",
+      caseStudy: {
+        stats: [
+          { value: "0→1", label: "Built from Scratch" },
+          { value: "4", label: "Core Modules" },
+          { value: "100%", label: "Full Stack Build" },
+          { value: "Live", label: "In Production" },
+        ],
+        challenge: "As a freelancer juggling multiple clients, I was tracking hours in one spreadsheet, clients in another, and building invoices by hand every time a project wrapped. Existing time trackers were either bloated with features I never used or too disconnected from the invoicing step to actually save time. I needed a single, private workspace built around how I actually work: track an hour, watch it become billable, and turn it into an invoice without leaving the app.",
+        approach: "I built Houraly as a full stack product: a React and Vite PWA on the front end, an Express API on Vercel, and a Postgres and Drizzle database where money is stored in cents and time is stored in seconds to avoid rounding drift. Clerk handles authentication so every workspace is private and scoped to one account. The whole app hangs off one loop: track time against a project, and those hours turn directly into what gets billed, with a single click to generate a client ready invoice you can share or export as a PDF. It is the exact tool I use to run my own freelance business every week.",
+      },
+    },
+    {
       name: "Billy Brunch NYC",
       client: "Billy Brunch NYC",
       category: "Brand Identity / Merch",
@@ -1893,12 +1916,12 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(09)</div>
+          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(10)</div>
         </motion.div>
 
-        {/* Featured showcase: top 3 projects, full desktop browser-frame video */}
+        {/* Featured showcase: top projects, full desktop browser-frame video */}
         <div className="border-t border-[#1a1a1a] bg-background">
-          {["Little Pilot", "Forma", "Meridian"].map((name, fi) => {
+          {["Little Pilot", "Forma", "Meridian", "Houraly"].map((name, fi) => {
             const project = projects.find((p) => p.name === name);
             if (!project || !project.images?.[0]) return null;
             const idx = projects.findIndex((p) => p.name === name);
@@ -2038,7 +2061,7 @@ function Home() {
           </AnimatePresence>
 
           {projects
-            .filter((project) => !["Little Pilot", "Forma", "Meridian"].includes(project.name))
+            .filter((project) => !["Little Pilot", "Forma", "Meridian", "Houraly"].includes(project.name))
             .map((project, i) => {
             const idx = projects.indexOf(project);
             return (
