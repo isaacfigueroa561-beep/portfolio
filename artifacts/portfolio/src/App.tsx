@@ -791,7 +791,7 @@ function CarouselModal({
                     Done right, down to the edge.
                   </h3>
                   <p style={{ fontFamily: "sans-serif", fontSize: 13, color: "rgba(250,247,241,0.38)", lineHeight: 1.75, maxWidth: 540, margin: 0 }}>
-                    A full paid-search playbook to generate qualified estimate requests, own local search intent in Cincinnati, and build a predictable pipeline of residential painting jobs.
+                    A full paid search playbook to generate qualified estimate requests, own local search intent in Cincinnati, and build a predictable pipeline of residential painting jobs.
                   </p>
                 </div>
 
@@ -843,7 +843,7 @@ function CarouselModal({
                     {[
                       { name: "Interior Painting",    tier: "TIER 1", budget: "$500",  goal: "Estimate forms + calls",    hi: true },
                       { name: "Exterior Painting",    tier: "TIER 1", budget: "$400",  goal: "Estimate forms + calls",    hi: true },
-                      { name: "Cabinet Painting",     tier: "TIER 2", budget: "$250",  goal: "High-ticket job sourcing",  hi: false },
+                      { name: "Cabinet Painting",     tier: "TIER 2", budget: "$250",  goal: "High value job sourcing",   hi: false },
                       { name: "Commercial Painting",  tier: "TIER 2", budget: "$200",  goal: "B2B estimate requests",     hi: false },
                       { name: "Competitor Conquest",  tier: "TIER 3", budget: "$100",  goal: "Steal consideration",       hi: false },
                       { name: "Local Services Ads",   tier: "ALWAYS", budget: "$150",  goal: "Google Guaranteed badge",   hi: false },
@@ -887,12 +887,12 @@ function CarouselModal({
                 {/* 90-Day Roadmap */}
                 <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
                   <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
-                    10: 90-Day Launch Roadmap
+                    10: 90 Day Launch Roadmap
                   </p>
                   {[
                     { phase: "01", period: "Week 1–2",  title: "Foundation",       tasks: "Set up Google Ads account · Install GTM + conversion tracking · Link Google Business Profile · Apply for LSA verification · Build campaign structure + ad groups · Write all RSA copy · Add all extensions + negative keyword lists" },
                     { phase: "02", period: "Week 3–4",  title: "Launch",           tasks: "Go live with Tier 1 campaigns · Monitor search term reports daily · Add negatives aggressively · Verify call tracking · Confirm form submissions fire conversions · Start LSA if verification complete" },
-                    { phase: "03", period: "Month 2",   title: "Expand + Optimize", tasks: "Launch Tier 2 campaigns · Review RSA asset performance · Add converting terms as exact match · Bid up high-converting ZIPs · Add before/after image assets · Fix low Quality Score components" },
+                    { phase: "03", period: "Month 2",   title: "Expand + Optimize", tasks: "Launch Tier 2 campaigns · Review RSA asset performance · Add converting terms as exact match · Bid up top converting ZIPs · Add before/after image assets · Fix low Quality Score components" },
                     { phase: "04", period: "Month 3",   title: "Scale",            tasks: "Switch to Target CPA bidding (30+ conversions) · Launch Competitor Conquest · A/B test landing page CTAs · Review auction insight data · Evaluate budget increases where CPL < $50 · Monthly report delivered" },
                   ].map((row, i) => (
                     <div key={i} style={{ display: "grid", gridTemplateColumns: "32px 120px 1fr", gap: "0 28px", padding: "18px 0", borderTop: i > 0 ? "1px solid #181614" : "none", alignItems: "start" }}>
@@ -917,7 +917,7 @@ function CarouselModal({
                     ))}
                     {[
                       { metric: "Cost Per Lead",      m1: "$60–75",  m3: "$40–55",  flag: "CPL > $90 two weeks running" },
-                      { metric: "Click-Through Rate", m1: "3%+",     m3: "5%+",     flag: "CTR < 2%: ad copy issue" },
+                      { metric: "Click Through Rate", m1: "3%+",     m3: "5%+",     flag: "CTR < 2%: ad copy issue" },
                       { metric: "Conversion Rate",    m1: "3–4%",    m3: "5–7%",    flag: "CVR < 2%: landing page" },
                       { metric: "Estimate Leads/mo",  m1: "15+",     m3: "25–35",   flag: "Below 10: diagnose" },
                       { metric: "Booked Jobs",        m1: "4–6",     m3: "9–12",    flag: "Close rate < 20%" },
@@ -1342,7 +1342,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                 <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                   <div className="flex-1">
                     <p className="font-sans font-light text-[#F5F0E8] text-base md:text-lg leading-relaxed mb-6">
-                      A <strong className="font-semibold">20-minute intro call</strong>: no pitch, no pressure. We'll figure out if there's a fit and what working together would actually look like.
+                      A <strong className="font-semibold">20 minute intro call</strong>: no pitch, no pressure. We'll figure out if there's a fit and what working together would actually look like.
                     </p>
                     <ul className="flex flex-col gap-3 mb-8">
                       {[
@@ -1471,55 +1471,55 @@ function Home() {
     "Campaign Design": {
       tagline: "Visuals built to move people and drive results.",
       desc: "Campaign design brings a single concept to life across multiple formats. Whether it's a product launch, seasonal push, or awareness campaign, every asset is crafted to work together and hit hard.",
-      includes: ["Campaign concept & mood direction", "Social media graphics (multiple sizes)", "Digital ads or promotional banners", "Print-ready materials if needed"],
-      delivers: "PNG, JPG, PDF: print & web-ready files",
+      includes: ["Campaign concept & mood direction", "Social media graphics (multiple sizes)", "Digital ads or promotional banners", "Print ready materials if needed"],
+      delivers: "PNG, JPG, PDF: print & web ready files",
     },
     "Social Media Graphics": {
-      tagline: "Scroll-stopping content, designed for the platform.",
+      tagline: "Content that stops the scroll, designed for the platform.",
       desc: "Custom graphics sized and optimized for Instagram, Facebook, TikTok, and more. Consistent with your brand, designed to perform, not just look pretty.",
       includes: ["Feed posts (1:1 and 4:5)", "Story & Reel cover graphics (9:16)", "Highlight covers", "Optional: caption copy suggestions"],
-      delivers: "PNG/JPG at export-ready dimensions per platform",
+      delivers: "PNG/JPG sized and ready to export per platform",
     },
     "Web Design": {
       tagline: "Clean, intentional design that converts.",
       desc: "UI mockups and full website designs that balance aesthetics with function. Every screen is designed with user flow in mind: not just how it looks, but how it works.",
-      includes: ["Wireframes or layout exploration", "Full desktop + mobile mockups", "Style guide (colors, type, components)", "Handoff-ready Figma file"],
+      includes: ["Wireframes or layout exploration", "Full desktop + mobile mockups", "Style guide (colors, type, components)", "Figma file ready for handoff"],
       delivers: "Figma source file + exported PNG previews",
     },
     "Print & Marketing": {
       tagline: "Physical materials that represent you professionally.",
-      desc: "Flyers, brochures, menus, business cards: designed to print beautifully and communicate clearly. All files are delivered print-ready with bleed and crop marks.",
-      includes: ["Layout design with your content", "Print-ready PDF with bleed/crop marks", "Digital version (web-optimized)", "Up to 2 rounds of revisions"],
-      delivers: "Print-ready PDF + digital JPG/PNG",
+      desc: "Flyers, brochures, menus, business cards: designed to print beautifully and communicate clearly. All files are delivered print ready with bleed and crop marks.",
+      includes: ["Layout design with your content", "Print ready PDF with bleed/crop marks", "Digital version (optimized for web)", "Up to 2 rounds of revisions"],
+      delivers: "Print ready PDF + digital JPG/PNG",
     },
     "Typography": {
       tagline: "Type as a design element, not an afterthought.",
-      desc: "Custom typographic layouts, lettering treatments, and type-driven graphics. Whether it's a bold headline poster or a refined editorial layout, type is used as the primary visual tool.",
+      desc: "Custom typographic layouts, lettering treatments, and graphics built around type. Whether it's a bold headline poster or a refined editorial layout, type is used as the primary visual tool.",
       includes: ["Custom type layout or lettering treatment", "Multiple compositional variations", "Application mockups if needed", "Vector source file"],
       delivers: "AI, SVG, PNG: vector and raster formats",
     },
     "Layout & Composition": {
       tagline: "Structure that guides the eye and tells the story.",
-      desc: "Editorial layouts, presentation decks, documents, and multi-page designs. Everything is structured for clarity, visual flow, and professional impact.",
-      includes: ["Multi-page layout design", "Grid system & spacing standards", "Image + text hierarchy", "Print or screen-optimized output"],
+      desc: "Editorial layouts, presentation decks, documents, and multipage designs. Everything is structured for clarity, visual flow, and professional impact.",
+      includes: ["Multipage layout design", "Grid system & spacing standards", "Image + text hierarchy", "Print or screen optimized output"],
       delivers: "PDF + editable source (Figma or InDesign)",
     },
     "Merch Design": {
       tagline: "Wearable and sellable designs people actually want.",
-      desc: "Graphic tees, hoodies, hats, tote bags: designed for screen printing, embroidery, or DTG printing. Artwork is delivered print-ready and spec'd for your manufacturer.",
-      includes: ["Garment graphic design (front, back, sleeve)", "Color-separated artwork for printing", "Mockup previews on garment photos", "Print-ready files spec'd to your printer"],
+      desc: "Graphic tees, hoodies, hats, tote bags: designed for screen printing, embroidery, or DTG printing. Artwork is delivered print ready and spec'd for your manufacturer.",
+      includes: ["Garment graphic design (front, back, sleeve)", "Color separated artwork for printing", "Mockup previews on garment photos", "Print ready files spec'd to your printer"],
       delivers: "AI/SVG (vector) + PNG (300dpi) + mockup JPGs",
     },
     "YouTube Thumbnails": {
       tagline: "The first frame that wins the click.",
-      desc: "High-contrast, bold thumbnails designed to stand out in a crowded feed. Optimized at 1280×720 with clear hierarchy between image, text, and background.",
+      desc: "High contrast, bold thumbnails designed to stand out in a crowded feed. Optimized at 1280×720 with clear hierarchy between image, text, and background.",
       includes: ["Custom thumbnail per video or batch", "Bold typography + composition", "Consistent style system for your channel", "A/B variation if requested"],
       delivers: "JPG/PNG at 1280×720 (YouTube spec)",
     },
     "Event Promotion": {
       tagline: "Build the hype before the doors open.",
       desc: "Event flyers, digital banners, countdown graphics, and social posts: everything needed to build awareness and drive attendance, in print and digital formats.",
-      includes: ["Event flyer (print + digital versions)", "Social media graphics (feed + story)", "Email header or digital banner", "Save-the-date or countdown graphic"],
+      includes: ["Event flyer (print + digital versions)", "Social media graphics (feed + story)", "Email header or digital banner", "Save the date or countdown graphic"],
       delivers: "PDF (print) + PNG/JPG (digital, all sizes)",
     },
   };
@@ -1555,7 +1555,7 @@ function Home() {
       labelColor: "#e8d5b0",
       nameColor: "#f0e6cc",
       clientColor: "rgba(240,230,204,0.55)",
-      desc: "Website for Little Pilot, a CPG-native growth agency running paid media, email & SMS, influencer, and creative for 20+ food, beverage, and personal care brands.",
+      desc: "Website for Little Pilot, a growth agency built for CPG brands, running paid media, email & SMS, influencer, and creative for 20+ food, beverage, and personal care brands.",
       deviceMockup: true,
       images: ["/little-pilot-portfolio-showcase.webm"],
       liveUrl: "https://littlepilot.co/",
@@ -1567,7 +1567,7 @@ function Home() {
           { value: "34.7x", label: "SMS Program ROI (Taza)" },
         ],
         challenge: "Little Pilot had the receipts: 3.92x blended ROAS, 20+ CPG brands, campaigns live across Whole Foods, Target, and Walmart. But their website didn't reflect any of it. The site needed to convert brand founders browsing agencies into actual conversations, while matching the taste level and authority that their client roster demanded.",
-        approach: "I led with proof. A scrolling ticker of hard numbers (20+ brands, 15+ major retailers, 100% CPG focused) hits before any copy. Full-bleed lifestyle photography sets the brand aesthetic immediately: warm, editorial, premium without being cold. The layout clears the way for the results to do the selling: case studies with real metrics, retailer logos, and channel breakdowns that signal exactly the kind of partner Little Pilot is.",
+        approach: "I led with proof. A scrolling ticker of hard numbers (20+ brands, 15+ major retailers, 100% CPG focused) hits before any copy. Full bleed lifestyle photography sets the brand aesthetic immediately: warm, editorial, premium without being cold. The layout clears the way for the results to do the selling: case studies with real metrics, retailer logos, and channel breakdowns that signal exactly the kind of partner Little Pilot is.",
       },
     },
     {
@@ -1588,7 +1588,7 @@ function Home() {
           { value: "4", label: "Service Pillars" },
           { value: "100%", label: "Designed & Developed" },
         ],
-        challenge: "Most CPG-focused studio sites default to either sterile agency minimalism or over-styled mood boards that never show the work doing its job. FORMA needed to sell packaging, identity, campaign, and motion work as one connected practice, with a rust-and-cream editorial palette that feels closer to the shelf-ready brands it represents than a typical design portfolio.",
+        challenge: "Most studio sites built for CPG brands default to either sterile agency minimalism or overly styled mood boards that never show the work doing its job. FORMA needed to sell packaging, identity, campaign, and motion work as one connected practice, with a rust and cream editorial palette that feels closer to the shelf ready brands it represents than a typical design portfolio.",
         approach: "I structured the site around what a CPG founder actually evaluates: services delivered, studio statistics, and work they can see themselves in. Warm neutral tones and confident condensed type carry the brand feel throughout, while the service breakdown (Brand Strategy, Visual Identity, Packaging Design, Campaign Art Direction, Motion Identity) reads like a capabilities deck rather than a list. Every section is built to move a visitor from 'interesting studio' to 'let's talk.'",
       },
     },
@@ -1600,12 +1600,12 @@ function Home() {
       labelColor: "#14110D",
       nameColor: "#14110D",
       clientColor: "#3D3830",
-      desc: "Meridian is a fintech web app for high-income professionals: full product design and front-end development. Dashboard, portfolio, markets, goals, and an AI advisor all in one editorial interface.",
+      desc: "Meridian is a fintech web app for high income professionals: full product design and front end development. Dashboard, portfolio, markets, goals, and an AI advisor all in one editorial interface.",
       deviceMockup: true,
       images: ["/meridian-portfolio-showcase.webm"],
       liveUrl: "/meridian/index.html",
       presentation: {
-        label: "Product Design · UI / UX · Front-End Development",
+        label: "Product Design · UI / UX · Front End Development",
         tagline: "Wealth management that doesn't feel like work.",
         domain: "meridian.app",
         stats: [
@@ -1625,7 +1625,7 @@ function Home() {
           { role: "Interface", sample: "Dashboard",  family: "Onest",              sampleStyle: { fontFamily: "system-ui,sans-serif", fontSize: "1.2rem", fontWeight: 700, letterSpacing: "-0.01em" } },
           { role: "Numbers",   sample: "$1,284,350", family: "JetBrains Mono",     sampleStyle: { fontFamily: "'Courier New',monospace", fontSize: "1rem", fontWeight: 400, letterSpacing: "0.02em" } },
         ],
-        tags: ["Product Design", "UI / UX", "Front-End Dev", "Fintech"],
+        tags: ["Product Design", "UI / UX", "Front End Dev", "Fintech"],
       },
       caseStudy: {
         stats: [
@@ -1634,8 +1634,8 @@ function Home() {
           { value: "2", label: "Themes (Light / Dark)" },
           { value: "100%", label: "Custom Coded" },
         ],
-        challenge: "Most financial apps treat data like a spreadsheet: dense, cold, and anxiety-inducing. High-income professionals don't need more data; they need clarity. The challenge was designing a fintech interface that felt editorial and calm rather than overwhelming, one that surfaces the right information at the right moment without making wealth management feel like a second job.",
-        approach: "I built Meridian around the idea that a great financial interface should feel more like a well-designed magazine than a Bloomberg terminal. Instrument Serif for headings, Onest for UI, and JetBrains Mono for numbers created a typographic hierarchy that's instantly scannable. The dashboard leads with net worth and a single chart. Everything else is a layer deeper. Light and dark themes, a living AI advisor panel named Marisol, and animated micro-interactions throughout make the app feel alive without being distracting.",
+        challenge: "Most financial apps treat data like a spreadsheet: dense, cold, and anxiety inducing. High income professionals don't need more data; they need clarity. The challenge was designing a fintech interface that felt editorial and calm rather than overwhelming, one that surfaces the right information at the right moment without making wealth management feel like a second job.",
+        approach: "I built Meridian around the idea that a great financial interface should feel more like a well designed magazine than a Bloomberg terminal. Instrument Serif for headings, Onest for UI, and JetBrains Mono for numbers created a typographic hierarchy that's instantly scannable. The dashboard leads with net worth and a single chart. Everything else is a layer deeper. Light and dark themes, a living AI advisor panel named Marisol, and animated microinteractions throughout make the app feel alive without being distracting.",
       },
     },
     {
@@ -1655,7 +1655,7 @@ function Home() {
           { value: "4", label: "Touchpoints Covered" },
         ],
         challenge: "Spark Pro Services had been operating for years under a forgettable name with no real visual identity. They were losing bids to competitors who simply looked more established and professional, not because of the quality of their work, but because their brand didn't reflect it. They needed a full rebrand that communicated trust, strength, and capability across every touchpoint: proposals, job site apparel, signage, and digital.",
-        approach: "I built the identity around tension: raw industrial energy meets precision craft. The name 'Spark' gave me an immediate visual direction: fire, ignition, momentum. I chose a high-contrast palette anchored in bold orange-red paired with heavy condensed type that commands authority whether it's on a work truck or a contract PDF. Every asset (logo, web layout, work shirts, signage) was designed to make them look like the most established contractor in the room before they say a word.",
+        approach: "I built the identity around tension: raw industrial energy meets precision craft. The name 'Spark' gave me an immediate visual direction: fire, ignition, momentum. I chose a high contrast palette anchored in a bold, fiery orange paired with heavy condensed type that commands authority whether it's on a work truck or a contract PDF. Every asset (logo, web layout, work shirts, signage) was designed to make them look like the most established contractor in the room before they say a word.",
       },
       brandGuide: {
         manifesto: "Built on Precision.",
@@ -1735,7 +1735,7 @@ function Home() {
       labelColor: "#e34d37",
       nameColor: "#111",
       clientColor: "#555",
-      desc: "Full brand identity and website for Wave Creative House, a Las Vegas design studio co-founded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
+      desc: "Full brand identity and website for Wave Creative House, a Las Vegas design studio cofounded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
       deviceMockup: true,
       images: ["/wave-motion.mp4"],
       liveUrl: "https://www.wavecreativehouse.com/",
@@ -1746,7 +1746,7 @@ function Home() {
           { value: "100%", label: "Designed & Developed" },
         ],
         challenge: "Wave Creative House needed to launch as a credible, polished studio from day one, competing against established agencies without a client portfolio to lean on. The site had to communicate authority, taste, and approachability simultaneously, while making it dead simple for a small business owner to understand exactly what Wave does and take the next step.",
-        approach: "I built the brand around warmth and directness: none of the cold minimalism that plagues most design studios. The cream-and-yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a two-person shop.",
+        approach: "I built the brand around warmth and directness: none of the cold minimalism that plagues most design studios. The cream and yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a shop run by two people.",
       },
     },
     {
@@ -1757,7 +1757,7 @@ function Home() {
       labelColor: "#c9932a",
       nameColor: "#faf8f5",
       clientColor: "rgba(250,248,245,0.55)",
-      desc: "A high-converting checkout experience for Vigo MD's V3 men's telehealth product, designed to guide qualified patients from diagnosis to purchase with trust, urgency, and clarity at every step.",
+      desc: "A high converting checkout experience for Vigo MD's V3 men's telehealth product, designed to guide qualified patients from diagnosis to purchase with trust, urgency, and clarity at every step.",
       deviceMockup: true,
       liveUrl: "/vigo-md/index.html",
       presentation: {
@@ -1765,28 +1765,28 @@ function Home() {
         tagline: "From diagnosis to checkout in under 60 seconds.",
         domain: "vigomd.com",
         stats: [
-          { value: "1-page",  label: "Checkout Flow" },
+          { value: "1pg",  label: "Checkout Flow" },
           { value: "V3",      label: "Product Generation" },
           { value: "Trust",   label: "First Principle" },
           { value: "CRO",     label: "Design Focus" },
         ],
         features: [
           { label: "Qualification",  sub: "You qualified, now what?",         desc: "Opens on a congratulatory frame that converts anxiety into momentum. The patient already knows they're a fit." },
-          { label: "Proof System",   sub: "Comparison charts + social proof",  desc: "Side-by-side bar charts, testimonials, and real patient stats do the persuasion work before the CTA." },
-          { label: "Trust Layer",    sub: "Guarantee + coverage transparency",  desc: "HSA/FSA eligibility, 30-day money-back guarantee, and provider-reviewed badge anchor the close." },
-          { label: "Checkout Form",  sub: "Frictionless single-page purchase", desc: "Sticky CTA, countdown timer, and inline form, engineered to remove every exit point between decision and completion." },
+          { label: "Proof System",   sub: "Comparison charts + social proof",  desc: "Side by side bar charts, testimonials, and real patient stats do the persuasion work before the CTA." },
+          { label: "Trust Layer",    sub: "Guarantee + coverage transparency",  desc: "HSA/FSA eligibility, a 30 day money back guarantee, and a provider reviewed badge anchor the close." },
+          { label: "Checkout Form",  sub: "Frictionless single page purchase", desc: "Sticky CTA, countdown timer, and inline form, engineered to remove every exit point between decision and completion." },
         ],
         tags: ["UI / UX", "Conversion Design", "Telehealth", "CRO", "Product Page"],
       },
       caseStudy: {
         stats: [
-          { value: "1-pg",  label: "Checkout Flow" },
+          { value: "1pg",  label: "Checkout Flow" },
           { value: "CRO",   label: "Primary Objective" },
           { value: "V3",    label: "Product Version" },
           { value: "HSA",   label: "Payment Eligible" },
         ],
         challenge: "Telehealth checkout is uniquely hard. Patients arrive skeptical, insurance situations are murky, and the product requires trust in a brand they've never heard of. Vigo MD needed a checkout page that could carry a qualified lead all the way to purchase, without a sales rep, without a phone call, and without losing them to doubt halfway through the form.",
-        approach: "I designed the V3 checkout as a linear trust-building sequence rather than a traditional product page. The flow opens with a qualification confirmation ('You qualified') to reaffirm the patient's decision before asking anything of them. Comparison charts and real outcome data handle objection removal. A sticky CTA with countdown timer creates urgency without pressure. The checkout form is embedded inline, no redirects, no new tabs, so the momentum built across the page converts directly into a completed purchase.",
+        approach: "I designed the V3 checkout as a linear sequence built to build trust rather than a traditional product page. The flow opens with a qualification confirmation ('You qualified') to reaffirm the patient's decision before asking anything of them. Comparison charts and real outcome data handle objection removal. A sticky CTA with countdown timer creates urgency without pressure. The checkout form is embedded inline, no redirects, no new tabs, so the momentum built across the page converts directly into a completed purchase.",
       },
     },
     {
@@ -1833,8 +1833,8 @@ function Home() {
           { value: "3", label: "Merch Types" },
           { value: "2", label: "Event Series" },
         ],
-        challenge: "Chino Club needed an identity that could do serious heavy lifting: work on a 10-foot banner outside a venue, read instantly in a 1-second scroll on Instagram, and look sharp on a tote bag someone carries around the city for months. The brand had to be loud enough to own a room but deliberate enough to build real recognition and feel collectible over time.",
-        approach: "High-voltage yellow and electric blue was the call the moment I understood their energy: that combination is impossible to ignore and creates instant, sticky recall. I leaned hard into rave-era graphic language: bold condensed type, blocky grid layouts, and graphic shapes that print cleanly at any scale. Every deliverable (posters, tote bags, signage, social graphics) was designed to feel like a limited-run piece someone keeps, not just another branded handout.",
+        challenge: "Chino Club needed an identity that could do serious heavy lifting: work on a 10 foot banner outside a venue, read instantly in a 1 second scroll on Instagram, and look sharp on a tote bag someone carries around the city for months. The brand had to be loud enough to own a room but deliberate enough to build real recognition and feel collectible over time.",
+        approach: "High voltage yellow and electric blue was the call the moment I understood their energy: that combination is impossible to ignore and creates instant, sticky recall. I leaned hard into rave era graphic language: bold condensed type, blocky grid layouts, and graphic shapes that print cleanly at any scale. Every deliverable (posters, tote bags, signage, social graphics) was designed to feel like a limited run piece someone keeps, not just another branded handout.",
       },
     },
     {
@@ -1845,7 +1845,7 @@ function Home() {
       labelColor: "#e34d37",
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.5)",
-      desc: "Vintage-style graphic tee with flaming heart illustration",
+      desc: "Vintage style graphic tee with flaming heart illustration",
       images: [
         "/clh-1.webp", "/clh-2.webp", "/clh-3.webp", "/clh-4.webp", "/clh-5.webp",
         "/clh-6.webp", "/clh-7.webp", "/clh-8.webp", "/clh-9.webp"
@@ -1854,21 +1854,21 @@ function Home() {
         stats: [
           { value: "1", label: "Hero Illustration" },
           { value: "3", label: "Colorways" },
-          { value: "100%", label: "Hand-drawn Feel" },
+          { value: "100%", label: "Hand Drawn Feel" },
         ],
-        challenge: "Cold Little Heart wanted a graphic tee that felt genuinely worn-in and emotionally authentic, not a slogan shirt, not a logo drop. The kind of piece that looks like it surfaced from a vintage store, carries real weight, and sells itself without needing a caption. The name set a very specific emotional tone (melancholy, raw, a little romantic), and the visual had to earn that without being on the nose.",
-        approach: "I went straight to illustration: a flaming heart rendered with intentional hand-drawn imperfection that reads vintage without trying too hard. Distressed textures, a tight 3-color palette, and aged typography gave the shirt that lived-in quality from day one. The graphic sits center-chest: confident, self-contained, and meaningful without competing for attention. Three colorway options were presented so the client could choose what felt right for their audience.",
+        challenge: "Cold Little Heart wanted a graphic tee that felt genuinely worn in and emotionally authentic, not a slogan shirt, not a logo drop. The kind of piece that looks like it surfaced from a vintage store, carries real weight, and sells itself without needing a caption. The name set a very specific emotional tone (melancholy, raw, a little romantic), and the visual had to earn that without being on the nose.",
+        approach: "I went straight to illustration: a flaming heart rendered with intentional hand drawn imperfection that reads vintage without trying too hard. Distressed textures, a tight 3 color palette, and aged typography gave the shirt that lived in quality from day one. The graphic sits center chest: confident, contained, and meaningful without competing for attention. Three colorway options were presented so the client could choose what felt right for their audience.",
       },
     },
     {
-      name: "Non-Profits",
-      client: "Churches & Non-Profits",
+      name: "Nonprofits",
+      client: "Churches & Nonprofits",
       category: "Event Design / Sermon Series",
       bg: "#0f1f3d",
       labelColor: "#FF4D00",
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.5)",
-      desc: "Sermon series, event graphics, and campaign visuals for churches and non-profit organizations.",
+      desc: "Sermon series, event graphics, and campaign visuals for churches and nonprofit organizations.",
       images: [
         "/np-1.webp", "/np-2.webp", "/np-4.webp",
         "/np-5.webp", "/np-6.webp", "/np-7.webp", "/np-8.webp",
@@ -1895,8 +1895,8 @@ function Home() {
           { value: "0→1", label: "Brand Built from Scratch" },
           { value: "3", label: "Platform Formats" },
         ],
-        challenge: "Aware Coffee was launching from zero: no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well-funded brands. They needed to look premium and intentional on Instagram from day one, build enough credibility to justify their price point, and do it all without an agency budget.",
-        approach: "I made restraint the strategy. Clean off-white backgrounds, minimal type, and a single warm accent used sparingly, nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative. The cup mockups were styled to feel editorial rather than promotional: the kind of content that performs whether someone's scrolling at 7am or seeing it on a shelf. Every asset was built to work across feed posts, stories, and print without modification.",
+        challenge: "Aware Coffee was launching from zero: no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well funded brands. They needed to look premium and intentional on Instagram from day one, build enough credibility to justify their price point, and do it all without an agency budget.",
+        approach: "I made restraint the strategy. Clean off white backgrounds, minimal type, and a single warm accent used sparingly, nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative. The cup mockups were styled to feel editorial rather than promotional: the kind of content that performs whether someone's scrolling at 7am or seeing it on a shelf. Every asset was built to work across feed posts, stories, and print without modification.",
       },
     },
   ];
@@ -2276,9 +2276,9 @@ function Home() {
               ABOUT ISAAC
             </div>
             <p className="font-sans font-light text-lg md:text-xl text-[#14110D] leading-loose max-w-xl mb-8">
-              Creative designer with 5+ years building high-impact visuals for non-profits, brands, and digital communities. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
+              Creative designer with 5+ years building impactful visuals for nonprofits, brands, and digital communities. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
             </p>
-            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing full-time.</p>
+            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing full time.</p>
 
             <div className="flex flex-wrap gap-3 rounded-none">
               {[
@@ -2394,10 +2394,10 @@ function Home() {
             {
               year: "2021–PRESENT",
               role: "CREATIVE DESIGNER",
-              company: "THE SQUAD: NON-PROFIT & COMMUNITY ORGS",
+              company: "THE SQUAD: NONPROFIT & COMMUNITY ORGS",
               bullets: [
-                "Designed social media graphics, posters, thumbnails, and print materials for non-profit and community organizations across the U.S.",
-                "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series, translating mission-driven messaging into compelling storytelling.",
+                "Designed social media graphics, posters, thumbnails, and print materials for nonprofit and community organizations across the U.S.",
+                "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series, translating mission driven messaging into compelling storytelling.",
                 "Partnered directly with leadership and marketing teams to develop brand voices and campaign strategies from concept to delivery."
               ]
             },
@@ -2407,7 +2407,7 @@ function Home() {
               company: "VIVE MEDIA",
               bullets: [
                 "Created social graphics, thumbnails, and marketing assets for digital campaigns and live events.",
-                "Produced on-brand visuals with fast turnaround across multiple concurrent campaigns."
+                "Produced visuals that matched the brand with fast turnaround across multiple concurrent campaigns."
               ]
             },
             {
@@ -2498,7 +2498,7 @@ function Home() {
             </h2>
             
             <p className="font-sans font-light text-sm text-muted-foreground mt-12 mb-16 max-w-md">
-              Open for freelance projects, brand collaborations, and full-time opportunities.
+              Open for freelance projects, brand collaborations, and full time opportunities.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-24 rounded-none">

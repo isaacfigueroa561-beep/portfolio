@@ -73,8 +73,8 @@ export function PrivacyPolicy() {
       </section>
 
       <section>
-        <h2>Third-Party Services</h2>
-        <p>Data submitted or collected may pass through the following third-party services:</p>
+        <h2>Third Party Services</h2>
+        <p>Data submitted or collected may pass through the following third party services:</p>
         <ul>
           <li>Web3Forms: processes contact form submissions</li>
           <li>Google Analytics / Meta Pixel: site and ad performance analytics</li>
@@ -87,7 +87,7 @@ export function PrivacyPolicy() {
         <h2>Data Retention</h2>
         <p>
           Contact form and booking submissions are retained only as long as needed to respond to your
-          inquiry and for basic business record-keeping, after which they may be deleted.
+          inquiry and for basic business recordkeeping, after which they may be deleted.
         </p>
       </section>
 
@@ -179,7 +179,7 @@ export function TermsAndConditions() {
       <section>
         <h2>External Links</h2>
         <p>
-          This site links to third-party sites (live client projects, social profiles, scheduling
+          This site links to third party sites (live client projects, social profiles, scheduling
           tools). I'm not responsible for the content or practices of those external sites.
         </p>
       </section>
