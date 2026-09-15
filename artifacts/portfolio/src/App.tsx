@@ -1866,16 +1866,19 @@ function Home() {
         </div>
 
         {/* BOTTOM SKILLS BAR */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-[#1a1a1a] bg-background rounded-none py-4 lg:py-3" aria-hidden="true">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-3 justify-items-center px-8 lg:flex lg:flex-wrap lg:gap-x-8 lg:gap-y-2 lg:items-center lg:justify-center font-serif font-medium text-xs lg:text-sm uppercase tracking-[0.1em] lg:tracking-[0.15em] text-[#F5F0E8]">
-            <span>BRAND IDENTITY</span> <span className="hidden lg:inline text-[#2a2a2a] text-[8px]">●</span>
-            <span>CAMPAIGN DESIGN</span> <span className="hidden lg:inline text-[#2a2a2a] text-[8px]">●</span>
-            <span>SOCIAL CONTENT</span> <span className="hidden lg:inline text-[#2a2a2a] text-[8px]">●</span>
-            <span>WEB DESIGN</span> <span className="hidden lg:inline text-[#2a2a2a] text-[8px]">●</span>
-            <span>MERCH</span> <span className="hidden lg:inline text-[#2a2a2a] text-[8px]">●</span>
-            <span>PRINT</span> <span className="hidden lg:inline text-[#2a2a2a] text-[8px]">●</span>
-            <span>EVENT DESIGN</span> <span className="hidden lg:inline text-[#2a2a2a] text-[8px]">●</span>
-            <span>TYPOGRAPHY</span>
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-[#1a1a1a] bg-background flex rounded-none whitespace-nowrap py-3" aria-hidden="true">
+          <div className="animate-marquee flex gap-8 items-center min-w-max">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="flex items-center gap-8 font-serif font-medium text-sm uppercase tracking-[0.15em] text-[#F5F0E8]">
+                <span>BRAND IDENTITY</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+                <span>CAMPAIGN DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+                <span>SOCIAL CONTENT</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+                <span>WEB DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+                <span>MERCH</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+                <span>PRINT</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+                <span>EVENT DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
