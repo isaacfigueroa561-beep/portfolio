@@ -1639,157 +1639,6 @@ function Home() {
       },
     },
     {
-      name: "Spark Pro Services",
-      client: "Spark Pro Services",
-      category: "Brand Identity / Web",
-      bg: "#e34d37",
-      labelColor: "#fff",
-      nameColor: "#fff",
-      clientColor: "rgba(255,255,255,0.7)",
-      desc: "Construction company full rebrand: logo, web, apparel, signage",
-      images: ["/spark-1.webp", "/spark-2.webp", "/spark-3.webp", "/spark-4.webp", "/spark-5.webp", "/spark-6.webp", "/spark-7.webp", "/spark-8.webp"],
-      caseStudy: {
-        stats: [
-          { value: "6+", label: "Brand Deliverables" },
-          { value: "100%", label: "Identity from Scratch" },
-          { value: "4", label: "Touchpoints Covered" },
-        ],
-        challenge: "Spark Pro Services had been operating for years under a forgettable name with no real visual identity. They were losing bids to competitors who simply looked more established and professional, not because of the quality of their work, but because their brand didn't reflect it. They needed a full rebrand that communicated trust, strength, and capability across every touchpoint: proposals, job site apparel, signage, and digital.",
-        approach: "I built the identity around tension: raw industrial energy meets precision craft. The name 'Spark' gave me an immediate visual direction: fire, ignition, momentum. I chose a high contrast palette anchored in a bold, fiery orange paired with heavy condensed type that commands authority whether it's on a work truck or a contract PDF. Every asset (logo, web layout, work shirts, signage) was designed to make them look like the most established contractor in the room before they say a word.",
-      },
-      brandGuide: {
-        manifesto: "Built on Precision.",
-        manifestoSub: "Engineered for Performance.",
-        manifestoBody: "Spark Pro is a Cincinnati construction company that treats every project like it carries our name. Because it does. From preconstruction to closeout, we plan tightly, build cleanly, and finish ahead. The work outlasts the handshake.",
-        pillars: [
-          "01  Precision in the plan.",
-          "02  Discipline on the site.",
-          "03  Performance you can stand on.",
-        ],
-        colors: [
-          { name: "Reddish Orange", hex: "#F2541C", role: "Hero · 70%",   pantone: "Orange 021 C" },
-          { name: "Graphite",       hex: "#111315", role: "Anchor",        pantone: "Black 6 C" },
-          { name: "Cream",          hex: "#F4F0E8", role: "Paper",         pantone: "Warm Gray 1" },
-          { name: "Dark Jungle",    hex: "#202928", role: "Frame" },
-          { name: "Gunsmoke",       hex: "#7C8788", role: "Utility" },
-          { name: "Platinum",       hex: "#E4E4E4", role: "Background",    pantone: "Cool Gray 1 C" },
-        ],
-        display: {
-          family: "Halyard Display",
-          weights: "500 · 600 · 800 · 900",
-          tracking: "−2.5% at 60px+",
-          substitute: "Archivo (open source)",
-        },
-        body: {
-          family: "Inter",
-          weights: "400 / 500 / 600",
-          minSize: "11px min",
-        },
-        typeScale: [
-          { label: "H1",    size: "84 / 88" },
-          { label: "H2",    size: "56 / 60" },
-          { label: "H3",    size: "36 / 42" },
-          { label: "H4",    size: "24 / 30" },
-          { label: "Body",  size: "16 / 24" },
-          { label: "Small", size: "13 / 18" },
-          { label: "Mono",  size: "11 / 16" },
-        ],
-        mark: {
-          tagline: "A precision burst.",
-          industry: "Construction",
-          specs: [
-            "Grid  10×10 X",
-            "Cardinal  4X length",
-            "Diagonal  2.4X length",
-            "Leader  NW arrow · 1X arms",
-            "Stroke  0.65X round",
-            "Center  0.9×0.9 ♦",
-          ],
-          meaning: "The square at center is a surveyor's mark: where every project starts. The rays are the spark that gets it built. The leader arrow points the way forward.",
-        },
-        patterns: [
-          { id: "P/01", name: "Halftone Burst",  use: "Hero Accent" },
-          { id: "P/02", name: "Blueprint Grid",  use: "Technical Surfaces" },
-          { id: "P/03", name: "Hazard Diagonal", use: "Edges & Signage" },
-          { id: "P/04", name: "Spark Field",     use: "Light Surfaces" },
-        ],
-        photography: "Golden hour preferred · No stock imagery · Subjects: site, structure, hands · Real work. Real light.",
-        logoVariants: [
-          { id: "01", name: "Stacked",     use: "Default / Primary" },
-          { id: "02", name: "Horizontal",  use: "Headers & Banners" },
-          { id: "03", name: "Mark Only",   use: "Icon / Favicon" },
-          { id: "04", name: "Single Line", use: "Tight Horizontals" },
-        ],
-        applications: [
-          "Business Card", "Letterhead", "Envelope", "Hard Hat",
-          "Site Fence Banner 8×4ft", "Vehicle Livery", "Highway Billboard 14×48ft",
-        ],
-        abbrev: "SPS",
-      },
-    },
-    {
-      name: "Wave Creative House",
-      client: "Wave Creative House",
-      category: "Web Design / Brand",
-      bg: "#f5f0e4",
-      labelColor: "#e34d37",
-      nameColor: "#111",
-      clientColor: "#555",
-      desc: "Full brand identity and website for Wave Creative House, a Las Vegas design studio cofounded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
-      deviceMockup: true,
-      images: ["/wave-motion.mp4"],
-      liveUrl: "https://www.wavecreativehouse.com/",
-      caseStudy: {
-        stats: [
-          { value: "0→1", label: "Built from Scratch" },
-          { value: "4", label: "Service Offerings" },
-          { value: "100%", label: "Designed & Developed" },
-        ],
-        challenge: "Wave Creative House needed to launch as a credible, polished studio from day one, competing against established agencies without a client portfolio to lean on. The site had to communicate authority, taste, and approachability simultaneously, while making it dead simple for a small business owner to understand exactly what Wave does and take the next step.",
-        approach: "I built the brand around warmth and directness: none of the cold minimalism that plagues most design studios. The cream and yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a shop run by two people.",
-      },
-    },
-    {
-      name: "Vigo MD",
-      client: "Vigo MD",
-      category: "UI / UX · Conversion Design",
-      bg: "#1a3d2c",
-      labelColor: "#c9932a",
-      nameColor: "#faf8f5",
-      clientColor: "rgba(250,248,245,0.55)",
-      desc: "A high converting checkout experience for Vigo MD's V3 men's telehealth product, designed to guide qualified patients from diagnosis to purchase with trust, urgency, and clarity at every step.",
-      deviceMockup: true,
-      liveUrl: "/vigo-md/index.html",
-      presentation: {
-        label: "UI / UX · Conversion Design · Telehealth",
-        tagline: "From diagnosis to checkout in under 60 seconds.",
-        domain: "vigomd.com",
-        stats: [
-          { value: "1pg",  label: "Checkout Flow" },
-          { value: "V3",      label: "Product Generation" },
-          { value: "Trust",   label: "First Principle" },
-          { value: "CRO",     label: "Design Focus" },
-        ],
-        features: [
-          { label: "Qualification",  sub: "You qualified, now what?",         desc: "Opens on a congratulatory frame that converts anxiety into momentum. The patient already knows they're a fit." },
-          { label: "Proof System",   sub: "Comparison charts + social proof",  desc: "Side by side bar charts, testimonials, and real patient stats do the persuasion work before the CTA." },
-          { label: "Trust Layer",    sub: "Guarantee + coverage transparency",  desc: "HSA/FSA eligibility, a 30 day money back guarantee, and a provider reviewed badge anchor the close." },
-          { label: "Checkout Form",  sub: "Frictionless single page purchase", desc: "Sticky CTA, countdown timer, and inline form, engineered to remove every exit point between decision and completion." },
-        ],
-        tags: ["UI / UX", "Conversion Design", "Telehealth", "CRO", "Product Page"],
-      },
-      caseStudy: {
-        stats: [
-          { value: "1pg",  label: "Checkout Flow" },
-          { value: "CRO",   label: "Primary Objective" },
-          { value: "V3",    label: "Product Version" },
-          { value: "HSA",   label: "Payment Eligible" },
-        ],
-        challenge: "Telehealth checkout is uniquely hard. Patients arrive skeptical, insurance situations are murky, and the product requires trust in a brand they've never heard of. Vigo MD needed a checkout page that could carry a qualified lead all the way to purchase, without a sales rep, without a phone call, and without losing them to doubt halfway through the form.",
-        approach: "I designed the V3 checkout as a linear sequence built to build trust rather than a traditional product page. The flow opens with a qualification confirmation ('You qualified') to reaffirm the patient's decision before asking anything of them. Comparison charts and real outcome data handle objection removal. A sticky CTA with countdown timer creates urgency without pressure. The checkout form is embedded inline, no redirects, no new tabs, so the momentum built across the page converts directly into a completed purchase.",
-      },
-    },
-    {
       name: "Billy Brunch NYC",
       client: "Billy Brunch NYC",
       category: "Brand Identity / Merch",
@@ -1838,6 +1687,28 @@ function Home() {
       },
     },
     {
+      name: "Wave Creative House",
+      client: "Wave Creative House",
+      category: "Web Design / Brand",
+      bg: "#f5f0e4",
+      labelColor: "#e34d37",
+      nameColor: "#111",
+      clientColor: "#555",
+      desc: "Full brand identity and website for Wave Creative House, a Las Vegas design studio cofounded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
+      deviceMockup: true,
+      images: ["/wave-motion.mp4"],
+      liveUrl: "https://www.wavecreativehouse.com/",
+      caseStudy: {
+        stats: [
+          { value: "0→1", label: "Built from Scratch" },
+          { value: "4", label: "Service Offerings" },
+          { value: "100%", label: "Designed & Developed" },
+        ],
+        challenge: "Wave Creative House needed to launch as a credible, polished studio from day one, competing against established agencies without a client portfolio to lean on. The site had to communicate authority, taste, and approachability simultaneously, while making it dead simple for a small business owner to understand exactly what Wave does and take the next step.",
+        approach: "I built the brand around warmth and directness: none of the cold minimalism that plagues most design studios. The cream and yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a shop run by two people.",
+      },
+    },
+    {
       name: "Cold Little Heart",
       client: "Cold Little Heart",
       category: "Merch / Apparel",
@@ -1870,6 +1741,8 @@ function Home() {
       clientColor: "rgba(255,255,255,0.5)",
       desc: "Sermon series, event graphics, and campaign visuals for churches and nonprofit organizations.",
       images: [
+        "/np-29.webp", "/np-30.webp", "/np-31.webp", "/np-32.webp",
+        "/np-33.webp", "/np-34.webp", "/np-35.webp", "/np-36.webp", "/np-37.webp",
         "/np-1.webp", "/np-2.webp", "/np-4.webp",
         "/np-5.webp", "/np-6.webp", "/np-7.webp", "/np-8.webp",
         "/np-9.webp", "/np-10.webp", "/np-11.webp", "/np-12.webp",
@@ -2020,7 +1893,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(07)</div>
+          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(09)</div>
         </motion.div>
 
         {/* Featured showcase: top 3 projects, full desktop browser-frame video */}
@@ -2276,7 +2149,7 @@ function Home() {
               ABOUT ISAAC
             </div>
             <p className="font-sans font-light text-lg md:text-xl text-[#14110D] leading-loose max-w-xl mb-8">
-              Creative designer with 5+ years building impactful visuals for nonprofits, brands, and digital communities. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
+              Creative designer with 5+ years of experience at marketing and creative agencies: 7 years with Church Media Squad, 2 years with Vibrant Agency. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
             </p>
             <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing full time.</p>
 
