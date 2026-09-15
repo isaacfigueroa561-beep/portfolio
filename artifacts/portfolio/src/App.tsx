@@ -1718,28 +1718,6 @@ function Home() {
       },
     },
     {
-      name: "Wave Creative House",
-      client: "Wave Creative House",
-      category: "Web Design / Brand",
-      bg: "#f5f0e4",
-      labelColor: "#e34d37",
-      nameColor: "#111",
-      clientColor: "#555",
-      desc: "Full brand identity and website for Wave Creative House, a Las Vegas design studio cofounded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
-      deviceMockup: true,
-      images: ["/wave-motion.mp4"],
-      liveUrl: "https://www.wavecreativehouse.com/",
-      caseStudy: {
-        stats: [
-          { value: "0→1", label: "Built from Scratch" },
-          { value: "4", label: "Service Offerings" },
-          { value: "100%", label: "Designed & Developed" },
-        ],
-        challenge: "Wave Creative House needed to launch as a credible, polished studio from day one, competing against established agencies without a client portfolio to lean on. The site had to communicate authority, taste, and approachability simultaneously, while making it dead simple for a small business owner to understand exactly what Wave does and take the next step.",
-        approach: "I built the brand around warmth and directness: none of the cold minimalism that plagues most design studios. The cream and yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a shop run by two people.",
-      },
-    },
-    {
       name: "Cold Little Heart",
       client: "Cold Little Heart",
       category: "Merch / Apparel",
@@ -1887,21 +1865,17 @@ function Home() {
           </motion.div>
         </div>
 
-        {/* BOTTOM MARQUEE */}
+        {/* BOTTOM SKILLS BAR */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-[#1a1a1a] bg-background flex rounded-none whitespace-nowrap py-3" aria-hidden="true">
-          <div className="animate-marquee flex gap-8 items-center min-w-max">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="flex items-center gap-8 font-serif font-medium text-sm uppercase tracking-[0.15em] text-[#F5F0E8]">
-                <span>BRAND IDENTITY</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-                <span>CAMPAIGN DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-                <span>SOCIAL CONTENT</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-                <span>WEB DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-                <span>MERCH</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-                <span>PRINT</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-                <span>EVENT DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-                <span>TYPOGRAPHY</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
-              </div>
-            ))}
+          <div className="flex flex-wrap gap-x-8 gap-y-2 items-center justify-center w-full px-8 font-serif font-medium text-sm uppercase tracking-[0.15em] text-[#F5F0E8]">
+            <span>BRAND IDENTITY</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+            <span>CAMPAIGN DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+            <span>SOCIAL CONTENT</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+            <span>WEB DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+            <span>MERCH</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+            <span>PRINT</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+            <span>EVENT DESIGN</span> <span className="text-[#2a2a2a] text-[8px]">●</span>
+            <span>TYPOGRAPHY</span>
           </div>
         </div>
       </section>
@@ -1924,7 +1898,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(10)</div>
+          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(09)</div>
         </motion.div>
 
         {/* Featured showcase: top projects, full desktop browser-frame video */}

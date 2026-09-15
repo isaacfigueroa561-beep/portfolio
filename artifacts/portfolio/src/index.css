@@ -116,15 +116,6 @@
   html { scroll-behavior: smooth; }
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-}
-
 /* Phone frame border-radius — overrides the global * { border-radius: 0 !important } reset */
 .phone-frame        { border-radius: 38px !important; }
 .phone-frame-screen { border-radius: 26px !important; }
