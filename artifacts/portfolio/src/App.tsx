@@ -320,7 +320,7 @@ function CarouselModal({
 
                         {/* ── 01 Manifesto ── */}
                         <div className="bg-[#111315] border-b border-[#222] px-8 py-12 md:py-16">
-                          <div className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C] mb-7">01 — Brand Essence</div>
+                          <div className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C] mb-7">01: Brand Essence</div>
                           <div className="mb-7">
                             <div className="font-serif font-black uppercase leading-[0.88] tracking-[-0.03em] text-[#F4F0E8]" style={{ fontSize: "clamp(2.4rem,5.5vw,4.5rem)" }}>
                               {project.brandGuide!.manifesto}
@@ -342,7 +342,7 @@ function CarouselModal({
                         {/* ── 05 Color System ── */}
                         <div className="border-b border-[#222]">
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">05 — Color System</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">05: Color System</span>
                             <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">Six colors, sequenced.</span>
                           </div>
                           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
@@ -365,7 +365,7 @@ function CarouselModal({
                         {/* ── 06 Typography ── */}
                         <div className="border-b border-[#222]">
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">06 — Typography</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">06: Typography</span>
                             <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">Halyard Display + Inter</span>
                           </div>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#222]">
@@ -398,20 +398,20 @@ function CarouselModal({
                         {/* ── 02 The Mark ── */}
                         <div className="border-b border-[#222]">
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">02 — The Mark</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">02: The Mark</span>
                             <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">{project.brandGuide!.mark.tagline || "The brand mark."}</span>
                           </div>
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#222]">
                             <div className="bg-[#111315] flex items-center justify-center py-14 px-8">
                               {project.brandGuide!.abbrev === "PPP" ? (
-                                <svg viewBox="0 0 100 100" className="w-36 h-36 md:w-44 md:h-44" aria-label="Precision Paint Pros mark — clean edge" role="img">
+                                <svg viewBox="0 0 100 100" className="w-36 h-36 md:w-44 md:h-44" aria-label="Precision Paint Pros mark, clean edge" role="img">
                                   <rect x="18" y="44" width="64" height="12" rx="6" fill="#FF4D14"/>
                                   <rect x="14" y="37" width="5" height="26" rx="2.5" fill="#FF4D14" opacity="0.45"/>
                                   <rect x="81" y="37" width="5" height="26" rx="2.5" fill="#FF4D14" opacity="0.45"/>
                                   <rect x="18" y="44" width="64" height="3" rx="1.5" fill="#FAF7F1" opacity="0.18"/>
                                 </svg>
                               ) : (
-                                <svg viewBox="0 0 100 100" className="w-36 h-36 md:w-44 md:h-44" aria-label="Spark Pro mark — precision burst" role="img">
+                                <svg viewBox="0 0 100 100" className="w-36 h-36 md:w-44 md:h-44" aria-label="Spark Pro mark, precision burst" role="img">
                                   <line x1="50" y1="50" x2="50" y2="10" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
                                   <line x1="50" y1="50" x2="50" y2="90" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
                                   <line x1="50" y1="50" x2="90" y2="50" stroke="#F2541C" strokeWidth="6" strokeLinecap="round"/>
@@ -446,7 +446,7 @@ function CarouselModal({
                         {/* ── 03 Logo Variants ── */}
                         <div className="border-b border-[#222]">
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">03 — Logo Lockups</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">03: Logo Lockups</span>
                             <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">Four system lockups.</span>
                           </div>
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#222]">
@@ -463,7 +463,7 @@ function CarouselModal({
                         {/* ── 08 Pattern Library ── */}
                         <div className="border-b border-[#222]">
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">08 — Patterns & Texture</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">08: Patterns & Texture</span>
                             <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">Four marks of the work.</span>
                           </div>
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#222]">
@@ -491,7 +491,7 @@ function CarouselModal({
                         {/* ── 09 Photography ── */}
                         <div className="border-b border-[#222]">
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">09 — Photography Direction</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">09: Photography Direction</span>
                             <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">Real work. Real light.</span>
                           </div>
                           <div className="bg-[#0D0D0D] px-8 py-7">
@@ -504,7 +504,7 @@ function CarouselModal({
                         {/* ── 11 Applications ── */}
                         <div>
                           <div className="flex items-center justify-between px-8 py-4 border-b border-[#222] bg-[#0D0D0D]">
-                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">11 — Applications</span>
+                            <span className="font-sans font-light text-[9px] uppercase tracking-[0.35em] text-[#F2541C]">11: Applications</span>
                             <span className="font-sans font-light text-[9px] uppercase tracking-[0.3em] text-[#F4F0E8]/20">The system, in hand.</span>
                           </div>
                           <div className="bg-[#0D0D0D] px-8 py-7">
@@ -634,7 +634,7 @@ function CarouselModal({
                         <div style={{ overflow: "hidden", height: 474, position: "relative", boxShadow: "inset 0 1px 0 rgba(0,0,0,0.5)" }}>
                           <iframe
                             src={project.liveUrl}
-                            title={`${project.name} — live desktop`}
+                            title={`${project.name}, live desktop`}
                             style={{ width: 1280, height: 800, border: "none", transform: "scale(0.59375)", transformOrigin: "top left", display: "block", pointerEvents: "none" }}
                             loading="lazy"
                           />
@@ -654,7 +654,7 @@ function CarouselModal({
                         <div style={{ borderRadius: 38, overflow: "hidden", height: 492, background: "#FBFAF6", position: "relative" }}>
                           <iframe
                             src={project.liveUrl}
-                            title={`${project.name} — live mobile`}
+                            title={`${project.name}, live mobile`}
                             style={{ width: 390, height: 844, border: "none", transform: "scale(0.5744)", transformOrigin: "top left", display: "block", pointerEvents: "none" }}
                             loading="lazy"
                           />
@@ -699,7 +699,7 @@ function CarouselModal({
                         <div style={{ overflow: "hidden", height: 212, position: "relative" }}>
                           <iframe
                             src={project.liveUrl}
-                            title={`${project.name} — desktop preview`}
+                            title={`${project.name}, desktop preview`}
                             style={{ width: 1280, height: 800, border: "none", transform: "scale(0.265625)", transformOrigin: "top left", display: "block", pointerEvents: "none" }}
                             loading="lazy"
                           />
@@ -718,7 +718,7 @@ function CarouselModal({
                         <div style={{ borderRadius: 34, overflow: "hidden", height: 454, background: "#FBFAF6", position: "relative" }}>
                           <iframe
                             src={project.liveUrl}
-                            title={`${project.name} — live mobile`}
+                            title={`${project.name}, live mobile`}
                             style={{ width: 390, height: 844, border: "none", transform: "scale(0.5333)", transformOrigin: "top left", display: "block", pointerEvents: "none" }}
                             loading="lazy"
                           />
@@ -752,7 +752,7 @@ function CarouselModal({
                   </div>
                 )}
 
-                {/* Bottom row — tags + CTA */}
+                {/* Bottom row: tags + CTA */}
                 <div className="flex flex-wrap items-center justify-between gap-4 px-6 md:px-14 pt-5">
                   <div className="flex flex-wrap gap-2">
                     {(project.presentation?.tags ?? []).map(tag => (
@@ -813,14 +813,14 @@ function CarouselModal({
                 {/* Funnel */}
                 <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
                   <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
-                    01 — Market Opportunity · $1,600/mo starting budget
+                    01: Market Opportunity · $1,600/mo starting budget
                   </p>
                   {[
-                    { stage: "Impressions",       value: "18,000",   rate: "—",      note: "Local search reach" },
+                    { stage: "Impressions",       value: "18,000",   rate: "N/A",      note: "Local search reach" },
                     { stage: "Clicks",            value: "540",      rate: "3% CTR", note: "Site visitors" },
                     { stage: "Estimate Requests", value: "27",       rate: "5% CVR", note: "Qualified leads" },
                     { stage: "Booked Jobs",       value: "9–10",     rate: "35%",    note: "Paying customers" },
-                    { stage: "Est. Revenue",      value: "$29–33K",  rate: "—",      note: "From $1,600 spend" },
+                    { stage: "Est. Revenue",      value: "$29–33K",  rate: "N/A",      note: "From $1,600 spend" },
                   ].map((row, i) => (
                     <div key={i} style={{ display: "grid", gridTemplateColumns: "170px 90px 72px 1fr", alignItems: "center", padding: "13px 0", borderTop: i > 0 ? "1px solid #181614" : "none" }}>
                       <span style={{ fontFamily: "sans-serif", fontSize: 11, color: "rgba(250,247,241,0.45)" }}>{row.stage}</span>
@@ -834,7 +834,7 @@ function CarouselModal({
                 {/* Campaign architecture */}
                 <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
                   <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
-                    02 — Campaign Architecture
+                    02: Campaign Architecture
                   </p>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 72px 80px 1fr", gap: 0 }}>
                     {["Campaign", "Tier", "Budget", "Goal"].map(h => (
@@ -864,7 +864,7 @@ function CarouselModal({
                 {/* Keywords */}
                 <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
                   <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
-                    03 — Keyword Strategy
+                    03: Keyword Strategy
                   </p>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
                     {[
@@ -887,7 +887,7 @@ function CarouselModal({
                 {/* 90-Day Roadmap */}
                 <div style={{ padding: "36px 56px", borderBottom: "1px solid #181614" }}>
                   <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
-                    10 — 90-Day Launch Roadmap
+                    10: 90-Day Launch Roadmap
                   </p>
                   {[
                     { phase: "01", period: "Week 1–2",  title: "Foundation",       tasks: "Set up Google Ads account · Install GTM + conversion tracking · Link Google Business Profile · Apply for LSA verification · Build campaign structure + ad groups · Write all RSA copy · Add all extensions + negative keyword lists" },
@@ -909,7 +909,7 @@ function CarouselModal({
                 {/* KPIs */}
                 <div style={{ padding: "36px 56px" }}>
                   <p style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(250,247,241,0.22)", marginBottom: 24, marginTop: 0 }}>
-                    11 — KPIs & Reporting
+                    11: KPIs & Reporting
                   </p>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 100px 100px 160px" }}>
                     {["Metric", "Month 1", "Month 3", "Flag if..."].map(h => (
@@ -917,9 +917,9 @@ function CarouselModal({
                     ))}
                     {[
                       { metric: "Cost Per Lead",      m1: "$60–75",  m3: "$40–55",  flag: "CPL > $90 two weeks running" },
-                      { metric: "Click-Through Rate", m1: "3%+",     m3: "5%+",     flag: "CTR < 2% — ad copy issue" },
-                      { metric: "Conversion Rate",    m1: "3–4%",    m3: "5–7%",    flag: "CVR < 2% — landing page" },
-                      { metric: "Estimate Leads/mo",  m1: "15+",     m3: "25–35",   flag: "Below 10 — diagnose" },
+                      { metric: "Click-Through Rate", m1: "3%+",     m3: "5%+",     flag: "CTR < 2%: ad copy issue" },
+                      { metric: "Conversion Rate",    m1: "3–4%",    m3: "5–7%",    flag: "CVR < 2%: landing page" },
+                      { metric: "Estimate Leads/mo",  m1: "15+",     m3: "25–35",   flag: "Below 10: diagnose" },
                       { metric: "Booked Jobs",        m1: "4–6",     m3: "9–12",    flag: "Close rate < 20%" },
                     ].map((row, i) => (
                       <>
@@ -963,7 +963,7 @@ function CarouselModal({
                   ))}
                 </div>
               ) : project.scrollGallery ? (
-                /* Full-width vertical scroll — brand guides, documents */
+                /* Full-width vertical scroll: brand guides, documents */
                 <div className="flex flex-col pb-16" style={{ gap: 2 }}>
                   {imgs.slice(1).map((src, i) => (
                     <button
@@ -974,7 +974,7 @@ function CarouselModal({
                     >
                       <img
                         src={src}
-                        alt={`${project.name} — page ${i + 1}`}
+                        alt={`${project.name}, page ${i + 1}`}
                         className="w-full h-auto block"
                         loading={i === 0 ? "eager" : "lazy"}
                       />
@@ -994,7 +994,7 @@ function CarouselModal({
                     >
                       <img
                         src={src}
-                        alt={`${project.name} — ${i + 1}`}
+                        alt={`${project.name}, image ${i + 1}`}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         loading={i === 0 ? "eager" : "lazy"}
                       />
@@ -1079,7 +1079,7 @@ function CarouselModal({
           {/* Full image */}
           <img
             src={imgs[lightboxIndex]}
-            alt={`${project.name} — image ${lightboxIndex + 1}`}
+            alt={`${project.name}, image ${lightboxIndex + 1}`}
             className="max-h-screen max-w-full object-contain"
             onClick={e => e.stopPropagation()}
           />
@@ -1342,7 +1342,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                 <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
                   <div className="flex-1">
                     <p className="font-sans font-light text-[#F5F0E8] text-base md:text-lg leading-relaxed mb-6">
-                      A <strong className="font-semibold">20-minute intro call</strong> — no pitch, no pressure. We'll figure out if there's a fit and what working together would actually look like.
+                      A <strong className="font-semibold">20-minute intro call</strong>: no pitch, no pressure. We'll figure out if there's a fit and what working together would actually look like.
                     </p>
                     <ul className="flex flex-col gap-3 mb-8">
                       {[
@@ -1421,7 +1421,7 @@ function ResumeModal({ onClose }: { onClose: () => void }) {
     >
       <div className="flex items-center justify-between px-8 py-4 border-b border-[#1a1a1a]">
         <span id="resume-modal-title" className="font-serif font-semibold text-sm text-[#F5F0E8] uppercase tracking-[0.15em]">
-          Isaac Figueroa — Resume
+          Isaac Figueroa's Resume
         </span>
         <button
           onClick={onClose}
@@ -1463,40 +1463,40 @@ function Home() {
 
   const serviceInfo: Record<string, { tagline: string; desc: string; includes: string[]; delivers: string }> = {
     "Brand Identity": {
-      tagline: "Your brand's visual foundation — built to last.",
+      tagline: "Your brand's visual foundation, built to last.",
       desc: "Brand identity is the complete visual system that represents who you are. From logo to color palette to typography, every element works together to create instant recognition and trust across every touchpoint.",
       includes: ["Primary + alternate logo variations", "Color palette with HEX/RGB/CMYK values", "Typography system (heading + body fonts)", "Brand usage guidelines (PDF)"],
       delivers: "AI, SVG, PNG (transparent), PDF brand guide",
     },
     "Campaign Design": {
-      tagline: "Visuals built to move people — and drive results.",
+      tagline: "Visuals built to move people and drive results.",
       desc: "Campaign design brings a single concept to life across multiple formats. Whether it's a product launch, seasonal push, or awareness campaign, every asset is crafted to work together and hit hard.",
       includes: ["Campaign concept & mood direction", "Social media graphics (multiple sizes)", "Digital ads or promotional banners", "Print-ready materials if needed"],
-      delivers: "PNG, JPG, PDF — print & web-ready files",
+      delivers: "PNG, JPG, PDF: print & web-ready files",
     },
     "Social Media Graphics": {
       tagline: "Scroll-stopping content, designed for the platform.",
-      desc: "Custom graphics sized and optimized for Instagram, Facebook, TikTok, and more. Consistent with your brand, designed to perform — not just look pretty.",
+      desc: "Custom graphics sized and optimized for Instagram, Facebook, TikTok, and more. Consistent with your brand, designed to perform, not just look pretty.",
       includes: ["Feed posts (1:1 and 4:5)", "Story & Reel cover graphics (9:16)", "Highlight covers", "Optional: caption copy suggestions"],
       delivers: "PNG/JPG at export-ready dimensions per platform",
     },
     "Web Design": {
       tagline: "Clean, intentional design that converts.",
-      desc: "UI mockups and full website designs that balance aesthetics with function. Every screen is designed with user flow in mind — not just how it looks, but how it works.",
+      desc: "UI mockups and full website designs that balance aesthetics with function. Every screen is designed with user flow in mind: not just how it looks, but how it works.",
       includes: ["Wireframes or layout exploration", "Full desktop + mobile mockups", "Style guide (colors, type, components)", "Handoff-ready Figma file"],
       delivers: "Figma source file + exported PNG previews",
     },
     "Print & Marketing": {
       tagline: "Physical materials that represent you professionally.",
-      desc: "Flyers, brochures, menus, business cards — designed to print beautifully and communicate clearly. All files are delivered print-ready with bleed and crop marks.",
+      desc: "Flyers, brochures, menus, business cards: designed to print beautifully and communicate clearly. All files are delivered print-ready with bleed and crop marks.",
       includes: ["Layout design with your content", "Print-ready PDF with bleed/crop marks", "Digital version (web-optimized)", "Up to 2 rounds of revisions"],
       delivers: "Print-ready PDF + digital JPG/PNG",
     },
     "Typography": {
-      tagline: "Type as a design element — not an afterthought.",
+      tagline: "Type as a design element, not an afterthought.",
       desc: "Custom typographic layouts, lettering treatments, and type-driven graphics. Whether it's a bold headline poster or a refined editorial layout, type is used as the primary visual tool.",
       includes: ["Custom type layout or lettering treatment", "Multiple compositional variations", "Application mockups if needed", "Vector source file"],
-      delivers: "AI, SVG, PNG — vector and raster formats",
+      delivers: "AI, SVG, PNG: vector and raster formats",
     },
     "Layout & Composition": {
       tagline: "Structure that guides the eye and tells the story.",
@@ -1506,7 +1506,7 @@ function Home() {
     },
     "Merch Design": {
       tagline: "Wearable and sellable designs people actually want.",
-      desc: "Graphic tees, hoodies, hats, tote bags — designed for screen printing, embroidery, or DTG printing. Artwork is delivered print-ready and spec'd for your manufacturer.",
+      desc: "Graphic tees, hoodies, hats, tote bags: designed for screen printing, embroidery, or DTG printing. Artwork is delivered print-ready and spec'd for your manufacturer.",
       includes: ["Garment graphic design (front, back, sleeve)", "Color-separated artwork for printing", "Mockup previews on garment photos", "Print-ready files spec'd to your printer"],
       delivers: "AI/SVG (vector) + PNG (300dpi) + mockup JPGs",
     },
@@ -1518,7 +1518,7 @@ function Home() {
     },
     "Event Promotion": {
       tagline: "Build the hype before the doors open.",
-      desc: "Event flyers, digital banners, countdown graphics, and social posts — everything needed to build awareness and drive attendance, in print and digital formats.",
+      desc: "Event flyers, digital banners, countdown graphics, and social posts: everything needed to build awareness and drive attendance, in print and digital formats.",
       includes: ["Event flyer (print + digital versions)", "Social media graphics (feed + story)", "Email header or digital banner", "Save-the-date or countdown graphic"],
       delivers: "PDF (print) + PNG/JPG (digital, all sizes)",
     },
@@ -1555,7 +1555,7 @@ function Home() {
       labelColor: "#e8d5b0",
       nameColor: "#f0e6cc",
       clientColor: "rgba(240,230,204,0.55)",
-      desc: "Website for Little Pilot — a CPG-native growth agency running paid media, email & SMS, influencer, and creative for 20+ food, beverage, and personal care brands.",
+      desc: "Website for Little Pilot, a CPG-native growth agency running paid media, email & SMS, influencer, and creative for 20+ food, beverage, and personal care brands.",
       deviceMockup: true,
       images: ["/little-pilot-portfolio-showcase.webm"],
       liveUrl: "https://littlepilot.co/",
@@ -1566,8 +1566,8 @@ function Home() {
           { value: "11.2M", label: "Influencer Reach (Cappello's)" },
           { value: "34.7x", label: "SMS Program ROI (Taza)" },
         ],
-        challenge: "Little Pilot had the receipts — 3.92x blended ROAS, 20+ CPG brands, campaigns live across Whole Foods, Target, and Walmart — but their website didn't reflect any of it. The site needed to convert brand founders browsing agencies into actual conversations, while matching the taste level and authority that their client roster demanded.",
-        approach: "I led with proof. A scrolling ticker of hard numbers (20+ brands, 15+ major retailers, 100% CPG focused) hits before any copy. Full-bleed lifestyle photography sets the brand aesthetic immediately — warm, editorial, premium without being cold. The layout clears the way for the results to do the selling: case studies with real metrics, retailer logos, and channel breakdowns that signal exactly the kind of partner Little Pilot is.",
+        challenge: "Little Pilot had the receipts: 3.92x blended ROAS, 20+ CPG brands, campaigns live across Whole Foods, Target, and Walmart. But their website didn't reflect any of it. The site needed to convert brand founders browsing agencies into actual conversations, while matching the taste level and authority that their client roster demanded.",
+        approach: "I led with proof. A scrolling ticker of hard numbers (20+ brands, 15+ major retailers, 100% CPG focused) hits before any copy. Full-bleed lifestyle photography sets the brand aesthetic immediately: warm, editorial, premium without being cold. The layout clears the way for the results to do the selling: case studies with real metrics, retailer logos, and channel breakdowns that signal exactly the kind of partner Little Pilot is.",
       },
     },
     {
@@ -1578,7 +1578,7 @@ function Home() {
       labelColor: "#7E3717",
       nameColor: "#1a1a1a",
       clientColor: "rgba(26,26,26,0.55)",
-      desc: "FORMA is a concept CPG brand studio site — visual identity, packaging design, campaign, and motion work presented the way a studio that moves product off shelves and into culture should look.",
+      desc: "FORMA is a concept CPG brand studio site: visual identity, packaging design, campaign, and motion work presented the way a studio that moves product off shelves and into culture should look.",
       deviceMockup: true,
       images: ["/forma-portfolio-showcase.webm"],
       liveUrl: "https://forma-studio-eight.vercel.app",
@@ -1588,7 +1588,7 @@ function Home() {
           { value: "4", label: "Service Pillars" },
           { value: "100%", label: "Designed & Developed" },
         ],
-        challenge: "Most CPG-focused studio sites default to either sterile agency minimalism or over-styled mood boards that never show the work doing its job. FORMA needed to sell packaging, identity, campaign, and motion work as one connected practice — with a rust-and-cream editorial palette that feels closer to the shelf-ready brands it represents than a typical design portfolio.",
+        challenge: "Most CPG-focused studio sites default to either sterile agency minimalism or over-styled mood boards that never show the work doing its job. FORMA needed to sell packaging, identity, campaign, and motion work as one connected practice, with a rust-and-cream editorial palette that feels closer to the shelf-ready brands it represents than a typical design portfolio.",
         approach: "I structured the site around what a CPG founder actually evaluates: services delivered, studio statistics, and work they can see themselves in. Warm neutral tones and confident condensed type carry the brand feel throughout, while the service breakdown (Brand Strategy, Visual Identity, Packaging Design, Campaign Art Direction, Motion Identity) reads like a capabilities deck rather than a list. Every section is built to move a visitor from 'interesting studio' to 'let's talk.'",
       },
     },
@@ -1600,7 +1600,7 @@ function Home() {
       labelColor: "#14110D",
       nameColor: "#14110D",
       clientColor: "#3D3830",
-      desc: "Meridian is a fintech web app for high-income professionals — full product design and front-end development. Dashboard, portfolio, markets, goals, and an AI advisor all in one editorial interface.",
+      desc: "Meridian is a fintech web app for high-income professionals: full product design and front-end development. Dashboard, portfolio, markets, goals, and an AI advisor all in one editorial interface.",
       deviceMockup: true,
       images: ["/meridian-portfolio-showcase.webm"],
       liveUrl: "/meridian/index.html",
@@ -1616,9 +1616,9 @@ function Home() {
         ],
         features: [
           { label: "Dashboard",  sub: "Net worth at a glance",           desc: "One chart. One number. The information that actually matters, front and center." },
-          { label: "AI Advisor", sub: "Marisol — your financial partner", desc: "Intelligent guidance built into the interface — always contextual, never interruptive." },
+          { label: "AI Advisor", sub: "Marisol, your financial partner", desc: "Intelligent guidance built into the interface, always contextual, never interruptive." },
           { label: "Portfolio",  sub: "Asset breakdown + performance",    desc: "Scannable allocation view with return data and live chart animations." },
-          { label: "Dual Theme", sub: "Light & dark mode",                desc: "Full adaptive color system — every surface, component, and state covered in both modes." },
+          { label: "Dual Theme", sub: "Light & dark mode",                desc: "Full adaptive color system: every surface, component, and state covered in both modes." },
         ],
         tokens: [
           { role: "Headings",  sample: "Meridian",   family: "Instrument Serif",  sampleStyle: { fontFamily: "'Georgia',serif", fontStyle: "italic", fontSize: "1.5rem", fontWeight: 400 } },
@@ -1634,8 +1634,8 @@ function Home() {
           { value: "2", label: "Themes (Light / Dark)" },
           { value: "100%", label: "Custom Coded" },
         ],
-        challenge: "Most financial apps treat data like a spreadsheet — dense, cold, and anxiety-inducing. High-income professionals don't need more data; they need clarity. The challenge was designing a fintech interface that felt editorial and calm rather than overwhelming — one that surfaces the right information at the right moment without making wealth management feel like a second job.",
-        approach: "I built Meridian around the idea that a great financial interface should feel more like a well-designed magazine than a Bloomberg terminal. Instrument Serif for headings, Onest for UI, and JetBrains Mono for numbers created a typographic hierarchy that's instantly scannable. The dashboard leads with net worth and a single chart — everything else is a layer deeper. Light and dark themes, a living AI advisor panel named Marisol, and animated micro-interactions throughout make the app feel alive without being distracting.",
+        challenge: "Most financial apps treat data like a spreadsheet: dense, cold, and anxiety-inducing. High-income professionals don't need more data; they need clarity. The challenge was designing a fintech interface that felt editorial and calm rather than overwhelming, one that surfaces the right information at the right moment without making wealth management feel like a second job.",
+        approach: "I built Meridian around the idea that a great financial interface should feel more like a well-designed magazine than a Bloomberg terminal. Instrument Serif for headings, Onest for UI, and JetBrains Mono for numbers created a typographic hierarchy that's instantly scannable. The dashboard leads with net worth and a single chart. Everything else is a layer deeper. Light and dark themes, a living AI advisor panel named Marisol, and animated micro-interactions throughout make the app feel alive without being distracting.",
       },
     },
     {
@@ -1646,7 +1646,7 @@ function Home() {
       labelColor: "#fff",
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.7)",
-      desc: "Construction company full rebrand — logo, web, apparel, signage",
+      desc: "Construction company full rebrand: logo, web, apparel, signage",
       images: ["/spark-1.webp", "/spark-2.webp", "/spark-3.webp", "/spark-4.webp", "/spark-5.webp", "/spark-6.webp", "/spark-7.webp", "/spark-8.webp"],
       caseStudy: {
         stats: [
@@ -1654,13 +1654,13 @@ function Home() {
           { value: "100%", label: "Identity from Scratch" },
           { value: "4", label: "Touchpoints Covered" },
         ],
-        challenge: "Spark Pro Services had been operating for years under a forgettable name with no real visual identity. They were losing bids to competitors who simply looked more established and professional — not because of the quality of their work, but because their brand didn't reflect it. They needed a full rebrand that communicated trust, strength, and capability across every touchpoint: proposals, job site apparel, signage, and digital.",
-        approach: "I built the identity around tension: raw industrial energy meets precision craft. The name 'Spark' gave me an immediate visual direction — fire, ignition, momentum. I chose a high-contrast palette anchored in bold orange-red paired with heavy condensed type that commands authority whether it's on a work truck or a contract PDF. Every asset — logo, web layout, work shirts, signage — was designed to make them look like the most established contractor in the room before they say a word.",
+        challenge: "Spark Pro Services had been operating for years under a forgettable name with no real visual identity. They were losing bids to competitors who simply looked more established and professional, not because of the quality of their work, but because their brand didn't reflect it. They needed a full rebrand that communicated trust, strength, and capability across every touchpoint: proposals, job site apparel, signage, and digital.",
+        approach: "I built the identity around tension: raw industrial energy meets precision craft. The name 'Spark' gave me an immediate visual direction: fire, ignition, momentum. I chose a high-contrast palette anchored in bold orange-red paired with heavy condensed type that commands authority whether it's on a work truck or a contract PDF. Every asset (logo, web layout, work shirts, signage) was designed to make them look like the most established contractor in the room before they say a word.",
       },
       brandGuide: {
         manifesto: "Built on Precision.",
         manifestoSub: "Engineered for Performance.",
-        manifestoBody: "Spark Pro is a Cincinnati construction company that treats every project like it carries our name — because it does. From preconstruction to closeout, we plan tightly, build cleanly, and finish ahead. The work outlasts the handshake.",
+        manifestoBody: "Spark Pro is a Cincinnati construction company that treats every project like it carries our name. Because it does. From preconstruction to closeout, we plan tightly, build cleanly, and finish ahead. The work outlasts the handshake.",
         pillars: [
           "01  Precision in the plan.",
           "02  Discipline on the site.",
@@ -1705,7 +1705,7 @@ function Home() {
             "Stroke  0.65X round",
             "Center  0.9×0.9 ♦",
           ],
-          meaning: "The square at center is a surveyor's mark — where every project starts. The rays are the spark that gets it built. The leader arrow points the way forward.",
+          meaning: "The square at center is a surveyor's mark: where every project starts. The rays are the spark that gets it built. The leader arrow points the way forward.",
         },
         patterns: [
           { id: "P/01", name: "Halftone Burst",  use: "Hero Accent" },
@@ -1735,7 +1735,7 @@ function Home() {
       labelColor: "#e34d37",
       nameColor: "#111",
       clientColor: "#555",
-      desc: "Full brand identity and website for Wave Creative House — a Las Vegas design studio co-founded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
+      desc: "Full brand identity and website for Wave Creative House, a Las Vegas design studio co-founded by Isaac. Branding, web design, copywriting, and Webflow development all in one cohesive build.",
       deviceMockup: true,
       images: ["/wave-motion.mp4"],
       liveUrl: "https://www.wavecreativehouse.com/",
@@ -1745,8 +1745,8 @@ function Home() {
           { value: "4", label: "Service Offerings" },
           { value: "100%", label: "Designed & Developed" },
         ],
-        challenge: "Wave Creative House needed to launch as a credible, polished studio from day one — competing against established agencies without a client portfolio to lean on. The site had to communicate authority, taste, and approachability simultaneously, while making it dead simple for a small business owner to understand exactly what Wave does and take the next step.",
-        approach: "I built the brand around warmth and directness — none of the cold minimalism that plagues most design studios. The cream-and-yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a two-person shop.",
+        challenge: "Wave Creative House needed to launch as a credible, polished studio from day one, competing against established agencies without a client portfolio to lean on. The site had to communicate authority, taste, and approachability simultaneously, while making it dead simple for a small business owner to understand exactly what Wave does and take the next step.",
+        approach: "I built the brand around warmth and directness: none of the cold minimalism that plagues most design studios. The cream-and-yellow palette with bold type signals energy without arrogance. The homepage leads with a clear value prop ('Focus on your mission. Let us handle the visuals.'), moves straight into services, then social proof. Webflow was the build platform of choice for its visual fidelity and CMS flexibility. The result is a site that feels bigger than a two-person shop.",
       },
     },
     {
@@ -1757,7 +1757,7 @@ function Home() {
       labelColor: "#c9932a",
       nameColor: "#faf8f5",
       clientColor: "rgba(250,248,245,0.55)",
-      desc: "A high-converting checkout experience for Vigo MD's V3 men's telehealth product — designed to guide qualified patients from diagnosis to purchase with trust, urgency, and clarity at every step.",
+      desc: "A high-converting checkout experience for Vigo MD's V3 men's telehealth product, designed to guide qualified patients from diagnosis to purchase with trust, urgency, and clarity at every step.",
       deviceMockup: true,
       liveUrl: "/vigo-md/index.html",
       presentation: {
@@ -1771,10 +1771,10 @@ function Home() {
           { value: "CRO",     label: "Design Focus" },
         ],
         features: [
-          { label: "Qualification",  sub: "You qualified — now what?",         desc: "Opens on a congratulatory frame that converts anxiety into momentum. The patient already knows they're a fit." },
+          { label: "Qualification",  sub: "You qualified, now what?",         desc: "Opens on a congratulatory frame that converts anxiety into momentum. The patient already knows they're a fit." },
           { label: "Proof System",   sub: "Comparison charts + social proof",  desc: "Side-by-side bar charts, testimonials, and real patient stats do the persuasion work before the CTA." },
           { label: "Trust Layer",    sub: "Guarantee + coverage transparency",  desc: "HSA/FSA eligibility, 30-day money-back guarantee, and provider-reviewed badge anchor the close." },
-          { label: "Checkout Form",  sub: "Frictionless single-page purchase", desc: "Sticky CTA, countdown timer, and inline form — engineered to remove every exit point between decision and completion." },
+          { label: "Checkout Form",  sub: "Frictionless single-page purchase", desc: "Sticky CTA, countdown timer, and inline form, engineered to remove every exit point between decision and completion." },
         ],
         tags: ["UI / UX", "Conversion Design", "Telehealth", "CRO", "Product Page"],
       },
@@ -1785,8 +1785,8 @@ function Home() {
           { value: "V3",    label: "Product Version" },
           { value: "HSA",   label: "Payment Eligible" },
         ],
-        challenge: "Telehealth checkout is uniquely hard. Patients arrive skeptical, insurance situations are murky, and the product requires trust in a brand they've never heard of. Vigo MD needed a checkout page that could carry a qualified lead all the way to purchase — without a sales rep, without a phone call, and without losing them to doubt halfway through the form.",
-        approach: "I designed the V3 checkout as a linear trust-building sequence rather than a traditional product page. The flow opens with a qualification confirmation ('You qualified') to reaffirm the patient's decision before asking anything of them. Comparison charts and real outcome data handle objection removal. A sticky CTA with countdown timer creates urgency without pressure. The checkout form is embedded inline — no redirects, no new tabs — so the momentum built across the page converts directly into a completed purchase.",
+        challenge: "Telehealth checkout is uniquely hard. Patients arrive skeptical, insurance situations are murky, and the product requires trust in a brand they've never heard of. Vigo MD needed a checkout page that could carry a qualified lead all the way to purchase, without a sales rep, without a phone call, and without losing them to doubt halfway through the form.",
+        approach: "I designed the V3 checkout as a linear trust-building sequence rather than a traditional product page. The flow opens with a qualification confirmation ('You qualified') to reaffirm the patient's decision before asking anything of them. Comparison charts and real outcome data handle objection removal. A sticky CTA with countdown timer creates urgency without pressure. The checkout form is embedded inline, no redirects, no new tabs, so the momentum built across the page converts directly into a completed purchase.",
       },
     },
     {
@@ -1797,7 +1797,7 @@ function Home() {
       labelColor: "#e34d37",
       nameColor: "#fff",
       clientColor: "rgba(255,255,255,0.6)",
-      desc: "Full brand suite — social graphics, hoodie, tote bag, signage",
+      desc: "Full brand suite: social graphics, hoodie, tote bag, signage",
       images: [
         "/billy-new-1.webp", "/billy-new-2.webp", "/billy-new-3.webp", "/billy-new-4.webp",
         "/billy-new-5.webp", "/billy-new-6.webp", "/billy-new-7.webp", "/billy-new-8.webp", "/billy-new-9.webp"
@@ -1808,8 +1808,8 @@ function Home() {
           { value: "3", label: "Merch Formats" },
           { value: "1", label: "Cohesive Brand System" },
         ],
-        challenge: "Billy Brunch NYC needed a brand identity that could live in two very different places at once — on a New York City Instagram feed competing against hundreds of brunch spots, and on a hoodie someone actually wants to wear outside the restaurant. The challenge was finding a visual voice distinct enough to own a lane in an oversaturated market, while staying warm and unpretentious enough to match the vibe of the space itself.",
-        approach: "I anchored the brand in a soft muted teal — warm enough for a Sunday morning, refined enough to not look like every other food brand on the explore page. The logomark uses loose, confident letterforms with just enough structure to feel intentional rather than amateur. For merch — hoodie, tote, and cap — I prioritized wearability over branding volume. Every piece was designed to feel like something you'd find at a boutique, not just a freebie from a restaurant.",
+        challenge: "Billy Brunch NYC needed a brand identity that could live in two very different places at once: on a New York City Instagram feed competing against hundreds of brunch spots, and on a hoodie someone actually wants to wear outside the restaurant. The challenge was finding a visual voice distinct enough to own a lane in an oversaturated market, while staying warm and unpretentious enough to match the vibe of the space itself.",
+        approach: "I anchored the brand in a soft muted teal, warm enough for a Sunday morning, refined enough to not look like every other food brand on the explore page. The logomark uses loose, confident letterforms with just enough structure to feel intentional rather than amateur. For merch (hoodie, tote, and cap), I prioritized wearability over branding volume. Every piece was designed to feel like something you'd find at a boutique, not just a freebie from a restaurant.",
       },
     },
     {
@@ -1820,7 +1820,7 @@ function Home() {
       labelColor: "#0015ff",
       nameColor: "#000",
       clientColor: "#333",
-      desc: "Full visual identity — signage, merch, posters, tote bags",
+      desc: "Full visual identity: signage, merch, posters, tote bags",
       images: [
         "/chino-new-1.webp", "/chino-new-2.webp", "/chino-new-3.webp",
         "/chino-new-10.webp", "/chino-new-11.webp", "/chino-new-12.webp",
@@ -1833,8 +1833,8 @@ function Home() {
           { value: "3", label: "Merch Types" },
           { value: "2", label: "Event Series" },
         ],
-        challenge: "Chino Club needed an identity that could do serious heavy lifting — work on a 10-foot banner outside a venue, read instantly in a 1-second scroll on Instagram, and look sharp on a tote bag someone carries around the city for months. The brand had to be loud enough to own a room but deliberate enough to build real recognition and feel collectible over time.",
-        approach: "High-voltage yellow and electric blue was the call the moment I understood their energy — that combination is impossible to ignore and creates instant, sticky recall. I leaned hard into rave-era graphic language: bold condensed type, blocky grid layouts, and graphic shapes that print cleanly at any scale. Every deliverable — posters, tote bags, signage, social graphics — was designed to feel like a limited-run piece someone keeps, not just another branded handout.",
+        challenge: "Chino Club needed an identity that could do serious heavy lifting: work on a 10-foot banner outside a venue, read instantly in a 1-second scroll on Instagram, and look sharp on a tote bag someone carries around the city for months. The brand had to be loud enough to own a room but deliberate enough to build real recognition and feel collectible over time.",
+        approach: "High-voltage yellow and electric blue was the call the moment I understood their energy: that combination is impossible to ignore and creates instant, sticky recall. I leaned hard into rave-era graphic language: bold condensed type, blocky grid layouts, and graphic shapes that print cleanly at any scale. Every deliverable (posters, tote bags, signage, social graphics) was designed to feel like a limited-run piece someone keeps, not just another branded handout.",
       },
     },
     {
@@ -1856,8 +1856,8 @@ function Home() {
           { value: "3", label: "Colorways" },
           { value: "100%", label: "Hand-drawn Feel" },
         ],
-        challenge: "Cold Little Heart wanted a graphic tee that felt genuinely worn-in and emotionally authentic — not a slogan shirt, not a logo drop. The kind of piece that looks like it surfaced from a vintage store, carries real weight, and sells itself without needing a caption. The name set a very specific emotional tone — melancholy, raw, a little romantic — and the visual had to earn that without being on the nose.",
-        approach: "I went straight to illustration — a flaming heart rendered with intentional hand-drawn imperfection that reads vintage without trying too hard. Distressed textures, a tight 3-color palette, and aged typography gave the shirt that lived-in quality from day one. The graphic sits center-chest: confident, self-contained, and meaningful without competing for attention. Three colorway options were presented so the client could choose what felt right for their audience.",
+        challenge: "Cold Little Heart wanted a graphic tee that felt genuinely worn-in and emotionally authentic, not a slogan shirt, not a logo drop. The kind of piece that looks like it surfaced from a vintage store, carries real weight, and sells itself without needing a caption. The name set a very specific emotional tone (melancholy, raw, a little romantic), and the visual had to earn that without being on the nose.",
+        approach: "I went straight to illustration: a flaming heart rendered with intentional hand-drawn imperfection that reads vintage without trying too hard. Distressed textures, a tight 3-color palette, and aged typography gave the shirt that lived-in quality from day one. The graphic sits center-chest: confident, self-contained, and meaningful without competing for attention. Three colorway options were presented so the client could choose what felt right for their audience.",
       },
     },
     {
@@ -1895,8 +1895,8 @@ function Home() {
           { value: "0→1", label: "Brand Built from Scratch" },
           { value: "3", label: "Platform Formats" },
         ],
-        challenge: "Aware Coffee was launching from zero — no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well-funded brands. They needed to look premium and intentional on Instagram from day one, build enough credibility to justify their price point, and do it all without an agency budget.",
-        approach: "I made restraint the strategy. Clean off-white backgrounds, minimal type, and a single warm accent used sparingly — nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative. The cup mockups were styled to feel editorial rather than promotional — the kind of content that performs whether someone's scrolling at 7am or seeing it on a shelf. Every asset was built to work across feed posts, stories, and print without modification.",
+        challenge: "Aware Coffee was launching from zero: no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well-funded brands. They needed to look premium and intentional on Instagram from day one, build enough credibility to justify their price point, and do it all without an agency budget.",
+        approach: "I made restraint the strategy. Clean off-white backgrounds, minimal type, and a single warm accent used sparingly, nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative. The cup mockups were styled to feel editorial rather than promotional: the kind of content that performs whether someone's scrolling at 7am or seeing it on a shelf. Every asset was built to work across feed posts, stories, and print without modification.",
       },
     },
   ];
@@ -1914,7 +1914,7 @@ function Home() {
         aria-label="Main navigation"
         className={`fixed top-0 left-0 w-full px-8 md:px-16 py-4 md:py-6 flex justify-between items-center z-50 transition-all duration-300 rounded-none ${scrolled ? 'backdrop-blur-sm border-b border-[#1a1a1a] bg-background/80' : 'bg-transparent border-b border-transparent'}`}
       >
-        <a href="#main-content" className="font-serif font-bold text-2xl text-[#F5F0E8] uppercase" data-testid="nav-logo" aria-label="Isaac Figueroa — home">
+        <a href="#main-content" className="font-serif font-bold text-2xl text-[#F5F0E8] uppercase" data-testid="nav-logo" aria-label="Isaac Figueroa, home">
           IF.
         </a>
         <div className="flex gap-6 md:gap-8 font-sans text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -1968,7 +1968,7 @@ function Home() {
 
             <motion.div variants={heroItem} className="mt-8 mb-12">
               <p className="font-sans font-light text-sm text-muted-foreground max-w-xs leading-relaxed">
-                Building brands and visuals that stop the scroll — from print to digital.
+                Building brands and visuals that stop the scroll, from print to digital.
               </p>
             </motion.div>
 
@@ -2023,7 +2023,7 @@ function Home() {
           <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(07)</div>
         </motion.div>
 
-        {/* Featured showcase — top 3 projects, full desktop browser-frame video */}
+        {/* Featured showcase: top 3 projects, full desktop browser-frame video */}
         <div className="border-t border-[#1a1a1a] bg-background">
           {["Little Pilot", "Forma", "Meridian"].map((name, fi) => {
             const project = projects.find((p) => p.name === name);
@@ -2035,7 +2035,7 @@ function Home() {
                 key={name}
                 role="button"
                 tabIndex={0}
-                aria-label={`View ${project.name} — ${project.category}`}
+                aria-label={`View ${project.name}, ${project.category}`}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "0px" }}
@@ -2112,7 +2112,7 @@ function Home() {
                     ) : (
                       <img
                         src={project.images[0]}
-                        alt={`${project.name} — desktop preview`}
+                        alt={`${project.name}, desktop preview`}
                         className="w-full h-full object-cover block"
                         loading="lazy"
                       />
@@ -2127,7 +2127,7 @@ function Home() {
         {/* Editorial list */}
         <div className="border-t border-black/15 relative">
 
-          {/* Floating image preview — fixed to right side while hovering */}
+          {/* Floating image preview: fixed to right side while hovering */}
           <AnimatePresence>
             {hoveredProject?.images?.[0] && (
               <motion.div
@@ -2173,7 +2173,7 @@ function Home() {
               key={idx}
               role="button"
               tabIndex={0}
-              aria-label={`View ${project.name} — ${project.category}`}
+              aria-label={`View ${project.name}, ${project.category}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px" }}
@@ -2200,13 +2200,13 @@ function Home() {
                   <p className="md:hidden font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/35 mt-2">
                     {project.category}
                   </p>
-                  {/* View Case Study — mobile only (desktop shows it near the arrow) */}
+                  {/* View Case Study: mobile only (desktop shows it near the arrow) */}
                   <p className="md:hidden font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#14110D]/25 mt-1.5" aria-hidden="true">
                     View Case Study →
                   </p>
                 </div>
 
-                {/* Category + Client — desktop only */}
+                {/* Category + Client: desktop only */}
                 <div className="hidden md:flex flex-col items-end gap-[5px] flex-shrink-0 min-w-[130px]" aria-hidden="true">
                   <span className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#14110D]/40 text-right">
                     {project.category}
@@ -2250,7 +2250,7 @@ function Home() {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="grid grid-cols-1 md:grid-cols-12 rounded-none"
         >
-          {/* LEFT — photo flush */}
+          {/* LEFT: photo flush */}
           <div className="md:col-span-5 overflow-hidden" style={{ background: "#0D0D0D", minHeight: "420px" }}>
             <img
               src="/profile-photo.png"
@@ -2276,9 +2276,9 @@ function Home() {
               ABOUT ISAAC
             </div>
             <p className="font-sans font-light text-lg md:text-xl text-[#14110D] leading-loose max-w-xl mb-8">
-              Creative designer with 5+ years building high-impact visuals for non-profits, brands, and digital communities. I specialize in brand identity, campaign design, and social content that drives real engagement — and I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
+              Creative designer with 5+ years building high-impact visuals for non-profits, brands, and digital communities. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
             </p>
-            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing and designing at The Squad.</p>
+            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing full-time.</p>
 
             <div className="flex flex-wrap gap-3 rounded-none">
               {[
@@ -2394,10 +2394,10 @@ function Home() {
             {
               year: "2021–PRESENT",
               role: "CREATIVE DESIGNER",
-              company: "THE SQUAD — NON-PROFIT & COMMUNITY ORGS",
+              company: "THE SQUAD: NON-PROFIT & COMMUNITY ORGS",
               bullets: [
                 "Designed social media graphics, posters, thumbnails, and print materials for non-profit and community organizations across the U.S.",
-                "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series — translating mission-driven messaging into compelling storytelling.",
+                "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series, translating mission-driven messaging into compelling storytelling.",
                 "Partnered directly with leadership and marketing teams to develop brand voices and campaign strategies from concept to delivery."
               ]
             },
@@ -2455,7 +2455,7 @@ function Home() {
             <ul className="flex flex-col gap-4 list-none p-0 m-0">
               {[
                 { course: "Google UX/UI Design", source: "Coursera / Google" },
-                { course: "Typography & Design", source: "The Futur — Chris Do" },
+                { course: "Typography & Design", source: "The Futur, Chris Do" },
                 { course: "Figma for Designers", source: "Max Brinckmann" },
               ].map((t, i) => (
                 <li key={i} className="flex flex-col gap-0.5">

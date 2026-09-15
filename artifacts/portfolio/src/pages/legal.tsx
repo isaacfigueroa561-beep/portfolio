@@ -46,7 +46,7 @@ export function PrivacyPolicy() {
       <section>
         <h2>Information You Provide</h2>
         <p>
-          If you submit the contact form or book a call, I collect the information you enter — name,
+          If you submit the contact form or book a call, I collect the information you enter: name,
           email, phone number, project details, and any message content. This information is used
           solely to respond to your inquiry and discuss potential work. It is not sold or shared with
           third parties, other than the service providers below that process it on my behalf.
@@ -76,9 +76,9 @@ export function PrivacyPolicy() {
         <h2>Third-Party Services</h2>
         <p>Data submitted or collected may pass through the following third-party services:</p>
         <ul>
-          <li>Web3Forms — processes contact form submissions</li>
-          <li>Google Analytics / Meta Pixel — site and ad performance analytics</li>
-          <li>Scheduling provider — processes call booking requests</li>
+          <li>Web3Forms: processes contact form submissions</li>
+          <li>Google Analytics / Meta Pixel: site and ad performance analytics</li>
+          <li>Scheduling provider: processes call booking requests</li>
         </ul>
         <p>Each of these services has its own privacy policy governing how it handles your data.</p>
       </section>
@@ -154,7 +154,7 @@ export function TermsAndConditions() {
         <h2>Inquiries &amp; Project Work</h2>
         <p>
           Submitting the contact form or booking a call does not create a contract or working
-          relationship — that happens only once a scope, timeline, and payment terms are agreed to
+          relationship. That happens only once a scope, timeline, and payment terms are agreed to
           separately, in writing, for a specific project.
         </p>
       </section>
