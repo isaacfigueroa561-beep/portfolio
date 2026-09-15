@@ -2002,7 +2002,7 @@ function Home() {
         </div>
       </section>
       {/* 2. WORK */}
-      <section id="work" className="w-full border-t border-black/15 bg-[#FF4D00]">
+      <section id="work" className="w-full border-t border-[#1a1a1a] bg-[#FF4D00]">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -2016,7 +2016,7 @@ function Home() {
             </h2>
             <div className="hidden md:block mb-2" style={{ transform: "skewX(-10deg)" }}>
               <div className="bg-black px-3 py-1">
-                <span className="font-sans font-bold text-[10px] text-[#14110D] uppercase tracking-widest" style={{ display: "block", transform: "skewX(10deg)" }}>2021–NOW</span>
+                <span className="font-sans font-bold text-[10px] text-[#F5F0E8] uppercase tracking-widest" style={{ display: "block", transform: "skewX(10deg)" }}>2021–NOW</span>
               </div>
             </div>
           </div>
@@ -2024,7 +2024,7 @@ function Home() {
         </motion.div>
 
         {/* Featured showcase — top 3 projects, full desktop browser-frame video */}
-        <div className="border-t border-black/15">
+        <div className="border-t border-[#1a1a1a] bg-background">
           {["Little Pilot", "Forma", "Meridian"].map((name, fi) => {
             const project = projects.find((p) => p.name === name);
             if (!project || !project.images?.[0]) return null;
@@ -2040,28 +2040,28 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="group border-b border-black/15 cursor-pointer px-6 md:px-16 py-14 md:py-20"
+                className="group border-b border-[#1a1a1a] cursor-pointer px-6 md:px-16 py-14 md:py-20"
                 onClick={() => setSelectedIndex(idx)}
                 onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedIndex(idx); } }}
                 data-testid={`card-featured-${idx}`}
               >
                 <div className="flex items-end justify-between gap-6 mb-8 flex-wrap">
                   <div>
-                    <span className="font-sans font-light text-[10px] text-[#14110D]/20 tabular-nums select-none" aria-hidden="true">
+                    <span className="font-sans font-light text-[10px] text-[#F5F0E8]/20 tabular-nums select-none" aria-hidden="true">
                       {String(fi + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-serif font-bold uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#14110D] leading-none group-hover:text-white transition-colors duration-300 tracking-tight mt-2">
+                    <h3 className="font-serif font-bold uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight mt-2">
                       {project.name}
                     </h3>
-                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#14110D]/40 mt-3">
+                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 mt-3">
                       {project.category} · {project.client}
                     </p>
                   </div>
                   <span className="flex items-center gap-3 flex-shrink-0 select-none" aria-hidden="true">
-                    <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.25em] text-[#14110D]/30 group-hover:text-white transition-colors duration-300">
+                    <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.25em] text-[#F5F0E8]/30 group-hover:text-[#FF4D00] transition-colors duration-300">
                       View Case Study
                     </span>
-                    <span className="project-card-arrow font-sans text-2xl text-[#14110D]/20 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
+                    <span className="project-card-arrow font-sans text-2xl text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300">
                       →
                     </span>
                   </span>
@@ -2531,7 +2531,7 @@ function Home() {
       <footer className="w-full border-t border-black/15 rounded-none bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-20 pb-10">
           <p className="font-serif font-bold uppercase text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.05] tracking-tight text-[#14110D] max-w-4xl">
-            Good design gets noticed. <span className="text-black/35">Great work gets remembered — and gets results.</span>{" "}
+            Good design gets noticed. <span className="text-black/35">Great work gets remembered.</span>{" "}
             <span className="text-[#FF4D00]">I build the second kind.</span>
           </p>
 
