@@ -80,29 +80,37 @@ function CopyEmail({ email }: { email: string }) {
 
 function LazyAutoplayVideo({ src, className, bg }: { src: string; className?: string; bg?: string }) {
   const ref = useRef<HTMLVideoElement>(null);
+  const loadedRef = useRef(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) el.play().catch(() => {});
-        else el.pause();
+        if (entry.isIntersecting) {
+          if (!loadedRef.current) {
+            loadedRef.current = true;
+            el.src = src;
+            el.load();
+          }
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
       },
       { threshold: 0.1, rootMargin: "200px" }
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [src]);
   return (
     <video
       ref={ref}
-      src={src}
       className={className}
       style={{ backgroundColor: bg ?? "#111" }}
       loop
       muted
       playsInline
-      preload="auto"
+      preload="none"
     />
   );
 }
@@ -2149,7 +2157,7 @@ function Home() {
           {/* LEFT: photo flush */}
           <div className="md:col-span-5 overflow-hidden" style={{ background: "#0D0D0D", minHeight: "420px" }}>
             <img
-              src="/profile-photo.png"
+              src="/profile-photo.webp"
               alt="Isaac Figueroa"
               style={{
                 width: "100%",
