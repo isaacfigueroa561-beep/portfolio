@@ -1579,74 +1579,6 @@ function Home() {
       },
     },
     {
-      name: "Forma",
-      client: "Personal Project",
-      category: "Web Design / Brand",
-      bg: "#EDEAE3",
-      labelColor: "#7E3717",
-      nameColor: "#1a1a1a",
-      clientColor: "rgba(26,26,26,0.55)",
-      desc: "FORMA is a concept CPG brand studio site: visual identity, packaging design, campaign, and motion work presented the way a studio that moves product off shelves and into culture should look.",
-      deviceMockup: true,
-      images: ["/forma-portfolio-showcase.webm"],
-      liveUrl: "https://forma-studio-eight.vercel.app",
-      caseStudy: {
-        stats: [
-          { value: "0→1", label: "Built from Scratch" },
-          { value: "4", label: "Service Pillars" },
-          { value: "100%", label: "Designed & Developed" },
-        ],
-        challenge: "Most studio sites built for CPG brands default to either sterile agency minimalism or overly styled mood boards that never show the work doing its job. FORMA needed to sell packaging, identity, campaign, and motion work as one connected practice, with a rust and cream editorial palette that feels closer to the shelf ready brands it represents than a typical design portfolio.",
-        approach: "I structured the site around what a CPG founder actually evaluates: services delivered, studio statistics, and work they can see themselves in. Warm neutral tones and confident condensed type carry the brand feel throughout, while the service breakdown (Brand Strategy, Visual Identity, Packaging Design, Campaign Art Direction, Motion Identity) reads like a capabilities deck rather than a list. Every section is built to move a visitor from 'interesting studio' to 'let's talk.'",
-      },
-    },
-    {
-      name: "Meridian",
-      client: "Personal Project",
-      category: "Product Design / UI",
-      bg: "#FBFAF6",
-      labelColor: "#14110D",
-      nameColor: "#14110D",
-      clientColor: "#3D3830",
-      desc: "Meridian is a fintech web app for high income professionals: full product design and front end development. Dashboard, portfolio, markets, goals, and an AI advisor all in one editorial interface.",
-      deviceMockup: true,
-      images: ["/meridian-portfolio-showcase.webm"],
-      liveUrl: "/meridian/index.html",
-      presentation: {
-        label: "Product Design · UI / UX · Front End Development",
-        tagline: "Wealth management that doesn't feel like work.",
-        domain: "meridian.app",
-        stats: [
-          { value: "0→1",  label: "Built from Scratch" },
-          { value: "5",    label: "Core Screens" },
-          { value: "2",    label: "Themes" },
-          { value: "100%", label: "Custom Built" },
-        ],
-        features: [
-          { label: "Dashboard",  sub: "Net worth at a glance",           desc: "One chart. One number. The information that actually matters, front and center." },
-          { label: "AI Advisor", sub: "Marisol, your financial partner", desc: "Intelligent guidance built into the interface, always contextual, never interruptive." },
-          { label: "Portfolio",  sub: "Asset breakdown + performance",    desc: "Scannable allocation view with return data and live chart animations." },
-          { label: "Dual Theme", sub: "Light & dark mode",                desc: "Full adaptive color system: every surface, component, and state covered in both modes." },
-        ],
-        tokens: [
-          { role: "Headings",  sample: "Meridian",   family: "Instrument Serif",  sampleStyle: { fontFamily: "'Georgia',serif", fontStyle: "italic", fontSize: "1.5rem", fontWeight: 400 } },
-          { role: "Interface", sample: "Dashboard",  family: "Onest",              sampleStyle: { fontFamily: "system-ui,sans-serif", fontSize: "1.2rem", fontWeight: 700, letterSpacing: "-0.01em" } },
-          { role: "Numbers",   sample: "$1,284,350", family: "JetBrains Mono",     sampleStyle: { fontFamily: "'Courier New',monospace", fontSize: "1rem", fontWeight: 400, letterSpacing: "0.02em" } },
-        ],
-        tags: ["Product Design", "UI / UX", "Front End Dev", "Fintech"],
-      },
-      caseStudy: {
-        stats: [
-          { value: "0→1", label: "Built from Scratch" },
-          { value: "5", label: "Core Screens" },
-          { value: "2", label: "Themes (Light / Dark)" },
-          { value: "100%", label: "Custom Coded" },
-        ],
-        challenge: "Most financial apps treat data like a spreadsheet: dense, cold, and anxiety inducing. High income professionals don't need more data; they need clarity. The challenge was designing a fintech interface that felt editorial and calm rather than overwhelming, one that surfaces the right information at the right moment without making wealth management feel like a second job.",
-        approach: "I built Meridian around the idea that a great financial interface should feel more like a well designed magazine than a Bloomberg terminal. Instrument Serif for headings, Onest for UI, and JetBrains Mono for numbers created a typographic hierarchy that's instantly scannable. The dashboard leads with net worth and a single chart. Everything else is a layer deeper. Light and dark themes, a living AI advisor panel named Marisol, and animated microinteractions throughout make the app feel alive without being distracting.",
-      },
-    },
-    {
       name: "Houraly",
       client: "Personal Project",
       category: "Product Design / Full Stack Dev",
@@ -1901,12 +1833,12 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(09)</div>
+          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(07)</div>
         </motion.div>
 
         {/* Featured showcase: top projects, full desktop browser-frame video */}
         <div className="border-t border-[#1a1a1a] bg-background">
-          {["Little Pilot", "Forma", "Meridian", "Houraly"].map((name, fi) => {
+          {["Little Pilot", "Houraly"].map((name, fi) => {
             const project = projects.find((p) => p.name === name);
             if (!project || !project.images?.[0]) return null;
             const idx = projects.findIndex((p) => p.name === name);
@@ -2046,7 +1978,7 @@ function Home() {
           </AnimatePresence>
 
           {projects
-            .filter((project) => !["Little Pilot", "Forma", "Meridian", "Houraly"].includes(project.name))
+            .filter((project) => !["Little Pilot", "Houraly"].includes(project.name))
             .map((project, i) => {
             const idx = projects.indexOf(project);
             return (
