@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import { PrivacyPolicy, TermsAndConditions } from "@/pages/legal";
+import { ResumePage } from "@/pages/resume";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 const WEB3FORMS_KEY = "a995b538-bfa2-42fe-8d08-66ed77362ccb";
 
@@ -1231,7 +1232,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
           {/* header */}
           <div className="flex items-start justify-between mb-6">
             <div>
-              <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-1">Start A Project</div>
+              <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-1">Send Me A Message</div>
               <h3 id="contact-form-title" className="font-serif font-bold text-3xl md:text-5xl text-[#F5F0E8] uppercase leading-tight m-0">
                 Let's Make Something <span className="text-[#FF4D00] italic normal-case">worth</span> It.
               </h3>
@@ -1391,66 +1392,6 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
   );
 }
 
-function ResumeModal({ onClose }: { onClose: () => void }) {
-  const dialogRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const prev = document.activeElement as HTMLElement | null;
-    const timer = setTimeout(() => dialogRef.current?.focus(), 50);
-    return () => { clearTimeout(timer); prev?.focus(); };
-  }, []);
-
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") { onClose(); return; }
-      if (e.key !== "Tab" || !dialogRef.current) return;
-      const focusable = Array.from(dialogRef.current.querySelectorAll<HTMLElement>(
-        'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])'
-      ));
-      if (!focusable.length) return;
-      const first = focusable[0], last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-    };
-    document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
-  }, [onClose]);
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="resume-modal-title"
-      ref={dialogRef}
-      tabIndex={-1}
-      className="fixed inset-0 z-[9999] bg-black/90 flex flex-col focus:outline-none"
-      onClick={onClose}
-      data-testid="resume-modal"
-    >
-      <div className="flex items-center justify-between px-8 py-4 border-b border-[#1a1a1a]">
-        <span id="resume-modal-title" className="font-serif font-semibold text-sm text-[#F5F0E8] uppercase tracking-[0.15em]">
-          Isaac Figueroa's Resume
-        </span>
-        <button
-          onClick={onClose}
-          aria-label="Close resume"
-          className="font-sans font-light text-xs text-muted-foreground hover:text-[#F5F0E8] uppercase tracking-widest transition-colors"
-          data-testid="resume-modal-close"
-        >
-          <span aria-hidden="true">CLOSE ✕</span>
-        </button>
-      </div>
-      <div className="flex-1 overflow-hidden" onClick={(e) => e.stopPropagation()}>
-        <iframe
-          src="/resume.pdf"
-          className="w-full h-full border-0"
-          title="Isaac Figueroa Resume"
-        />
-      </div>
-    </div>
-  );
-}
-
 const HERO_STAGGER = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.08 } },
@@ -1464,7 +1405,6 @@ const HERO_ITEM = {
 function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [contactFormOpen, setContactFormOpen] = useState(false);
-  const [resumeOpen, setResumeOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
   const [activeService, setActiveService] = useState<string | null>(null);
@@ -1735,6 +1675,7 @@ function Home() {
           <a href="#work" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-nav-work">WORK</a>
           <a href="#about" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-nav-about">ABOUT</a>
           <a href="#contact" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-nav-contact">CONTACT</a>
+          <Link href="/resume" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-nav-resume">RESUME</Link>
         </div>
       </nav>
       {/* 2. HERO */}
@@ -2320,15 +2261,15 @@ function Home() {
                 data-testid="button-start-project"
                 onClick={() => setContactFormOpen(true)}
               >
-                START A PROJECT
+                SEND ME A MESSAGE
               </button>
-              <button 
-                className="border border-[#F5F0E8] text-[#F5F0E8] font-serif font-semibold uppercase tracking-wide px-8 py-4 text-sm hover:bg-[#1a1a1a] transition-colors rounded-none"
+              <Link
+                href="/resume"
+                className="border border-[#F5F0E8] text-[#F5F0E8] font-serif font-semibold uppercase tracking-wide px-8 py-4 text-sm hover:bg-[#1a1a1a] transition-colors rounded-none text-center no-underline"
                 data-testid="button-resume"
-                onClick={() => setResumeOpen(true)}
               >
                 VIEW RESUME
-              </button>
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-8 font-sans font-light text-xs text-muted-foreground tracking-wide rounded-none">
@@ -2384,7 +2325,6 @@ function Home() {
           </div>
         </div>
       </footer>
-      {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
       {contactFormOpen && <ContactFormModal key="contact-form" onClose={() => setContactFormOpen(false)} />}
       <AnimatePresence>
           {selectedIndex !== null && <CarouselModal key="carousel" projects={projects} initialIndex={selectedIndex} onClose={() => setSelectedIndex(null)} />}
@@ -2398,6 +2338,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/resume" component={ResumePage} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsAndConditions} />
       <Route component={NotFound} />
