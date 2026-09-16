@@ -1115,26 +1115,12 @@ function CarouselModal({
 }
 
 
-const SERVICES = [
-  "Brand Identity",
-  "Social Media & Content",
-  "Merch / Apparel",
-  "Campaign Design",
-  "Web Design",
-  "Print & Signage",
-  "Something else",
-];
-
-const BUDGETS = ["< $500", "$500–$2,500", "$2,500–$5k", "$5k–$20k", "$20k+", "Not sure yet"];
-
 // Replace with your actual Calendly or Google Calendar booking URL
 const BOOKING_URL = "https://calendly.com/isaacfigueroa";
 
 function ContactFormModal({ onClose }: { onClose: () => void }) {
   const [tab, setTab] = useState<"message" | "call">("message");
-  const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
-  const [services, setServices] = useState<string[]>([]);
-  const [budget, setBudget] = useState("");
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -1162,19 +1148,11 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
     return () => document.removeEventListener("keydown", handleKey);
   }, [onClose]);
 
-  const toggleService = (s: string) =>
-    setServices(prev => prev.includes(s) ? prev.filter(x => x !== s) : [...prev, s]);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
     try {
-      const projectParts = [
-        services.length ? services.join(", ") : null,
-        budget ? `Budget: ${budget}` : null,
-        form.company ? `Company: ${form.company}` : null,
-      ].filter(Boolean);
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1183,7 +1161,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
           name: form.name,
           email: form.email,
           subject: `Portfolio inquiry from ${form.name}`,
-          message: `${projectParts.length ? `Services: ${projectParts.join(" · ")}\n\n` : ""}${form.message}`,
+          message: form.message,
         }),
       });
       const data = await res.json();
@@ -1283,50 +1261,10 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                       </div>
                     </div>
 
-                    {/* company */}
-                    <div>
-                      <label htmlFor="cf-company" className={labelClass}>Company or Project Name <span className="normal-case text-[#444]">(optional)</span></label>
-                      <input id="cf-company" className={inputClass} placeholder="Acme Inc." value={form.company} onChange={e => setForm(f => ({ ...f, company: e.target.value }))} />
-                    </div>
-
-                    {/* services */}
-                    <div>
-                      <label className={labelClass}>What Do You Need? <span className="normal-case text-[#444]">(pick any)</span></label>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {SERVICES.map(s => (
-                          <button
-                            key={s}
-                            type="button"
-                            onClick={() => toggleService(s)}
-                            className={`font-sans font-light text-xs px-4 py-2 border transition-colors ${services.includes(s) ? "border-[#FF4D00] text-[#FF4D00]" : "border-[#2a2a2a] text-[#666] hover:border-[#444]"}`}
-                          >
-                            {s}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* budget */}
-                    <div>
-                      <label className={labelClass}>Rough Budget</label>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {BUDGETS.map(b => (
-                          <button
-                            key={b}
-                            type="button"
-                            onClick={() => setBudget(prev => prev === b ? "" : b)}
-                            className={`font-sans font-light text-xs px-4 py-2 border transition-colors ${budget === b ? "border-[#FF4D00] text-[#FF4D00]" : "border-[#2a2a2a] text-[#666] hover:border-[#444]"}`}
-                          >
-                            {b}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
                     {/* message */}
                     <div>
-                      <label htmlFor="cf-message" className={labelClass}>Tell Me About It *</label>
-                      <textarea id="cf-message" required rows={4} className={inputClass + " resize-none"} placeholder="Describe your project, timeline, and any key details..." value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} />
+                      <label htmlFor="cf-message" className={labelClass}>Your Message *</label>
+                      <textarea id="cf-message" required rows={4} className={inputClass + " resize-none"} placeholder="What's on your mind?" value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} />
                     </div>
 
                     {error && (
