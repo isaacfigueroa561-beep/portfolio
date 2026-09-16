@@ -29,6 +29,7 @@ type Project = {
   pdfLinks?: { label: string; url: string }[];
   hideBrandGuide?: boolean;
   liveUrl?: string;
+  embedUrl?: string;
   caseStudy?: {
     challenge: string;
     approach: string;
@@ -788,6 +789,18 @@ function CarouselModal({
                   )}
                 </div>
               </div>
+            ) : project.embedUrl ? (
+              /* ── Plain interactive embed: no browser chrome, no live-site framing ── */
+              <div className="pb-16" style={{ background: "#0a0a0a" }}>
+                <div style={{ width: "100%", height: "82vh" }}>
+                  <iframe
+                    src={project.embedUrl}
+                    title={`${project.name}, interactive showcase`}
+                    style={{ width: "100%", height: "100%", border: "none", display: "block" }}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             ) : project.adsStrategy ? (
               /* ── Google Ads Strategy inline presentation ── */
               <div className="pb-16" style={{ background: "#0d0c0a" }}>
@@ -1490,11 +1503,8 @@ function Home() {
       nameColor: "#FEFCF0",
       clientColor: "rgba(254,252,240,0.55)",
       desc: "Full brand identity for a hands-on service company: modular mark, color system, vehicle graphics, and job-site applications.",
-      images: [
-        "/spark-showcase-1.webp", "/spark-showcase-2.webp", "/spark-showcase-3.webp",
-        "/spark-showcase-4.webp", "/spark-showcase-5.webp", "/spark-showcase-6.webp",
-        "/spark-showcase-7.webp", "/spark-showcase-8.webp", "/spark-showcase-9.webp"
-      ],
+      images: ["/spark-showcase-1.webp"],
+      embedUrl: "/spark-pro/index.html",
       caseStudy: {
         stats: [
           { value: "4", label: "Directional Forms" },
