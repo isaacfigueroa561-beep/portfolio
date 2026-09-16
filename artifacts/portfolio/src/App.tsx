@@ -1788,7 +1788,7 @@ function Home() {
 
             <motion.div variants={heroItem} className="flex gap-4">
               <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-none">
-                5+ YRS
+                7+ YRS
               </div>
               <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-none">
                 500+ PROJECTS
@@ -2089,7 +2089,7 @@ function Home() {
               ABOUT ISAAC
             </div>
             <p className="font-sans font-light text-lg md:text-xl text-[#14110D] leading-loose max-w-xl mb-8">
-              Creative designer with 5+ years of experience at marketing and creative agencies: 7 years with Church Media Squad, 2 years with Vibrant Agency. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
+              Creative designer with 7+ years of experience at marketing and creative agencies: 5 years with Church Media Squad, 2 years with Vibrant Agency. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
             </p>
             <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing full time.</p>
 
@@ -2350,7 +2350,7 @@ function Home() {
 
           <div className="flex flex-wrap gap-x-16 gap-y-6 mt-16 pt-10 border-t border-black/10">
             <div>
-              <div className="font-serif font-bold text-3xl text-[#14110D]">5+ YRS</div>
+              <div className="font-serif font-bold text-3xl text-[#14110D]">7+ YRS</div>
               <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/40 mt-1">Making Things</div>
             </div>
             <div>
