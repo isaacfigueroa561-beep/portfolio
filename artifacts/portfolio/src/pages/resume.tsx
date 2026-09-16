@@ -70,7 +70,7 @@ export function ResumePage() {
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 pb-10 mb-16 border-b-2 border-[#F5F0E8]">
           <div>
             <h1 className="font-serif font-extrabold text-5xl md:text-7xl text-[#F5F0E8] lowercase first-letter:uppercase leading-[0.9] tracking-tight">
-              Isaac<br /><span className="text-[#FF4D00]">Figueroa</span>
+              Isaac<br /><span className="text-[#FF4D00] lowercase first-letter:uppercase inline-block">Figueroa</span>
             </h1>
             <p className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mt-5">
               Creative Designer / Brand, Social &amp; Digital Content
