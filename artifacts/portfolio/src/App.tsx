@@ -15,6 +15,7 @@ type Project = {
   name: string;
   client: string;
   category: string;
+  section?: string;
   bg: string;
   labelColor: string;
   nameColor: string;
@@ -1480,9 +1481,35 @@ function Home() {
       },
     },
     {
+      name: "Spark Pro Services",
+      client: "Spark Pro Services",
+      category: "Brand Identity",
+      section: "Branding",
+      bg: "#191918",
+      labelColor: "#EE3A21",
+      nameColor: "#FEFCF0",
+      clientColor: "rgba(254,252,240,0.55)",
+      desc: "Full brand identity for a hands-on service company: modular mark, color system, vehicle graphics, and job-site applications.",
+      images: [
+        "/spark-showcase-1.webp", "/spark-showcase-2.webp", "/spark-showcase-3.webp",
+        "/spark-showcase-4.webp", "/spark-showcase-5.webp", "/spark-showcase-6.webp",
+        "/spark-showcase-7.webp", "/spark-showcase-8.webp", "/spark-showcase-9.webp"
+      ],
+      caseStudy: {
+        stats: [
+          { value: "4", label: "Directional Forms" },
+          { value: "0→1", label: "Identity Built from Scratch" },
+          { value: "3", label: "Core Touchpoints" },
+        ],
+        challenge: "Spark Pro Services needed an identity that could show up wherever the work happens: on a hard hat, a work truck, a business card, and a job site banner, without losing legibility or authority in any of them. The brand had to read as immediately capable and visible to compete for bids against more established contractors, while still feeling like it belonged to the people actually doing the labor.",
+        approach: "I built the mark from four directional forms that lock together into a single compact symbol, reading as energy in motion: momentum, connection, movement, exactly what a hands-on service business represents. A high contrast system of spark orange, near-black, soft cream, and neutral gray keeps the brand legible at a distance, from a moving vehicle to a hard hat, while a graphic pattern built from cropped versions of the mark turns any surface (signage, apparel, trucks) into a recognizable brand moment.",
+      },
+    },
+    {
       name: "Billy Brunch NYC",
       client: "Billy Brunch NYC",
       category: "Brand Identity / Merch",
+      section: "Design",
       bg: "#7ba9ae",
       labelColor: "#e34d37",
       nameColor: "#fff",
@@ -1506,6 +1533,7 @@ function Home() {
       name: "Chino Club",
       client: "Chino Club",
       category: "Brand Identity / Events",
+      section: "Design",
       bg: "#f5f508",
       labelColor: "#0015ff",
       nameColor: "#000",
@@ -1528,32 +1556,31 @@ function Home() {
       },
     },
     {
-      name: "Cold Little Heart",
-      client: "Cold Little Heart",
-      category: "Merch / Apparel",
-      bg: "#2a2a2a",
+      name: "Aware Coffee",
+      client: "Aware Coffee",
+      category: "Brand Identity / Packaging",
+      section: "Design",
+      bg: "#f5f5f0",
       labelColor: "#e34d37",
-      nameColor: "#fff",
-      clientColor: "rgba(255,255,255,0.5)",
-      desc: "Vintage style graphic tee with flaming heart illustration",
-      images: [
-        "/clh-1.webp", "/clh-2.webp", "/clh-3.webp", "/clh-4.webp", "/clh-5.webp",
-        "/clh-6.webp", "/clh-7.webp", "/clh-8.webp", "/clh-9.webp"
-      ],
+      nameColor: "#111",
+      clientColor: "#555",
+      desc: "Product launch campaign, cup mockups, social media graphics",
+      images: ["/aware-coffee-1.webp", "/aware-coffee-2.webp", "/aware-coffee-3.webp", "/aware-coffee-4.webp", "/aware-coffee-5.webp"],
       caseStudy: {
         stats: [
-          { value: "1", label: "Hero Illustration" },
-          { value: "3", label: "Colorways" },
-          { value: "100%", label: "Hand Drawn Feel" },
+          { value: "5", label: "Campaign Visuals" },
+          { value: "0→1", label: "Brand Built from Scratch" },
+          { value: "3", label: "Platform Formats" },
         ],
-        challenge: "Cold Little Heart wanted a graphic tee that felt genuinely worn in and emotionally authentic, not a slogan shirt, not a logo drop. The kind of piece that looks like it surfaced from a vintage store, carries real weight, and sells itself without needing a caption. The name set a very specific emotional tone (melancholy, raw, a little romantic), and the visual had to earn that without being on the nose.",
-        approach: "I went straight to illustration: a flaming heart rendered with intentional hand drawn imperfection that reads vintage without trying too hard. Distressed textures, a tight 3 color palette, and aged typography gave the shirt that lived in quality from day one. The graphic sits center chest: confident, contained, and meaningful without competing for attention. Three colorway options were presented so the client could choose what felt right for their audience.",
+        challenge: "Aware Coffee was launching from zero: no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well funded brands. They needed to look premium and intentional on Instagram from day one, build enough credibility to justify their price point, and do it all without an agency budget.",
+        approach: "I made restraint the strategy. Clean off white backgrounds, minimal type, and a single warm accent used sparingly, nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative. The cup mockups were styled to feel editorial rather than promotional: the kind of content that performs whether someone's scrolling at 7am or seeing it on a shelf. Every asset was built to work across feed posts, stories, and print without modification.",
       },
     },
     {
-      name: "Nonprofits",
+      name: "Church Designs",
       client: "Churches & Nonprofits",
       category: "Event Design / Sermon Series",
+      section: "Church Designs",
       bg: "#0f1f3d",
       labelColor: "#FF4D00",
       nameColor: "#fff",
@@ -1570,26 +1597,6 @@ function Home() {
         "/np-21.webp", "/np-22.webp", "/np-23.webp", "/np-24.webp",
         "/np-25.webp", "/np-26.webp", "/np-27.webp", "/np-28.webp"
       ],
-    },
-    {
-      name: "Aware Coffee",
-      client: "Aware Coffee",
-      category: "Brand Identity / Packaging",
-      bg: "#f5f5f0",
-      labelColor: "#e34d37",
-      nameColor: "#111",
-      clientColor: "#555",
-      desc: "Product launch campaign, cup mockups, social media graphics",
-      images: ["/aware-coffee-1.webp", "/aware-coffee-2.webp", "/aware-coffee-3.webp", "/aware-coffee-4.webp", "/aware-coffee-5.webp"],
-      caseStudy: {
-        stats: [
-          { value: "5", label: "Campaign Visuals" },
-          { value: "0→1", label: "Brand Built from Scratch" },
-          { value: "3", label: "Platform Formats" },
-        ],
-        challenge: "Aware Coffee was launching from zero: no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well funded brands. They needed to look premium and intentional on Instagram from day one, build enough credibility to justify their price point, and do it all without an agency budget.",
-        approach: "I made restraint the strategy. Clean off white backgrounds, minimal type, and a single warm accent used sparingly, nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative. The cup mockups were styled to feel editorial rather than promotional: the kind of content that performs whether someone's scrolling at 7am or seeing it on a shelf. Every asset was built to work across feed posts, stories, and print without modification.",
-      },
     },
   ];
 
@@ -1858,11 +1865,20 @@ function Home() {
 
           {projects
             .filter((project) => !["Little Pilot", "Houraly"].includes(project.name))
-            .map((project, i) => {
+            .map((project, i, arr) => {
             const idx = projects.indexOf(project);
+            const showSectionHeader = project.section && project.section !== arr[i - 1]?.section;
             return (
+            <React.Fragment key={idx}>
+            {showSectionHeader && (
+              <div className="flex items-center gap-4 px-6 md:px-16 pt-10 pb-2" aria-hidden="true">
+                <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.3em] text-[#14110D]/40">
+                  {project.section}
+                </span>
+                <span className="flex-1 h-px bg-black/10" />
+              </div>
+            )}
             <motion.div
-              key={idx}
               role="button"
               tabIndex={0}
               aria-label={`View ${project.name}, ${project.category}`}
@@ -1928,6 +1944,7 @@ function Home() {
                 </span>
               </div>
             </motion.div>
+            </React.Fragment>
             );
           })}
         </div>
