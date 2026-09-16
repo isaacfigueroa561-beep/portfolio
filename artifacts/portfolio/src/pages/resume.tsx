@@ -69,7 +69,7 @@ export function ResumePage() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 pb-10 mb-16 border-b-2 border-[#F5F0E8]">
           <div>
-            <h1 className="font-serif font-extrabold text-5xl md:text-7xl text-[#F5F0E8] uppercase leading-[0.9] tracking-tight">
+            <h1 className="font-serif font-extrabold text-5xl md:text-7xl text-[#F5F0E8] lowercase first-letter:uppercase leading-[0.9] tracking-tight">
               Isaac<br /><span className="text-[#FF4D00]">Figueroa</span>
             </h1>
             <p className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mt-5">
@@ -77,7 +77,7 @@ export function ResumePage() {
             </p>
           </div>
           <div className="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
-            <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase">
+            <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-pill">
               Remote · U.S. Citizen
             </div>
             <div className="flex flex-col items-start md:items-end font-sans font-light text-sm text-muted-foreground">
@@ -103,7 +103,7 @@ export function ResumePage() {
               <SectionLabel>Skills</SectionLabel>
               <div className="flex flex-wrap gap-2">
                 {SKILLS.map((s) => (
-                  <span key={s} className="font-sans font-light text-xs uppercase tracking-[0.1em] text-[#F5F0E8] border border-[#2a2a2a] px-3 py-2">
+                  <span key={s} className="font-sans font-light text-xs uppercase tracking-[0.1em] text-[#F5F0E8] border border-[#2a2a2a] px-3 py-2 rounded-pill">
                     {s}
                   </span>
                 ))}
@@ -114,7 +114,7 @@ export function ResumePage() {
               <SectionLabel>Tools</SectionLabel>
               <div className="flex flex-wrap gap-2">
                 {TOOLS.map((t) => (
-                  <span key={t} className="font-sans font-light text-xs uppercase tracking-[0.1em] text-[#F5F0E8] border border-[#2a2a2a] px-3 py-2">
+                  <span key={t} className="font-sans font-light text-xs uppercase tracking-[0.1em] text-[#F5F0E8] border border-[#2a2a2a] px-3 py-2 rounded-pill">
                     {t}
                   </span>
                 ))}
@@ -159,7 +159,7 @@ export function ResumePage() {
                     {job.start}<br />{job.end}
                   </div>
                   <div>
-                    <h3 className="font-serif font-bold text-xl md:text-2xl text-[#F5F0E8] uppercase">{job.title}</h3>
+                    <h3 className="font-serif font-bold text-xl md:text-2xl text-[#F5F0E8] lowercase first-letter:uppercase">{job.title}</h3>
                     <div className="font-sans font-light text-xs text-[#FF4D00] uppercase tracking-widest mt-1 mb-4">{job.company}</div>
                     <ul className="flex flex-col gap-2">
                       {job.bullets.map((b, i) => (

@@ -129,10 +129,20 @@
   .animate-marquee { animation: none; }
 }
 
-/* Phone frame border-radius — overrides the global * { border-radius: 0 !important } reset */
-.phone-frame        { border-radius: 38px !important; }
-.phone-frame-screen { border-radius: 26px !important; }
-.phone-frame-notch  { border-radius: 3px  !important; }
+/* Overrides for the global * { border-radius: 0 !important } reset above. Tailwind v4
+   reverses !important priority across cascade layers (earlier layer wins), so these
+   overrides must live in the same `base` layer as the reset — an unlayered !important
+   rule would actually lose to it despite normally beating a universal selector. */
+@layer base {
+  /* Phone frame mockups */
+  .phone-frame        { border-radius: 38px !important; }
+  .phone-frame-screen { border-radius: 26px !important; }
+  .phone-frame-notch  { border-radius: 3px  !important; }
+
+  /* Pill-shaped corners for buttons, CTAs, and tag/badge chips — everything else on
+     the site stays sharp-edged. */
+  .rounded-pill { border-radius: 9999px !important; }
+}
 
 /* Disable project-card hover transforms on mobile */
 @media (max-width: 768px) {

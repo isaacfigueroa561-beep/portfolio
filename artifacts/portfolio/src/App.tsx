@@ -214,7 +214,7 @@ function CarouselModal({
           <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00]" aria-hidden="true">
             {project.category}
           </div>
-          <h2 id="carousel-title" className="font-serif font-bold text-xl md:text-3xl text-[#F5F0E8] uppercase leading-none">
+          <h2 id="carousel-title" className="font-serif font-bold text-xl md:text-3xl text-[#F5F0E8] lowercase first-letter:uppercase leading-none">
             {project.name}
           </h2>
         </div>
@@ -240,7 +240,7 @@ function CarouselModal({
         <button
           onClick={() => go(-1)}
           aria-label={`Previous: ${projects[(currentIndex - 1 + projects.length) % projects.length].name}`}
-          className="absolute left-3 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200"
+          className="absolute left-3 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200 rounded-pill"
         >
           <span className="text-2xl md:text-3xl" aria-hidden="true">←</span>
         </button>
@@ -300,7 +300,7 @@ function CarouselModal({
                 <button
                   onClick={() => setBrandGuideOpen(o => !o)}
                   aria-expanded={brandGuideOpen}
-                  className="flex items-center gap-3 border border-[#222] text-[#F4F0E8]/50 font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:border-[#F2541C] hover:text-[#F2541C] transition-all duration-200 focus:outline-none"
+                  className="flex items-center gap-3 border border-[#222] text-[#F4F0E8]/50 font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:border-[#F2541C] hover:text-[#F2541C] transition-all duration-200 focus:outline-none rounded-pill"
                 >
                   <span>Brand Guidelines</span>
                   <span
@@ -519,7 +519,7 @@ function CarouselModal({
                           <div className="bg-[#0D0D0D] px-8 py-7">
                             <div className="flex flex-wrap gap-2">
                               {project.brandGuide!.applications.map((app, i) => (
-                                <span key={i} className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F4F0E8]/45 border border-[#1f1f1f] px-4 py-2">
+                                <span key={i} className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F4F0E8]/45 border border-[#1f1f1f] px-4 py-2 rounded-pill">
                                   {app}
                                 </span>
                               ))}
@@ -543,7 +543,7 @@ function CarouselModal({
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 border border-[#222] text-[#F4F0E8]/50 font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:border-[#F2541C] hover:text-[#F2541C] transition-all duration-200 focus:outline-none"
+                    className="inline-flex items-center gap-3 border border-[#222] text-[#F4F0E8]/50 font-sans font-semibold text-[11px] uppercase tracking-[0.2em] px-5 py-3 hover:border-[#F2541C] hover:text-[#F2541C] transition-all duration-200 focus:outline-none rounded-pill"
                   >
                     <span>{link.label}</span>
                     <span className="text-sm leading-none" aria-hidden="true">↗</span>
@@ -1019,7 +1019,7 @@ function CarouselModal({
                   style={{ backgroundColor: project.bg }}
                 >
                   <span
-                    className="font-serif font-bold text-3xl md:text-5xl uppercase tracking-tight"
+                    className="font-serif font-bold text-3xl md:text-5xl lowercase first-letter:uppercase tracking-tight"
                     style={{ color: project.nameColor }}
                   >
                     {project.name}
@@ -1034,7 +1034,7 @@ function CarouselModal({
         <button
           onClick={() => go(1)}
           aria-label={`Next: ${projects[(currentIndex + 1) % projects.length].name}`}
-          className="absolute right-3 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200"
+          className="absolute right-3 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200 rounded-pill"
         >
           <span className="text-2xl md:text-3xl" aria-hidden="true">→</span>
         </button>
@@ -1211,11 +1211,11 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
           <div className="flex items-start justify-between mb-6">
             <div>
               <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-1">Send Me A Message</div>
-              <h3 id="contact-form-title" className="font-serif font-bold text-3xl md:text-5xl text-[#F5F0E8] uppercase leading-tight m-0">
+              <h3 id="contact-form-title" className="font-serif font-bold text-3xl md:text-5xl text-[#F5F0E8] lowercase first-letter:uppercase leading-tight m-0">
                 Let's Make Something <span className="text-[#FF4D00] italic normal-case">worth</span> It.
               </h3>
             </div>
-            <button onClick={onClose} aria-label="Close" className="w-9 h-9 flex items-center justify-center border border-[#2a2a2a] text-[#F5F0E8] hover:border-[#F5F0E8] transition-colors text-lg leading-none flex-shrink-0 mt-1">
+            <button onClick={onClose} aria-label="Close" className="w-9 h-9 flex items-center justify-center border border-[#2a2a2a] text-[#F5F0E8] hover:border-[#F5F0E8] transition-colors text-lg leading-none flex-shrink-0 mt-1 rounded-pill">
               ×
             </button>
           </div>
@@ -1224,13 +1224,13 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
           <div className="flex gap-2 mb-8">
             <button
               onClick={() => setTab("message")}
-              className={`font-sans font-light text-xs uppercase tracking-widest px-5 py-2.5 border transition-colors ${tab === "message" ? "bg-[#F5F0E8] text-[#0D0D0D] border-[#F5F0E8]" : "border-[#2a2a2a] text-[#666] hover:border-[#666]"}`}
+              className={`font-sans font-light text-xs uppercase tracking-widest px-5 py-2.5 border transition-colors rounded-pill ${tab === "message" ? "bg-[#F5F0E8] text-[#0D0D0D] border-[#F5F0E8]" : "border-[#2a2a2a] text-[#666] hover:border-[#666]"}`}
             >
               Send a message
             </button>
             <button
               onClick={() => setTab("call")}
-              className={`font-sans font-light text-xs uppercase tracking-widest px-5 py-2.5 border transition-colors ${tab === "call" ? "bg-[#F5F0E8] text-[#0D0D0D] border-[#F5F0E8]" : "border-[#2a2a2a] text-[#666] hover:border-[#666]"}`}
+              className={`font-sans font-light text-xs uppercase tracking-widest px-5 py-2.5 border transition-colors rounded-pill ${tab === "call" ? "bg-[#F5F0E8] text-[#0D0D0D] border-[#F5F0E8]" : "border-[#2a2a2a] text-[#666] hover:border-[#666]"}`}
             >
               Book a call
             </button>
@@ -1245,7 +1245,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                     <div className="text-[#FF4D00] font-serif font-bold text-5xl mb-4">✓</div>
                     <p className="font-sans font-light text-[#F5F0E8] text-lg mb-2">Message received.</p>
                     <p className="font-sans font-light text-[#666] text-sm">Isaac will get back to you within 24 hours.</p>
-                    <button onClick={onClose} className="mt-8 border border-[#2a2a2a] text-[#F5F0E8] font-sans font-light text-xs uppercase tracking-widest px-6 py-3 hover:border-[#F5F0E8] transition-colors">Close</button>
+                    <button onClick={onClose} className="mt-8 border border-[#2a2a2a] text-[#F5F0E8] font-sans font-light text-xs uppercase tracking-widest px-6 py-3 hover:border-[#F5F0E8] transition-colors rounded-pill">Close</button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-7 max-w-2xl" noValidate>
@@ -1274,7 +1274,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="self-start bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+                      className="self-start bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity disabled:opacity-50 rounded-pill"
                     >
                       {submitting ? "Sending..." : "Send Message →"}
                     </button>
@@ -1308,7 +1308,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => (window as any).dataLayer?.push({ event: "book_call_click" })}
-                      className="inline-flex items-center gap-3 bg-[#F5F0E8] text-[#0D0D0D] font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity"
+                      className="inline-flex items-center gap-3 bg-[#F5F0E8] text-[#0D0D0D] font-serif font-semibold uppercase tracking-wide px-10 py-4 text-sm hover:opacity-90 transition-opacity rounded-pill"
                     >
                       Open scheduling page →
                     </a>
@@ -1609,7 +1609,7 @@ function Home() {
         <a href="#main-content" className="font-serif font-bold text-2xl text-[#F5F0E8] uppercase" data-testid="nav-logo" aria-label="Isaac Figueroa, home">
           IF.
         </a>
-        <div className="flex gap-6 md:gap-8 font-sans text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="flex gap-3 sm:gap-6 md:gap-8 font-sans text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.2em] text-muted-foreground">
           <a href="#work" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-nav-work">WORK</a>
           <a href="#about" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-nav-about">ABOUT</a>
           <a href="#contact" className="hover:text-[#F5F0E8] transition-colors" data-testid="link-nav-contact">CONTACT</a>
@@ -1650,10 +1650,10 @@ function Home() {
             
             <motion.div variants={heroItem} className="flex flex-col">
               <h1 className="flex flex-col m-0 p-0">
-                <span className="font-serif font-extrabold text-[clamp(2.75rem,14vw,13rem)] leading-[0.85] tracking-[-0.03em] text-[#F5F0E8] uppercase">
+                <span className="font-serif font-extrabold text-[clamp(2.75rem,14vw,13rem)] leading-[0.85] tracking-[-0.03em] text-[#F5F0E8] lowercase first-letter:uppercase">
                   ISAAC
                 </span>
-                <span className="font-serif font-extrabold text-[clamp(2.75rem,14vw,13rem)] leading-[0.85] tracking-[-0.03em] text-[#FF4D00] uppercase">
+                <span className="font-serif font-extrabold text-[clamp(2.75rem,14vw,13rem)] leading-[0.85] tracking-[-0.03em] text-[#FF4D00] lowercase first-letter:uppercase">
                   FIGUEROA
                 </span>
               </h1>
@@ -1666,10 +1666,10 @@ function Home() {
             </motion.div>
 
             <motion.div variants={heroItem} className="flex gap-4">
-              <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-none">
+              <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-pill">
                 7+ YRS
               </div>
-              <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-none">
+              <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-pill">
                 500+ PROJECTS
               </div>
             </motion.div>
@@ -1703,7 +1703,7 @@ function Home() {
           className="flex flex-col md:flex-row md:items-end justify-between px-8 md:px-16 pt-24 pb-16 gap-6"
         >
           <div className="flex items-end gap-5">
-            <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#14110D] uppercase m-0 leading-none">
+            <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#14110D] lowercase first-letter:uppercase m-0 leading-none">
               RECENT PROJECTS
             </h2>
             <div className="hidden md:block mb-2" style={{ transform: "skewX(-10deg)" }}>
@@ -1742,7 +1742,7 @@ function Home() {
                     <span className="font-sans font-light text-[10px] text-[#F5F0E8]/20 tabular-nums select-none" aria-hidden="true">
                       {String(fi + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="font-serif font-bold uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight mt-2">
+                    <h3 className="font-serif font-bold lowercase first-letter:uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight mt-2">
                       {project.name}
                     </h3>
                     <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 mt-3">
@@ -1885,7 +1885,7 @@ function Home() {
 
                 {/* Name + mobile category */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-serif font-bold uppercase text-[clamp(2rem,5.5vw,3.5rem)] text-[#14110D] leading-none group-hover:text-white transition-colors duration-300 tracking-tight">
+                  <h3 className="font-serif font-bold lowercase first-letter:uppercase text-[clamp(2rem,5.5vw,3.5rem)] text-[#14110D] leading-none group-hover:text-white transition-colors duration-300 tracking-tight">
                     {project.name}
                   </h3>
                   {/* Category shown on mobile only */}
@@ -1983,7 +1983,7 @@ function Home() {
                   onClick={() => setActiveService(activeService === tag ? null : tag)}
                   aria-expanded={activeService === tag}
                   aria-label={`Learn about ${tag}`}
-                  className={`font-sans font-light text-xs uppercase tracking-[0.15em] px-4 py-2 border transition-colors duration-200 rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF4D00] ${
+                  className={`font-sans font-light text-xs uppercase tracking-[0.15em] px-4 py-2 border transition-colors duration-200 rounded-pill focus:outline-none focus:ring-1 focus:ring-[#FF4D00] ${
                     activeService === tag
                       ? "border-[#FF4D00] text-[#FF4D00] bg-[#FF4D00]/5"
                       : "border-black/15 text-[#14110D] hover:border-[#FF4D00] hover:text-[#FF4D00]"
@@ -2076,7 +2076,7 @@ function Home() {
           <div className="font-serif font-medium text-xs text-muted-foreground tracking-widest uppercase md:mt-4" aria-hidden="true">
             04
           </div>
-          <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#F5F0E8] uppercase m-0 leading-none">
+          <h2 className="font-serif font-bold text-5xl md:text-7xl text-[#F5F0E8] lowercase first-letter:uppercase m-0 leading-none">
             EXPERIENCE
           </h2>
         </motion.div>
@@ -2086,7 +2086,7 @@ function Home() {
             {
               year: "2021–PRESENT",
               role: "CREATIVE DESIGNER",
-              company: "THE SQUAD: NONPROFIT & COMMUNITY ORGS",
+              company: "CHURCH MEDIA SQUAD",
               bullets: [
                 "Designed social media graphics, posters, thumbnails, and print materials for nonprofit and community organizations across the U.S.",
                 "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series, translating mission driven messaging into compelling storytelling.",
@@ -2094,18 +2094,9 @@ function Home() {
               ]
             },
             {
-              year: "2021",
-              role: "GRAPHIC DESIGNER",
-              company: "VIVE MEDIA",
-              bullets: [
-                "Created social graphics, thumbnails, and marketing assets for digital campaigns and live events.",
-                "Produced visuals that matched the brand with fast turnaround across multiple concurrent campaigns."
-              ]
-            },
-            {
-              year: "2020–2021",
+              year: "2019–2021",
               role: "JUNIOR GRAPHIC DESIGNER",
-              company: "VIBRANT MEDIA",
+              company: "VIBRANT AGENCY",
               bullets: [
                 "Designed social media and digital graphics for multiple client brands simultaneously.",
                 "Produced promotional visuals for campaigns, events, and digital ad placements."
@@ -2124,7 +2115,7 @@ function Home() {
                 {job.year}
               </div>
               <div className="md:col-span-4 flex flex-col rounded-none">
-                <h3 className="font-serif font-semibold text-xl md:text-2xl text-[#F5F0E8] uppercase mb-2">{job.role}</h3>
+                <h3 className="font-serif font-semibold text-xl md:text-2xl text-[#F5F0E8] lowercase first-letter:uppercase mb-2">{job.role}</h3>
                 <div className="font-serif font-normal text-base text-[#FF4D00]">{job.company}</div>
               </div>
               <div className="md:col-span-5 rounded-none">
@@ -2185,7 +2176,7 @@ function Home() {
             <div className="font-serif font-medium text-xs text-muted-foreground tracking-widest uppercase mb-12" aria-hidden="true">
               05
             </div>
-            <h2 className="font-serif font-bold text-[clamp(3.5rem,10vw,9rem)] leading-[0.9] text-[#F5F0E8] uppercase m-0">
+            <h2 className="font-serif font-bold text-[clamp(3.5rem,10vw,9rem)] leading-[0.9] text-[#F5F0E8] lowercase first-letter:uppercase m-0">
               LET'S WORK<br />TOGETHER<span className="text-[#FF4D00]">.</span>
             </h2>
             
@@ -2195,7 +2186,7 @@ function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-24 rounded-none">
               <button
-                className="bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-8 py-4 text-sm hover:opacity-90 transition-opacity rounded-none"
+                className="bg-[#FF4D00] text-black font-serif font-semibold uppercase tracking-wide px-8 py-4 text-sm hover:opacity-90 transition-opacity rounded-pill"
                 data-testid="button-start-project"
                 onClick={() => setContactFormOpen(true)}
               >
@@ -2203,7 +2194,7 @@ function Home() {
               </button>
               <Link
                 href="/resume"
-                className="border border-[#F5F0E8] text-[#F5F0E8] font-serif font-semibold uppercase tracking-wide px-8 py-4 text-sm hover:bg-[#1a1a1a] transition-colors rounded-none text-center no-underline"
+                className="border border-[#F5F0E8] text-[#F5F0E8] font-serif font-semibold uppercase tracking-wide px-8 py-4 text-sm hover:bg-[#1a1a1a] transition-colors rounded-pill text-center no-underline"
                 data-testid="button-resume"
               >
                 VIEW RESUME
@@ -2222,7 +2213,7 @@ function Home() {
       {/* FOOTER */}
       <footer className="w-full border-t border-black/15 rounded-none bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-20 pb-10">
-          <p className="font-serif font-bold uppercase text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.05] tracking-tight text-[#14110D] max-w-4xl">
+          <p className="font-serif font-bold text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.05] tracking-tight text-[#14110D] max-w-4xl">
             Good design gets noticed. <span className="text-black/35">Great work gets remembered.</span>{" "}
             <span className="text-[#FF4D00]">I build the second kind.</span>
           </p>
