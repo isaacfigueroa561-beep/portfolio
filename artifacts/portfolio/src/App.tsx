@@ -131,6 +131,7 @@ function CarouselModal({
   const [direction, setDirection] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [brandGuideOpen, setBrandGuideOpen] = useState(false);
+  const [caseStudyOpen, setCaseStudyOpen] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const project = projects[currentIndex];
@@ -140,6 +141,7 @@ function CarouselModal({
     setDirection(dir);
     setLightboxIndex(null);
     setBrandGuideOpen(false);
+    setCaseStudyOpen(false);
     setCurrentIndex((i) => (i + dir + projects.length) % projects.length);
   }, [projects.length]);
 
@@ -257,10 +259,13 @@ function CarouselModal({
             animate="center"
             exit="exit"
             transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
-            className="absolute inset-0 overflow-y-auto"
+            className="absolute inset-0 overflow-y-auto flex flex-col"
           >
+            <div className="order-3">
+            {caseStudyOpen && (
+            <>
             {/* Description strip */}
-            <div className="px-14 md:px-24 pt-8 pb-5">
+            <div className="px-6 md:px-24 pt-8 pb-5">
               <p className="font-sans font-light text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 {project.desc}
               </p>
@@ -268,7 +273,7 @@ function CarouselModal({
 
             {/* Case study */}
             {project.caseStudy && (
-              <div className="px-14 md:px-24 pb-2">
+              <div className="px-6 md:px-24 pb-2">
                 <div className="border border-[#1a1a1a]">
                   {/* Stats bar */}
                   {project.caseStudy.stats && project.caseStudy.stats.length > 0 && (
@@ -298,7 +303,7 @@ function CarouselModal({
 
             {/* ── Brand Guide ── */}
             {project.brandGuide && !project.hideBrandGuide && (
-              <div className="px-14 md:px-24 pb-2 mt-1">
+              <div className="px-6 md:px-24 pb-2 mt-1">
                 <button
                   onClick={() => setBrandGuideOpen(o => !o)}
                   aria-expanded={brandGuideOpen}
@@ -538,7 +543,7 @@ function CarouselModal({
 
             {/* ── PDF Links ── */}
             {project.pdfLinks && project.pdfLinks.length > 0 && (
-              <div className="px-14 md:px-24 pb-6 mt-1 flex flex-wrap gap-3">
+              <div className="px-6 md:px-24 pb-6 mt-1 flex flex-wrap gap-3">
                 {project.pdfLinks.map((link, i) => (
                   <a
                     key={i}
@@ -553,9 +558,22 @@ function CarouselModal({
                 ))}
               </div>
             )}
+            </>
+            )}
+            </div>
+
+            {/* View Full Case Study toggle */}
+            <button
+              onClick={() => setCaseStudyOpen(o => !o)}
+              aria-expanded={caseStudyOpen}
+              className="order-2 self-start mx-6 md:mx-24 mt-6 mb-2 flex items-center gap-2 border border-[#2a2a2a] text-[#F5F0E8]/70 font-sans font-semibold text-[10px] uppercase tracking-[0.2em] px-5 py-3 hover:border-[#FF4D00] hover:text-[#FF4D00] transition-all duration-200 focus:outline-none rounded-pill"
+            >
+              <span>{caseStudyOpen ? "Hide Full Case Study" : "View Full Case Study"}</span>
+              <span aria-hidden="true" style={{ display: "inline-block", transform: caseStudyOpen ? "rotate(45deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>+</span>
+            </button>
 
             {project.deviceMockup ? (
-              <div className="pb-16">
+              <div className="order-1 pb-16">
 
                 {/* ── Project intro ── */}
                 {project.presentation && (
@@ -791,7 +809,7 @@ function CarouselModal({
               </div>
             ) : project.embedUrl ? (
               /* ── Plain interactive embed: no browser chrome, no live-site framing ── */
-              <div className="pb-16" style={{ background: "#0a0a0a" }}>
+              <div className="order-1 pb-16" style={{ background: "#0a0a0a" }}>
                 <div style={{ width: "100%", height: "82vh" }}>
                   <iframe
                     src={project.embedUrl}
@@ -803,7 +821,7 @@ function CarouselModal({
               </div>
             ) : project.adsStrategy ? (
               /* ── Google Ads Strategy inline presentation ── */
-              <div className="pb-16" style={{ background: "#0d0c0a" }}>
+              <div className="order-1 pb-16" style={{ background: "#0d0c0a" }}>
 
                 {/* Intro */}
                 <div style={{ padding: "44px 56px 40px", borderBottom: "1px solid #181614" }}>
@@ -958,7 +976,7 @@ function CarouselModal({
             ) : imgs.length > 0 ? (
               project.phoneFrame ? (
                 /* Phone frames: centered wrap */
-                <div className="flex flex-wrap justify-center gap-8 px-14 md:px-24 pb-16">
+                <div className="order-1 flex flex-wrap justify-center gap-8 px-6 md:px-24 pb-16">
                   {imgs.map((src, i) => (
                     <button
                       key={i}
@@ -987,7 +1005,7 @@ function CarouselModal({
                 </div>
               ) : project.scrollGallery ? (
                 /* Full-width vertical scroll: brand guides, documents */
-                <div className="flex flex-col pb-16" style={{ gap: 2 }}>
+                <div className="order-1 flex flex-col pb-16" style={{ gap: 2 }}>
                   {imgs.slice(1).map((src, i) => (
                     <button
                       key={i}
@@ -1007,7 +1025,7 @@ function CarouselModal({
                 </div>
               ) : (
                 /* 3-column thumbnail grid */
-                <div className="grid grid-cols-3 gap-1 px-14 md:px-24 pb-16">
+                <div className="order-1 grid grid-cols-3 gap-1 px-6 md:px-24 pb-16">
                   {imgs.map((src, i) => (
                     <button
                       key={i}
@@ -1027,7 +1045,7 @@ function CarouselModal({
               )
             ) : (
               /* No images fallback */
-              <div className="flex items-center justify-center px-14 md:px-24 pb-16">
+              <div className="order-1 flex items-center justify-center px-6 md:px-24 pb-16">
                 <div
                   className="w-full h-64 md:h-96 flex items-center justify-center"
                   style={{ backgroundColor: project.bg }}
@@ -1062,7 +1080,7 @@ function CarouselModal({
         {projects.map((p, i) => (
           <button
             key={i}
-            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); setLightboxIndex(null); setBrandGuideOpen(false); }}
+            onClick={() => { setDirection(i > currentIndex ? 1 : -1); setCurrentIndex(i); setLightboxIndex(null); setBrandGuideOpen(false); setCaseStudyOpen(false); }}
             aria-label={`Go to ${p.name}`}
             aria-current={i === currentIndex ? "true" : undefined}
             className={`h-[3px] transition-all duration-300 ${i === currentIndex ? "w-6 bg-[#FF4D00]" : "w-[6px] bg-[#2a2a2a] hover:bg-[#555]"}`}
