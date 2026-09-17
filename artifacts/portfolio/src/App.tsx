@@ -279,7 +279,7 @@ function CarouselModal({
                   {project.caseStudy.stats && project.caseStudy.stats.length > 0 && (
                     <div className="grid border-b border-[#1a1a1a]" style={{ gridTemplateColumns: `repeat(${project.caseStudy.stats.length}, 1fr)` }}>
                       {project.caseStudy.stats.map((stat, i) => (
-                        <div key={i} className={`bg-[#111] px-5 py-4 flex flex-col gap-1 ${i < project.caseStudy!.stats!.length - 1 ? "border-r border-[#1a1a1a]" : ""}`}>
+                        <div key={i} className={`bg-[#111] ${i === 0 ? "pl-0 pr-5" : "px-5"} py-4 flex flex-col gap-1 ${i < project.caseStudy!.stats!.length - 1 ? "border-r border-[#1a1a1a]" : ""}`}>
                           <span className="font-serif font-bold text-2xl text-[#FF4D00] leading-none">{stat.value}</span>
                           <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40">{stat.label}</span>
                         </div>
@@ -288,11 +288,11 @@ function CarouselModal({
                   )}
                   {/* Challenge / Approach */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#1a1a1a]">
-                    <div className="bg-[#0a0a0a] p-6">
+                    <div className="bg-[#0a0a0a] py-6 pr-6 pl-0">
                       <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Challenge</div>
                       <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.challenge}</p>
                     </div>
-                    <div className="bg-[#0a0a0a] p-6">
+                    <div className="bg-[#0a0a0a] py-6 pr-6 pl-0 md:pl-6">
                       <div className="font-sans font-light text-[10px] uppercase tracking-[0.25em] text-[#FF4D00] mb-3">The Approach</div>
                       <p className="font-sans font-light text-sm text-[#F5F0E8]/70 leading-relaxed">{project.caseStudy.approach}</p>
                     </div>
