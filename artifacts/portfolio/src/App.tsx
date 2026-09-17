@@ -860,8 +860,8 @@ function CarouselModal({
                     { stage: "Impressions",       value: "18,000",   rate: "N/A",      note: "Local search reach" },
                     { stage: "Clicks",            value: "540",      rate: "3% CTR", note: "Site visitors" },
                     { stage: "Estimate Requests", value: "27",       rate: "5% CVR", note: "Qualified leads" },
-                    { stage: "Booked Jobs",       value: "9–10",     rate: "35%",    note: "Paying customers" },
-                    { stage: "Est. Revenue",      value: "$29–33K",  rate: "N/A",      note: "From $1,600 spend" },
+                    { stage: "Booked Jobs",       value: "9-10",     rate: "35%",    note: "Paying customers" },
+                    { stage: "Est. Revenue",      value: "$29-33K",  rate: "N/A",      note: "From $1,600 spend" },
                   ].map((row, i) => (
                     <div key={i} style={{ display: "grid", gridTemplateColumns: "170px 90px 72px 1fr", alignItems: "center", padding: "13px 0", borderTop: i > 0 ? "1px solid #181614" : "none" }}>
                       <span style={{ fontFamily: "sans-serif", fontSize: 11, color: "rgba(250,247,241,0.45)" }}>{row.stage}</span>
@@ -931,8 +931,8 @@ function CarouselModal({
                     10: 90 Day Launch Roadmap
                   </p>
                   {[
-                    { phase: "01", period: "Week 1–2",  title: "Foundation",       tasks: "Set up Google Ads account · Install GTM + conversion tracking · Link Google Business Profile · Apply for LSA verification · Build campaign structure + ad groups · Write all RSA copy · Add all extensions + negative keyword lists" },
-                    { phase: "02", period: "Week 3–4",  title: "Launch",           tasks: "Go live with Tier 1 campaigns · Monitor search term reports daily · Add negatives aggressively · Verify call tracking · Confirm form submissions fire conversions · Start LSA if verification complete" },
+                    { phase: "01", period: "Week 1-2",  title: "Foundation",       tasks: "Set up Google Ads account · Install GTM + conversion tracking · Link Google Business Profile · Apply for LSA verification · Build campaign structure + ad groups · Write all RSA copy · Add all extensions + negative keyword lists" },
+                    { phase: "02", period: "Week 3-4",  title: "Launch",           tasks: "Go live with Tier 1 campaigns · Monitor search term reports daily · Add negatives aggressively · Verify call tracking · Confirm form submissions fire conversions · Start LSA if verification complete" },
                     { phase: "03", period: "Month 2",   title: "Expand + Optimize", tasks: "Launch Tier 2 campaigns · Review RSA asset performance · Add converting terms as exact match · Bid up top converting ZIPs · Add before/after image assets · Fix low Quality Score components" },
                     { phase: "04", period: "Month 3",   title: "Scale",            tasks: "Switch to Target CPA bidding (30+ conversions) · Launch Competitor Conquest · A/B test landing page CTAs · Review auction insight data · Evaluate budget increases where CPL < $50 · Monthly report delivered" },
                   ].map((row, i) => (
@@ -957,11 +957,11 @@ function CarouselModal({
                       <span key={h} style={{ fontFamily: "sans-serif", fontSize: 9, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(250,247,241,0.18)", padding: "0 0 10px", borderBottom: "1px solid #1e1c1a" }}>{h}</span>
                     ))}
                     {[
-                      { metric: "Cost Per Lead",      m1: "$60–75",  m3: "$40–55",  flag: "CPL > $90 two weeks running" },
+                      { metric: "Cost Per Lead",      m1: "$60-75",  m3: "$40-55",  flag: "CPL > $90 two weeks running" },
                       { metric: "Click Through Rate", m1: "3%+",     m3: "5%+",     flag: "CTR < 2%: ad copy issue" },
-                      { metric: "Conversion Rate",    m1: "3–4%",    m3: "5–7%",    flag: "CVR < 2%: landing page" },
-                      { metric: "Estimate Leads/mo",  m1: "15+",     m3: "25–35",   flag: "Below 10: diagnose" },
-                      { metric: "Booked Jobs",        m1: "4–6",     m3: "9–12",    flag: "Close rate < 20%" },
+                      { metric: "Conversion Rate",    m1: "3-4%",    m3: "5-7%",    flag: "CVR < 2%: landing page" },
+                      { metric: "Estimate Leads/mo",  m1: "15+",     m3: "25-35",   flag: "Below 10: diagnose" },
+                      { metric: "Booked Jobs",        m1: "4-6",     m3: "9-12",    flag: "Close rate < 20%" },
                     ].map((row, i) => (
                       <>
                         <span key={`m${i}`}  style={{ fontFamily: "sans-serif", fontSize: 11, color: "rgba(250,247,241,0.45)", padding: "13px 0", borderTop: "1px solid #181614" }}>{row.metric}</span>
@@ -1326,7 +1326,7 @@ function ContactFormModal({ onClose }: { onClose: () => void }) {
                     <ul className="flex flex-col gap-3 mb-8">
                       {[
                         "20 min · Google Meet or phone",
-                        "Mon–Fri, 9 AM–5 PM PT (Las Vegas)",
+                        "Mon-Fri, 9 AM-5 PM PT (Las Vegas)",
                         "Confirmation sent within an hour",
                       ].map(item => (
                         <li key={item} className="flex items-start gap-3 font-sans font-light text-sm text-[#999]">
@@ -1765,7 +1765,7 @@ function Home() {
             </h2>
             <div className="hidden md:block mb-2" style={{ transform: "skewX(-10deg)" }}>
               <div className="bg-black px-3 py-1">
-                <span className="font-sans font-bold text-[10px] text-[#F5F0E8] uppercase tracking-widest" style={{ display: "block", transform: "skewX(10deg)" }}>2021–NOW</span>
+                <span className="font-sans font-bold text-[10px] text-[#F5F0E8] uppercase tracking-widest" style={{ display: "block", transform: "skewX(10deg)" }}>2021-NOW</span>
               </div>
             </div>
           </div>
@@ -2151,7 +2151,7 @@ function Home() {
         <div className="flex flex-col rounded-none">
           {[
             {
-              year: "2021–PRESENT",
+              year: "2021-PRESENT",
               role: "CREATIVE DESIGNER",
               company: "CHURCH MEDIA SQUAD",
               bullets: [
@@ -2161,7 +2161,7 @@ function Home() {
               ]
             },
             {
-              year: "2019–2021",
+              year: "2019-2021",
               role: "JUNIOR GRAPHIC DESIGNER",
               company: "VIBRANT AGENCY",
               bullets: [

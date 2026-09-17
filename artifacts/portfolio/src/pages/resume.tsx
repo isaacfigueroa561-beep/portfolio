@@ -10,7 +10,7 @@ const TOOLS = ["Illustrator", "Photoshop", "InDesign", "After Effects", "Figma",
 
 const TRAINING = [
   { title: "Google UX/UI Design", sub: "Coursera / Google" },
-  { title: "Typography & Design", sub: "The Futur — Chris Do" },
+  { title: "Typography & Design", sub: "The Futur / Chris Do" },
   { title: "Figma for Designers", sub: "Max Brinckmann" },
 ];
 
@@ -27,7 +27,7 @@ const EXPERIENCE = [
     company: "Church Media Squad",
     bullets: [
       "Designed social media graphics, posters, thumbnails, and print materials for non-profit and community organizations across the U.S.",
-      "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series — translating mission-driven messaging into compelling storytelling.",
+      "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series, translating mission-driven messaging into compelling storytelling.",
       "Partnered directly with leadership and marketing teams to develop brand voices and campaign strategies from concept to delivery.",
     ],
   },
@@ -90,7 +90,7 @@ export function ResumePage() {
         {/* Bio */}
         <p className="font-sans font-light text-base md:text-lg text-[#F5F0E8]/80 leading-relaxed max-w-3xl mb-20 border-l-2 border-[#FF4D00] pl-6">
           Creative designer with 7+ years building high-impact visuals for non-profits, brands, and
-          digital communities — 5 years with Church Media Squad, 2 years with Vibrant Agency. I
+          digital communities: 5 years with Church Media Squad, 2 years with Vibrant Agency. I
           specialize in brand identity, campaign design, and social content that drives real
           engagement, and bring the same level of craft whether the work lives on a screen, in
           print, or on a stage.
