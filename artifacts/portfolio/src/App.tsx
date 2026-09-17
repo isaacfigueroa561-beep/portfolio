@@ -223,7 +223,7 @@ function CarouselModal({
           </h2>
         </div>
         <div className="flex items-center gap-6">
-          <span className="font-sans font-light text-xs text-[#F5F0E8]/30 tabular-nums hidden md:block" aria-label={`Project ${currentIndex + 1} of ${projects.length}`}>
+          <span className="font-sans font-light text-xs text-[#F5F0E8]/60 tabular-nums hidden md:block" aria-label={`Project ${currentIndex + 1} of ${projects.length}`}>
             {String(currentIndex + 1).padStart(2, "0")}&nbsp;/&nbsp;{String(projects.length).padStart(2, "0")}
           </span>
           <button
@@ -244,7 +244,7 @@ function CarouselModal({
         <button
           onClick={() => go(-1)}
           aria-label={`Previous: ${projects[(currentIndex - 1 + projects.length) % projects.length].name}`}
-          className="absolute left-3 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200 rounded-pill"
+          className="absolute left-3 md:left-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/45 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200 rounded-pill"
         >
           <span className="text-2xl md:text-3xl" aria-hidden="true">←</span>
         </button>
@@ -281,7 +281,7 @@ function CarouselModal({
                       {project.caseStudy.stats.map((stat, i) => (
                         <div key={i} className={`bg-[#111] ${i === 0 ? "pl-0 pr-5" : "px-5"} py-4 flex flex-col gap-1 ${i < project.caseStudy!.stats!.length - 1 ? "border-r border-[#1a1a1a]" : ""}`}>
                           <span className="font-serif font-bold text-2xl text-[#FF4D00] leading-none">{stat.value}</span>
-                          <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/40">{stat.label}</span>
+                          <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#F5F0E8]/60">{stat.label}</span>
                         </div>
                       ))}
                     </div>
@@ -1066,7 +1066,7 @@ function CarouselModal({
         <button
           onClick={() => go(1)}
           aria-label={`Next: ${projects[(currentIndex + 1) % projects.length].name}`}
-          className="absolute right-3 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/25 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200 rounded-pill"
+          className="absolute right-3 md:right-6 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-[#F5F0E8]/45 hover:text-[#FF4D00] hover:bg-white/5 transition-all duration-200 rounded-pill"
         >
           <span className="text-2xl md:text-3xl" aria-hidden="true">→</span>
         </button>
@@ -1109,7 +1109,7 @@ function CarouselModal({
           {/* Prev image */}
           {imgs.length > 1 && (
             <button
-              className="absolute left-4 z-10 w-12 h-12 flex items-center justify-center text-[#F5F0E8]/40 hover:text-[#FF4D00] transition-colors"
+              className="absolute left-4 z-10 w-12 h-12 flex items-center justify-center text-[#F5F0E8]/50 hover:text-[#FF4D00] transition-colors"
               onClick={e => { e.stopPropagation(); lbGo(-1); }}
               aria-label="Previous image"
             >
@@ -1128,7 +1128,7 @@ function CarouselModal({
           {/* Next image */}
           {imgs.length > 1 && (
             <button
-              className="absolute right-4 z-10 w-12 h-12 flex items-center justify-center text-[#F5F0E8]/40 hover:text-[#FF4D00] transition-colors"
+              className="absolute right-4 z-10 w-12 h-12 flex items-center justify-center text-[#F5F0E8]/50 hover:text-[#FF4D00] transition-colors"
               onClick={e => { e.stopPropagation(); lbGo(1); }}
               aria-label="Next image"
             >
@@ -1137,7 +1137,7 @@ function CarouselModal({
           )}
 
           {/* Counter */}
-          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 font-sans font-light text-xs text-[#F5F0E8]/35 tabular-nums tracking-widest">
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 font-sans font-light text-xs text-[#F5F0E8]/60 tabular-nums tracking-widest">
             {lightboxIndex + 1}&nbsp;/&nbsp;{imgs.length}
           </div>
         </div>
@@ -1802,15 +1802,15 @@ function Home() {
                     <h3 className="font-serif font-bold lowercase first-letter:uppercase text-[clamp(2.5rem,6vw,5rem)] text-[#F5F0E8] leading-none group-hover:text-[#FF4D00] transition-colors duration-300 tracking-tight mt-2">
                       {project.name}
                     </h3>
-                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/40 mt-3">
+                    <p className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#F5F0E8]/60 mt-3">
                       {project.category} · {project.client}
                     </p>
                   </div>
                   <span className="flex items-center gap-3 flex-shrink-0 select-none" aria-hidden="true">
-                    <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.25em] text-[#F5F0E8]/30 group-hover:text-[#FF4D00] transition-colors duration-300">
+                    <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.25em] text-[#F5F0E8]/60 group-hover:text-[#FF4D00] transition-colors duration-300">
                       View Case Study
                     </span>
-                    <span className="project-card-arrow font-sans text-2xl text-[#F5F0E8]/20 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300">
+                    <span className="project-card-arrow font-sans text-2xl text-[#F5F0E8]/45 group-hover:text-[#FF4D00] group-hover:translate-x-2 transition-all duration-300">
                       →
                     </span>
                   </span>
@@ -1922,7 +1922,7 @@ function Home() {
             <React.Fragment key={idx}>
             {showSectionHeader && (
               <div className="flex items-center gap-4 px-6 md:px-16 pt-10 pb-2" aria-hidden="true">
-                <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.3em] text-[#14110D]/40">
+                <span className="font-sans font-semibold text-[10px] uppercase tracking-[0.3em] text-[#14110D]/85">
                   {project.section}
                 </span>
                 <span className="flex-1 h-px bg-black/10" />
@@ -1955,21 +1955,21 @@ function Home() {
                     {project.name}
                   </h3>
                   {/* Category shown on mobile only */}
-                  <p className="md:hidden font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/35 mt-2">
+                  <p className="md:hidden font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/85 mt-2">
                     {project.category}
                   </p>
                   {/* View Case Study: mobile only (desktop shows it near the arrow) */}
-                  <p className="md:hidden font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#14110D]/25 mt-1.5" aria-hidden="true">
+                  <p className="md:hidden font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#14110D]/85 mt-1.5" aria-hidden="true">
                     View Case Study →
                   </p>
                 </div>
 
                 {/* Category + Client: desktop only */}
                 <div className="hidden md:flex flex-col items-end gap-[5px] flex-shrink-0 min-w-[130px]" aria-hidden="true">
-                  <span className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#14110D]/40 text-right">
+                  <span className="font-sans font-light text-[10px] uppercase tracking-[0.22em] text-[#14110D]/85 text-right">
                     {project.category}
                   </span>
-                  <span className="font-sans font-light text-[10px] text-[#14110D]/25 text-right">
+                  <span className="font-sans font-light text-[10px] text-[#14110D]/85 text-right">
                     {project.client}
                   </span>
                 </div>
@@ -1985,10 +1985,10 @@ function Home() {
 
                 {/* View Case Study + Arrow */}
                 <span className="flex items-center gap-3 flex-shrink-0 select-none" aria-hidden="true">
-                  <span className="hidden md:inline font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#14110D]/25 group-hover:text-white transition-colors duration-300">
+                  <span className="hidden md:inline font-sans font-semibold text-[9px] uppercase tracking-[0.22em] text-[#14110D]/85 group-hover:text-white transition-colors duration-300">
                     View Case Study
                   </span>
-                  <span className="project-card-arrow font-sans text-base text-[#14110D]/20 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
+                  <span className="project-card-arrow font-sans text-base text-[#14110D]/65 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
                     →
                   </span>
                 </span>
@@ -2031,13 +2031,13 @@ function Home() {
             <div className="font-sans font-light text-xs text-[#14110D]/50 uppercase tracking-[0.2em] mb-2" aria-hidden="true">
               03
             </div>
-            <div className="font-sans font-light text-xs text-[#14110D]/50 uppercase tracking-[0.2em] mb-6">
+            <div className="font-sans font-light text-xs text-[#14110D]/70 uppercase tracking-[0.2em] mb-6">
               ABOUT ISAAC
             </div>
             <p className="font-sans font-light text-lg md:text-xl text-[#14110D] leading-loose max-w-xl mb-8">
               Creative designer with 7+ years of experience at marketing and creative agencies: 5 years with Church Media Squad, 2 years with Vibrant Agency. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
             </p>
-            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/50 max-w-xl mb-12">Currently freelancing full time.</p>
+            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/70 max-w-xl mb-12">Currently freelancing full time.</p>
 
             <div className="flex flex-wrap gap-3 rounded-none">
               {[
@@ -2096,13 +2096,13 @@ function Home() {
                     </div>
 
                     {/* Description */}
-                    <p className="font-sans font-light text-sm text-[#14110D]/50 leading-relaxed mb-4">
+                    <p className="font-sans font-light text-sm text-[#14110D]/70 leading-relaxed mb-4">
                       {serviceInfo[activeService].desc}
                     </p>
 
                     {/* Includes */}
                     <div className="mb-4">
-                      <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/40 mb-2">
+                      <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/70 mb-2">
                         What's Included
                       </div>
                       <ul className="space-y-1">
@@ -2117,7 +2117,7 @@ function Home() {
 
                     {/* Deliverables */}
                     <div className="pt-3 border-t border-black/15">
-                      <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/40">
+                      <span className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-[#14110D]/70">
                         Final Deliverables&nbsp;&nbsp;
                       </span>
                       <span className="font-sans font-light text-xs text-[#FF4D00]">
@@ -2281,22 +2281,22 @@ function Home() {
       <footer className="w-full border-t border-black/15 rounded-none bg-[#F5F0E8]">
         <div className="px-8 md:px-16 pt-20 pb-10">
           <p className="font-serif font-bold text-[clamp(1.75rem,4vw,3.25rem)] leading-[1.05] tracking-tight text-[#14110D] max-w-4xl">
-            Good design gets noticed. <span className="text-black/35">Great work gets remembered.</span>{" "}
+            Good design gets noticed. <span className="text-black/65">Great work gets remembered.</span>{" "}
             <span className="text-[#FF4D00]">I build the second kind.</span>
           </p>
 
           <div className="flex flex-wrap gap-x-16 gap-y-6 mt-16 pt-10 border-t border-black/10">
             <div>
               <div className="font-serif font-bold text-3xl text-[#14110D]">7+ YRS</div>
-              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/40 mt-1">Making Things</div>
+              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/65 mt-1">Making Things</div>
             </div>
             <div>
               <div className="font-serif font-bold text-3xl text-[#14110D]">500+</div>
-              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/40 mt-1">Projects In The Real World</div>
+              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/65 mt-1">Projects In The Real World</div>
             </div>
             <div>
               <div className="font-serif font-bold text-3xl text-[#14110D]">1:1</div>
-              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/40 mt-1">Creative Partnership, Always</div>
+              <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/65 mt-1">Creative Partnership, Always</div>
             </div>
           </div>
 
@@ -2305,16 +2305,16 @@ function Home() {
               <div className="font-serif font-semibold text-sm text-[#14110D] uppercase tracking-[0.15em]">
                 ISAAC FIGUEROA
               </div>
-              <div className="font-sans font-light text-xs text-black/40">
+              <div className="font-sans font-light text-xs text-black/65">
                 © 2025 ISAAC FIGUEROA. ALL RIGHTS RESERVED.
               </div>
-              <div className="flex gap-6 font-sans font-light text-xs text-black/40 uppercase tracking-wide mt-1">
+              <div className="flex gap-6 font-sans font-light text-xs text-black/65 uppercase tracking-wide mt-1">
                 <Link href="/privacy" className="hover:text-[#14110D] transition-colors" data-testid="link-privacy">Privacy Policy</Link>
                 <Link href="/terms" className="hover:text-[#14110D] transition-colors" data-testid="link-terms">Terms &amp; Conditions</Link>
               </div>
             </div>
 
-            <div className="flex gap-8 font-sans font-light text-xs text-black/40 uppercase tracking-wide rounded-none">
+            <div className="flex gap-8 font-sans font-light text-xs text-black/65 uppercase tracking-wide rounded-none">
               <a href="https://www.instagram.com/ifig12/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14110D] transition-colors" data-testid="link-instagram">INSTAGRAM</a>
               <a href="https://www.linkedin.com/in/isaac-figueroa-498358150/" target="_blank" rel="noopener noreferrer" className="hover:text-[#14110D] transition-colors" data-testid="link-linkedin">LINKEDIN</a>
             </div>
