@@ -1614,16 +1614,16 @@ function Home() {
       labelColor: "#e34d37",
       nameColor: "#111",
       clientColor: "#555",
-      desc: "Product launch campaign, cup mockups, social media graphics",
-      images: ["/aware-coffee-1.webp", "/aware-coffee-2.webp", "/aware-coffee-3.webp", "/aware-coffee-4.webp", "/aware-coffee-5.webp"],
+      desc: "Summer matcha campaign, cup mockups, out-of-home and social media graphics",
+      images: ["/aware-coffee-1.webp", "/aware-coffee-2.webp", "/aware-coffee-3.webp", "/aware-coffee-4.webp", "/aware-coffee-5.webp", "/aware-coffee-6.webp", "/aware-coffee-7.webp", "/aware-coffee-8.webp"],
       caseStudy: {
         stats: [
-          { value: "5", label: "Campaign Visuals" },
+          { value: "8", label: "Campaign Visuals" },
           { value: "0→1", label: "Brand Built from Scratch" },
           { value: "3", label: "Platform Formats" },
         ],
-        challenge: "Aware Coffee was launching from zero: no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well funded brands. They needed to look premium and intentional on Instagram from day one, build enough credibility to justify their price point, and do it all without an agency budget.",
-        approach: "I made restraint the strategy. Clean off white backgrounds, minimal type, and a single warm accent used sparingly, nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative. The cup mockups were styled to feel editorial rather than promotional: the kind of content that performs whether someone's scrolling at 7am or seeing it on a shelf. Every asset was built to work across feed posts, stories, and print without modification.",
+        challenge: "Aware Coffee was launching from zero: no existing brand equity, no visual language, just a name, a product, and the ambition to compete in a specialty coffee market full of established, well funded brands. Their summer matcha drink needed a campaign that could introduce a brand new brand and a brand new product at the same time, build enough credibility to justify their price point, and do it all without an agency budget.",
+        approach: "I made restraint the strategy. Clean off white backgrounds, minimal type, and a single warm accent used sparingly, nothing that would date the brand or distract from the product. 'Aware' pushed me toward clarity and mindfulness, so I stripped anything decorative and let the matcha's color do the talking. For the summer push I built the campaign around a bold, hand painted flower mark that could flex across lifestyle photography, a Vegas-strip bus shelter takeover, and packaging, giving the drink a single unmistakable visual hook. Every asset was built to work across feed posts, stories, out-of-home, and print without modification.",
       },
     },
     {
@@ -1716,7 +1716,7 @@ function Home() {
               </h1>
             </motion.div>
 
-            <motion.div variants={heroItem} className="mt-8 mb-12">
+            <motion.div variants={heroItem} className="mt-12 md:mt-16 mb-12">
               <p className="font-sans font-light text-sm text-muted-foreground max-w-xs leading-relaxed">
                 Building brands and visuals that stop the scroll, from print to digital.
               </p>
