@@ -1534,6 +1534,28 @@ function Home() {
       },
     },
     {
+      name: "Valley Ranch",
+      client: "Valley Ranch",
+      category: "Brand Identity",
+      section: "Branding",
+      bg: "#273F37",
+      labelColor: "#C74D27",
+      nameColor: "#FCEBBF",
+      clientColor: "rgba(252,235,191,0.55)",
+      desc: "Full brand identity for a Houston roofing company: wordmark, badge mark, color system, apparel, and vehicle graphics.",
+      images: ["/valley-ranch/assets/artboards/apparel-kit.jpg"],
+      embedUrl: "/valley-ranch/index.html",
+      caseStudy: {
+        stats: [
+          { value: "2", label: "Mark Systems" },
+          { value: "0→1", label: "Identity Built from Scratch" },
+          { value: "4", label: "Core Touchpoints" },
+        ],
+        challenge: "A roofer is asking to be trusted with the most exposed, most expensive surface on someone's house, in a city that gets hammered by hail, hurricanes, and triple digit heat every year. Valley Ranch needed an identity that could earn that trust fast: on a printed estimate sitting on a kitchen table, on a truck idling outside a neighbor's place, on a crew member's cap forty feet up a ladder, all without looking like every other faceless storm-chasing roofing outfit working Houston after a bad season.",
+        approach: "I leaned into western workwear instead of corporate contractor cliches: a handmade script wordmark with just enough polish to read professional, backed by a secondary VR badge mark for tighter spaces like patches and truck doors. The palette (sky, rust, cream, and deep pine) reads as grounded and local rather than generic red-white-and-blue franchise roofing, and it holds up whether it's screen printed on a hoodie, foiled on a business card, or wrapped across a work van parked on a residential street. The goal was a brand that looks like it's already been on a hundred Houston roofs, even on day one.",
+      },
+    },
+    {
       name: "Billy Brunch NYC",
       client: "Billy Brunch NYC",
       category: "Brand Identity / Merch",
@@ -1747,7 +1769,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(07)</div>
+          <div className="font-sans font-light text-sm text-[#14110D]/50 tracking-widest">(08)</div>
         </motion.div>
 
         {/* Featured showcase: top projects, full desktop browser-frame video */}
