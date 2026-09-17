@@ -1615,10 +1615,10 @@ function Home() {
       nameColor: "#111",
       clientColor: "#555",
       desc: "Summer matcha campaign, cup mockups, out-of-home and social media graphics",
-      images: ["/aware-coffee-1.webp", "/aware-coffee-2.webp", "/aware-coffee-3.webp", "/aware-coffee-4.webp", "/aware-coffee-5.webp", "/aware-coffee-6.webp", "/aware-coffee-7.webp", "/aware-coffee-8.webp"],
+      images: ["/aware-coffee-1.webp", "/aware-coffee-2.webp", "/aware-coffee-4.webp", "/aware-coffee-5.webp", "/aware-coffee-6.webp", "/aware-coffee-7.webp", "/aware-coffee-8.webp"],
       caseStudy: {
         stats: [
-          { value: "8", label: "Campaign Visuals" },
+          { value: "7", label: "Campaign Visuals" },
           { value: "0→1", label: "Brand Built from Scratch" },
           { value: "3", label: "Platform Formats" },
         ],
