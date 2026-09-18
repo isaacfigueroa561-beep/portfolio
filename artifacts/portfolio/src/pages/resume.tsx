@@ -1,12 +1,11 @@
 import { Link } from "wouter";
 
 const SKILLS = [
-  "Brand Identity", "Campaign Design", "Social Media Graphics", "Web Design",
-  "Print & Marketing", "Typography", "Layout & Composition", "Merch Design",
-  "YouTube Thumbnails", "Event Promotion",
+  "Brand Identity", "Art Direction", "Campaign Design", "Social Content",
+  "Web Design", "Typography", "Print & Merch", "Motion Basics",
 ];
 
-const TOOLS = ["Illustrator", "Photoshop", "InDesign", "After Effects", "Figma", "Lightroom"];
+const TOOLS = ["Illustrator", "Photoshop", "InDesign", "After Effects", "Figma", "Lightroom", "Premiere", "Notion"];
 
 const TRAINING = [
   { title: "Google UX/UI Design", sub: "Coursera / Google" },
@@ -21,23 +20,47 @@ const LANGUAGES = [
 
 const EXPERIENCE = [
   {
-    start: "2021",
+    start: "2025",
     end: "Present",
-    title: "Creative Designer",
-    company: "Church Media Squad",
+    title: "Founder & Creative Director",
+    company: "Wave Creative House / Remote",
     bullets: [
-      "Designed social media graphics, posters, thumbnails, and print materials for non-profit and community organizations across the U.S.",
-      "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series, translating mission-driven messaging into compelling storytelling.",
-      "Partnered directly with leadership and marketing teams to develop brand voices and campaign strategies from concept to delivery.",
+      "Founded and run a remote creative studio delivering brand identity, web design, and marketing design for small brands and businesses.",
+      "Design and build marketing websites end to end, including Assunta, a heritage Italian food brand, Little Pilot, a marketing agency, and a seasonal holiday campaign site.",
+      "Own each project from discovery and concept through art direction, design, build, and handoff, including scope, timeline, and the client relationship.",
+      "Build complete identity systems covering logo, type, color, and brand guidelines, plus the social and print assets that run on them.",
+      "Built the studio's own brand, website, and operating system from zero with a business partner.",
     ],
   },
   {
-    start: "2019",
+    start: "2021",
+    end: "2026",
+    title: "Creative Designer",
+    company: "Church Media Squad",
+    bullets: [
+      "Delivered 1,000+ design assets for a client base of 500+ churches and non-profits nationwide, covering brand, print, merch, and social.",
+      "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal series, turning mission-driven messaging into work people actually engage with.",
+      "Partnered directly with leadership and marketing teams to shape brand voice and campaign strategy from concept through delivery.",
+      "Held consistent quality across a high-volume subscription workflow with tight, recurring turnaround windows.",
+    ],
+  },
+  {
+    start: "2021",
+    end: "",
+    title: "Graphic Designer",
+    company: "Vive Media",
+    bullets: [
+      "Created social graphics, thumbnails, and marketing assets for digital campaigns and live events.",
+      "Produced on-brand visuals on fast turnaround across multiple concurrent campaigns.",
+    ],
+  },
+  {
+    start: "2020",
     end: "2021",
     title: "Junior Graphic Designer",
-    company: "Vibrant Agency",
+    company: "Vibrant Media",
     bullets: [
-      "Designed social media and digital graphics for multiple client brands simultaneously.",
+      "Designed social and digital graphics for multiple client brands simultaneously.",
       "Produced promotional visuals for campaigns, events, and digital ad placements.",
     ],
   },
@@ -73,27 +96,27 @@ export function ResumePage() {
               Isaac<br /><span className="text-[#FF4D00] lowercase first-letter:uppercase inline-block">Figueroa</span>
             </h1>
             <p className="font-sans font-light text-xs text-muted-foreground uppercase tracking-[0.2em] mt-5">
-              Creative Designer / Brand, Social &amp; Digital Content
+              Creative Director / Brand, Social &amp; Digital Content
             </p>
           </div>
           <div className="flex flex-col items-start md:items-end gap-3 flex-shrink-0">
             <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-pill">
-              Remote · U.S. Citizen
+              Remote · U.S. Citizen · EN/ES
             </div>
             <div className="flex flex-col items-start md:items-end font-sans font-light text-sm text-muted-foreground">
               <a href="mailto:isaacfigueroa561@gmail.com" className="hover:text-[#F5F0E8] transition-colors">isaacfigueroa561@gmail.com</a>
               <a href="tel:+17027880115" className="hover:text-[#F5F0E8] transition-colors">+1 (702) 788-0115</a>
+              <a href="https://wavecreativehouse.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#F5F0E8] transition-colors">wavecreativehouse.com</a>
             </div>
           </div>
         </div>
 
         {/* Bio */}
         <p className="font-sans font-light text-base md:text-lg text-[#F5F0E8]/80 leading-relaxed max-w-3xl mb-20 border-l-2 border-[#FF4D00] pl-6">
-          Creative designer with 7+ years building high-impact visuals for non-profits, brands, and
-          digital communities: 5 years with Church Media Squad, 2 years with Vibrant Agency. I
-          specialize in brand identity, campaign design, and social content that drives real
-          engagement, and bring the same level of craft whether the work lives on a screen, in
-          print, or on a stage.
+          Creative designer and studio founder with 6+ years of brand and campaign work, including design for
+          500+ churches and non-profits across the U.S. I run identity, web, social, and print end to end,
+          from concept through final delivery, and I move fast without losing the craft. Looking for a remote
+          creative role where typography and visual storytelling actually matter.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16">
@@ -147,6 +170,12 @@ export function ResumePage() {
                 ))}
               </div>
             </section>
+
+            <section>
+              <SectionLabel>Availability</SectionLabel>
+              <div className="font-serif font-semibold text-sm text-[#F5F0E8]">Remote, Full-Time</div>
+              <div className="font-sans font-light text-xs text-muted-foreground mt-1">U.S. business hours</div>
+            </section>
           </div>
 
           {/* RIGHT COLUMN: Experience */}
@@ -156,7 +185,7 @@ export function ResumePage() {
               {EXPERIENCE.map((job) => (
                 <div key={job.company} className="grid grid-cols-[auto_1fr] gap-6 md:gap-10">
                   <div className="font-sans font-light text-xs text-muted-foreground uppercase tracking-widest pt-1 whitespace-nowrap">
-                    {job.start}<br />{job.end}
+                    {job.start}{job.end && <><br />{job.end}</>}
                   </div>
                   <div>
                     <h3 className="font-serif font-bold text-xl md:text-2xl text-[#F5F0E8] lowercase first-letter:uppercase">{job.title}</h3>

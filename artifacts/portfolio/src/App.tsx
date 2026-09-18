@@ -1702,7 +1702,7 @@ function Home() {
             className="flex flex-col"
           >
             <motion.div variants={heroItem} className="font-sans font-light text-xs tracking-[0.25em] text-muted-foreground uppercase mb-6 md:mb-8">
-              CREATIVE DESIGNER / LAS VEGAS
+              CREATIVE DIRECTOR / LAS VEGAS
             </motion.div>
             
             <motion.div variants={heroItem} className="flex flex-col">
@@ -1724,7 +1724,7 @@ function Home() {
 
             <motion.div variants={heroItem} className="flex gap-4">
               <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-pill">
-                7+ YRS
+                6+ YRS
               </div>
               <div className="font-serif font-medium text-xs text-[#F5F0E8] border border-[#2a2a2a] px-4 py-2 uppercase rounded-pill">
                 500+ PROJECTS
@@ -2035,9 +2035,9 @@ function Home() {
               ABOUT ISAAC
             </div>
             <p className="font-sans font-light text-lg md:text-xl text-[#14110D] leading-loose max-w-xl mb-8">
-              Creative designer with 7+ years of experience at marketing and creative agencies: 5 years with Church Media Squad, 2 years with Vibrant Agency. I specialize in brand identity, campaign design, and social content that drives real engagement. I bring the same level of craft whether the work lives on a screen, in print, or on a stage.
+              Creative director and studio founder with 6+ years of brand and campaign work, including design for 500+ churches and non-profits across the U.S. I run identity, web, social, and print end to end, from concept through final delivery, and I move fast without losing the craft.
             </p>
-            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/70 max-w-xl mb-12">Currently freelancing full time.</p>
+            <p className="font-sans font-light italic text-sm md:text-base text-[#14110D]/70 max-w-xl mb-12">Founder &amp; Creative Director at Wave Creative House. Open to remote creative roles.</p>
 
             <div className="flex flex-wrap gap-3 rounded-none">
               {[
@@ -2151,21 +2151,41 @@ function Home() {
         <div className="flex flex-col rounded-none">
           {[
             {
-              year: "2021-PRESENT",
-              role: "CREATIVE DESIGNER",
-              company: "CHURCH MEDIA SQUAD",
+              year: "2025-PRESENT",
+              role: "FOUNDER & CREATIVE DIRECTOR",
+              company: "WAVE CREATIVE HOUSE",
               bullets: [
-                "Designed social media graphics, posters, thumbnails, and print materials for nonprofit and community organizations across the U.S.",
-                "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal sermon series, translating mission driven messaging into compelling storytelling.",
-                "Partnered directly with leadership and marketing teams to develop brand voices and campaign strategies from concept to delivery."
+                "Founded and run a remote creative studio delivering brand identity, web design, and marketing design for small brands and businesses.",
+                "Design and build marketing websites end to end, including Assunta, a heritage Italian food brand, Little Pilot, a marketing agency, and a seasonal holiday campaign site.",
+                "Own each project from discovery and concept through art direction, design, build, and handoff, including scope, timeline, and the client relationship.",
+                "Built the studio's own brand, website, and operating system from zero with a business partner."
               ]
             },
             {
-              year: "2019-2021",
-              role: "JUNIOR GRAPHIC DESIGNER",
-              company: "VIBRANT AGENCY",
+              year: "2021-2026",
+              role: "CREATIVE DESIGNER",
+              company: "CHURCH MEDIA SQUAD",
               bullets: [
-                "Designed social media and digital graphics for multiple client brands simultaneously.",
+                "Delivered 1,000+ design assets for a client base of 500+ churches and non-profits nationwide, covering brand, print, merch, and social.",
+                "Built cohesive visual systems for fundraising campaigns, youth events, and seasonal series, turning mission driven messaging into work people actually engage with.",
+                "Partnered directly with leadership and marketing teams to shape brand voice and campaign strategy from concept through delivery."
+              ]
+            },
+            {
+              year: "2021",
+              role: "GRAPHIC DESIGNER",
+              company: "VIVE MEDIA",
+              bullets: [
+                "Created social graphics, thumbnails, and marketing assets for digital campaigns and live events.",
+                "Produced on-brand visuals on fast turnaround across multiple concurrent campaigns."
+              ]
+            },
+            {
+              year: "2020-2021",
+              role: "JUNIOR GRAPHIC DESIGNER",
+              company: "VIBRANT MEDIA",
+              bullets: [
+                "Designed social and digital graphics for multiple client brands simultaneously.",
                 "Produced promotional visuals for campaigns, events, and digital ad placements."
               ]
             }
@@ -2287,7 +2307,7 @@ function Home() {
 
           <div className="flex flex-wrap gap-x-16 gap-y-6 mt-16 pt-10 border-t border-black/10">
             <div>
-              <div className="font-serif font-bold text-3xl text-[#14110D]">7+ YRS</div>
+              <div className="font-serif font-bold text-3xl text-[#14110D]">6+ YRS</div>
               <div className="font-sans font-light text-[10px] uppercase tracking-[0.2em] text-black/65 mt-1">Making Things</div>
             </div>
             <div>
