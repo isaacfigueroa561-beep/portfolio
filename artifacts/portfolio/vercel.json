@@ -1,9 +1,29 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm run build && node scripts/promote-v2.mjs",
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/v2",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/v2/",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/v2/index.html",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/app.html"
+    }
   ]
 }
