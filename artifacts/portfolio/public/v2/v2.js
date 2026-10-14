@@ -55,7 +55,7 @@
   var paused = reduceMotion;
   var playIfAllowed = function (v) { if (paused && !v.classList.contains('hero-video')) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); };
   var visibleVideos = new Set();
-  $$('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); });
+  $$('video[autoplay]:not(.hero-video)').forEach(function (v) { v.removeAttribute('autoplay'); });
 
   // Load videos when they get close, and play them only while on screen.
   if ('IntersectionObserver' in window) {
@@ -336,6 +336,38 @@
         openProject(card, e.target.closest('.card-open'));
       });
     });
+  }
+
+  /* Ministry designs open full size, with arrows and keyboard navigation */
+  var lb = $('.lightbox');
+  var gImgs = $$('.g-open img');
+  if (lb && gImgs.length && typeof lb.showModal === 'function') {
+    var lbImg = $('.lb-img', lb), lbCount = $('.lb-count', lb), lbIndex = 0, lbTrigger = null;
+    var showAt = function (i) {
+      lbIndex = (i + gImgs.length) % gImgs.length;
+      lbImg.src = gImgs[lbIndex].currentSrc || gImgs[lbIndex].src;
+      lbImg.alt = gImgs[lbIndex].alt;
+      lbCount.textContent = (lbIndex + 1) + ' / ' + gImgs.length;
+    };
+    $$('.g-open').forEach(function (b, i) {
+      b.addEventListener('click', function () { lbTrigger = b; showAt(i); root.classList.add('modal-open'); lb.showModal(); });
+    });
+    $('.lb-prev', lb).addEventListener('click', function () { showAt(lbIndex - 1); });
+    $('.lb-next', lb).addEventListener('click', function () { showAt(lbIndex + 1); });
+    $('.lb-close', lb).addEventListener('click', function () { lb.close(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') showAt(lbIndex - 1);
+      if (e.key === 'ArrowRight') showAt(lbIndex + 1);
+    });
+    var sx = null;
+    lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx; sx = null;
+      if (Math.abs(dx) > 40) showAt(lbIndex + (dx < 0 ? 1 : -1));
+    });
+    lb.addEventListener('close', function () { root.classList.remove('modal-open'); if (lbTrigger) lbTrigger.focus({ preventScroll: true }); });
   }
 
   /* Contact form: opens inside the contact card, sends through Web3Forms */
