@@ -51,9 +51,9 @@
     });
   }
 
-  // Background footage stays still for visitors who ask for reduced motion.
+  // Footage stays still for visitors who ask for reduced motion, except the dim hero loop.
   var paused = reduceMotion;
-  var playIfAllowed = function (v) { if (paused) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+  var playIfAllowed = function (v) { if (paused && !v.classList.contains('hero-video')) return; var p = v.play(); if (p && p.catch) p.catch(function () {}); };
   var visibleVideos = new Set();
   $$('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); });
 
@@ -70,6 +70,12 @@
       });
     }, { rootMargin: '200px 0px' });
     $$('video').forEach(function (v) { vio.observe(v); });
+  }
+  // iOS Low Power Mode blocks autoplay: start the hero loop on the first touch instead.
+  var heroVideo = $('.hero-video');
+  if (heroVideo) {
+    var kick = function () { if (heroVideo.paused && visibleVideos.has(heroVideo)) playIfAllowed(heroVideo); };
+    ['touchstart', 'pointerdown', 'scroll'].forEach(function (ev) { window.addEventListener(ev, kick, { once: true, passive: true }); });
   }
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) $$('video').forEach(function (v) { v.pause(); });
