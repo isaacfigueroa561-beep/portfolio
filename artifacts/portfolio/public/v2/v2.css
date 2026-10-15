@@ -515,7 +515,7 @@ html.modal-open { overflow: hidden; }
 .minis-label { margin: 0 0 clamp(1rem, 2vw, 1.5rem); font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--body); }
 .minis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(.75rem, 1.5vw, 1.25rem); }
 .card.card--mini { position: relative; top: auto; display: flex; flex-direction: column; gap: 0; min-height: 0; margin: 0; padding: clamp(.65rem, 1vw, .9rem); border-radius: clamp(1rem, 2vw, 1.5rem); box-shadow: none; will-change: auto; }
-.card--mini .card-media { order: -1; display: block; height: auto; min-height: 0; aspect-ratio: 4 / 5; border-radius: clamp(.6rem, 1.2vw, 1rem); overflow: hidden; }
+.card--mini .card-media { order: -1; display: block; align-self: stretch; width: 100%; height: auto; min-height: 0; aspect-ratio: 4 / 5; border-radius: clamp(.6rem, 1.2vw, 1rem); overflow: hidden; }
 .card--mini .card-media img { height: 100%; border-radius: 0; }
 .card--mini .card-media img:not(:first-child) { display: none; }
 .card--mini .card-info { padding: 1.1rem .35rem .35rem; }
