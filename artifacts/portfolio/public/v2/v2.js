@@ -144,6 +144,46 @@
   }
   $$('.site-scroll').forEach(fitScroll);
 
+  /* ---------- Angled phone frame: map the flat 390 x 844 screen onto the
+     screen corners of /work/devices/phone-frame (fractions of frame width) ---------- */
+  var PHONE_CORNERS = [[0.1122, 0.0508], [0.9439, 0.0774], [0.9439, 2.1726], [0.1122, 2.1992]];
+  function homography(w, h, q) {
+    var src = [[0, 0], [w, 0], [w, h], [0, h]], A = [], i, j, k;
+    for (i = 0; i < 4; i++) {
+      var u = src[i][0], v = src[i][1], x = q[i][0], y = q[i][1];
+      A.push([u, v, 1, 0, 0, 0, -u * x, -v * x, x]);
+      A.push([0, 0, 0, u, v, 1, -u * y, -v * y, y]);
+    }
+    for (i = 0; i < 8; i++) {
+      var p = i;
+      for (j = i + 1; j < 8; j++) if (Math.abs(A[j][i]) > Math.abs(A[p][i])) p = j;
+      var t = A[i]; A[i] = A[p]; A[p] = t;
+      for (j = 0; j < 8; j++) if (j !== i) {
+        var f = A[j][i] / A[i][i];
+        for (k = i; k < 9; k++) A[j][k] -= f * A[i][k];
+      }
+    }
+    return A.map(function (r, n) { return r[8] / A[n][n]; });
+  }
+  function fitPhone(iph) {
+    var scr = $('.iph-screen', iph);
+    if (!scr) return;
+    var go = function () {
+      var W = iph.clientWidth;
+      if (!W) return;
+      // Bleed slightly past the cutout so the bezel hides the edges.
+      var cx = 0, cy = 0;
+      PHONE_CORNERS.forEach(function (c) { cx += c[0] / 4; cy += c[1] / 4; });
+      var q = PHONE_CORNERS.map(function (c) { return [(cx + (c[0] - cx) * 1.012) * W, (cy + (c[1] - cy) * 1.006) * W]; });
+      var m = homography(390, 844, q);
+      scr.classList.add('is-fit');
+      scr.style.transform = 'matrix3d(' + [m[0], m[3], 0, m[6], m[1], m[4], 0, m[7], 0, 0, 1, 0, m[2], m[5], 0, 1].join(',') + ')';
+    };
+    go();
+    if ('ResizeObserver' in window) new ResizeObserver(go).observe(iph);
+  }
+  $$('.iph').forEach(fitPhone);
+
   /* ---------- Project popups ---------- */
   var W = '/work/';
   var imgs = function (list, alt) { return list.map(function (src, i) { return { src: src, alt: alt + ' ' + (i + 1) }; }); };
@@ -205,7 +245,7 @@
         { src: W + 'vc-tumbler.webp', alt: 'Branded tumbler' }
       ] }
     ],
-    littlepilot: [{ items: [{ clone: '.devices' }] }],
+    littlepilot: [{ items: [{ clone: '.showcase' }] }],
     houraly: [
       { items: [{ clone: '.showcase' }] },
       { title: 'Key screens', cols: 3, ar: '16 / 10', items: [
@@ -231,6 +271,7 @@
       $$('video', el).forEach(function (v) { v.removeAttribute('data-lazy'); v.preload = 'auto'; });
       el.classList.add('pm-wide');
       $$('.site-scroll', el).forEach(fitScroll);
+      $$('.iph', el).forEach(fitPhone);
       return el;
     }
     if (it.showcase) {
@@ -242,6 +283,7 @@
       var vs = $$('video', el);
       vs[0].poster = it.showcase + '-d.webp'; vs[0].src = it.showcase + '-d.mp4';
       vs[1].poster = it.showcase + '-m.webp'; vs[1].src = it.showcase + '-m.mp4';
+      fitPhone($('.iph', el));
       return el;
     }
     if (it.sites) {
